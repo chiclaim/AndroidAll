@@ -27,11 +27,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addView(View view) {
-        add();
+        add01();
     }
 
+    //inflater.inflate(layoutId, null);
+    //inflater.inflate(layoutId, viewGroup, false);
+    //inflater.inflate(layoutId, viewGroup, true);
 
-    private void add() {
+    /**
+     * inflater.inflate(layoutId, null);
+     */
+    private void add01() {
         // inflater.inflate(R.layout.inflater,viewGroup);
         // View view = inflater.inflate(R.layout.inflater,viewGroup,false);
         View view = inflater.inflate(R.layout.inflater, null);
