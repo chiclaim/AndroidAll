@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.chilaim.inflater"
+        applicationId "com.chilaim.inflater01"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
