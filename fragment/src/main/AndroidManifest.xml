@@ -20,8 +20,7 @@
         </activity>
 
         <activity
-            android:name=".FragmentLifecycleActivity"
-            android:screenOrientation="portrait" />
+            android:name=".FragmentLifecycleActivity"  />
     </application>
 
 </manifest>

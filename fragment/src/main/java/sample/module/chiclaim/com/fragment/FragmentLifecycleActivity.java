@@ -3,7 +3,6 @@ package sample.module.chiclaim.com.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,16 +23,18 @@ public class FragmentLifecycleActivity extends AppCompatActivity {
         log("Activity onCreate, savedInstanceState=" + savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
 
+//        if (savedInstanceState != null) {
+//            fragmentLifecycle = (FragmentLifecycle) getSupportFragmentManager().findFragmentById(R.id.container);
+//            log("Activity onCreate, findFragmentById = " + fragmentLifecycle);
+//        }
+//
+//        if (fragmentLifecycle == null) {
+//            fragmentLifecycle = new FragmentLifecycle();
+//        }
 
-        if (savedInstanceState != null) {
-            fragmentLifecycle = (FragmentLifecycle) getSupportFragmentManager().findFragmentById(R.id.container);
-        }
+        fragmentLifecycle = new FragmentLifecycle();
 
-        if (fragmentLifecycle == null) {
-            fragmentLifecycle = new FragmentLifecycle();
-        }
-
-        showFragment(getSupportFragmentManager(), fragmentLifecycle, R.id.container);
+        showFragment(fragmentLifecycle);
     }
 
     @Override
@@ -82,21 +83,41 @@ public class FragmentLifecycleActivity extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        log("Activity onRestoreInstanceState");
+        log("Activity onRestoreInstanceState Bundle=" + savedInstanceState);
     }
 
     public void log(String log) {
         Log.d("Lifecycle", log);
     }
 
-    private void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, int frameId) {
+    public void showFragment(@NonNull Fragment fragment) {
         //Log.e("Lifecycle", "FragmentLifecycle fragment.isAdded() : " + fragment.isAdded() + ", " + fragment);
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (fragment.isAdded()) {
             ft.show(fragment);
         } else {
-            ft.add(frameId, fragment);
+            ft.addToBackStack(fragment.getClass().getSimpleName());
+            ft.add(R.id.container, fragment);
         }
         ft.commitAllowingStateLoss();
+        Log.e("Lifecycle", "getBackStackEntryCount: " + getSupportFragmentManager().getBackStackEntryCount());
     }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //如果fragment stack = 1 的时候则关闭activity， 也就是说activity中只剩下一个fragment
+        if (getSupportFragmentManager().getBackStackEntryCount() <= 1) {
+            finish();
+        } else {
+            //需要在add fragment的时候需要调用transaction.addToBackStack(name);
+            getSupportFragmentManager().popBackStack();
+        }
+        log("BackStackEntryCount: " + getSupportFragmentManager().getBackStackEntryCount());
+    }
+
 }

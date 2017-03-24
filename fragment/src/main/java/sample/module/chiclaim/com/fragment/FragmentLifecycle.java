@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 public class FragmentLifecycle extends Fragment {
 
-    private TextView textView;
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -28,22 +26,32 @@ public class FragmentLifecycle extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreate");
+        ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreate Bundle=" + savedInstanceState);
+        ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreate = " + this);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreateView");
+        ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreateView Bundle=" + savedInstanceState);
         return inflater.inflate(sample.module.chiclaim.com.fragment.R.layout.fragment_lifecycle, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = (TextView) view.findViewById(R.id.tv_lifecycle);
         ((FragmentLifecycleActivity) getActivity()).log("Fragment onViewCreated");
-
+        TextView textView = (TextView) view.findViewById(R.id.tv_lifecycle);
+        textView.setText("add new fragment");
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity() instanceof FragmentLifecycleActivity) {
+                    FragmentLifecycleActivity activity = (FragmentLifecycleActivity) getActivity();
+                    activity.showFragment(new NewFragment());
+                }
+            }
+        });
     }
 
     @Override
@@ -87,6 +95,7 @@ public class FragmentLifecycle extends Fragment {
         super.onDestroy();
         ((FragmentLifecycleActivity) getActivity()).log("Fragment onDestroy");
     }
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -97,7 +106,7 @@ public class FragmentLifecycle extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        ((FragmentLifecycleActivity) getActivity()).log("Fragment onSaveInstanceState");
+        ((FragmentLifecycleActivity) getActivity()).log("Fragment onSaveInstanceState outState=" + outState);
     }
 
     public String getState() {
