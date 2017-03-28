@@ -27,16 +27,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    compile "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+
     testCompile 'junit:junit:4.12'
 
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+
+    compile "com.squareup.retrofit2:retrofit:${RETROFIT2_VERSION}"
+    compile "com.squareup.retrofit2:converter-gson:${RETROFIT2_VERSION}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${RETROFIT2_VERSION}"
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
-
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'io.reactivex:rxjava:1.1.2'
+    compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+    compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
 }
