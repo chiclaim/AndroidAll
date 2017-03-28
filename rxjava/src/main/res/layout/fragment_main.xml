@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".BackMainActivity">
+
+        <Button
+            android:id="@+id/btn_create_just_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable create/just/from"
+            android:textAllCaps="false"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable map()"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/btn_flat_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable flatMap()"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/btn_flat_concat_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flat Switch Concat Map Compare"
+            android:textAllCaps="false"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btn_token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Per Http Request With Token"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/btn_search_debounce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Debounce"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_observable_dependence_on_other_observable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observable DependenceOn Other Observable"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_multiple_observables"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check data cache[Multiple Observables]"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_retry_when_http_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retry When HTTP request error"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_combine_latest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Use Operator CombineLatest"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_rxjava_leak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RxJava Leak Fragment/Activity"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_use_rxjava_in_right_way"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Use RxJava in A Right Way"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+</ScrollView>

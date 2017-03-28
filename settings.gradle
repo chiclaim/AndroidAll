@@ -1,1 +1,1 @@
-include ':layoutInflater', ':kill.by.system', ':fragment', ':retrofit', ':js', ':javatest'
+include ':layoutInflater', ':kill.by.system', ':fragment', ':retrofit', ':js', ':javatest', ':rxjava'
