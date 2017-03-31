@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chiclaim.customview.MainActivity">
+
+    <com.chiclaim.customview.EditItemView
+        android:id="@+id/edit_item_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:right_image="@android:drawable/btn_minus"
+        app:left_image="@android:drawable/btn_plus" />
+
+</LinearLayout>

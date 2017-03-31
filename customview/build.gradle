@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "sample.module.chiclaim.com.fragmentlifecyle"
+        applicationId "com.chiclaim.customview"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -27,6 +27,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
-    testCompile "junit:junit:${JUNIT_VERSION}"
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    testCompile 'junit:junit:4.12'
 }
