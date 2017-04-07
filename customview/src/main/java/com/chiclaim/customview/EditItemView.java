@@ -3,9 +3,14 @@ package com.chiclaim.customview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +27,10 @@ public class EditItemView extends LinearLayout {
     public static final int CLICK_RIGHT = 2;
     public static final int CLICK_MIDDLE = 3;
 
-    TextView tvMiddle;
+    private int count = 1;
+    private int unitStringRes;
+
+    private EditText etCount;
 
     OnEditViewClick onEditViewClick;
 
@@ -45,12 +53,14 @@ public class EditItemView extends LinearLayout {
         this.onEditViewClick = onEditViewClick;
     }
 
-    public void setMiddleText(String text) {
-        tvMiddle.setText(text);
+    public void plus() {
+        etCount.setText(String.valueOf(++count));
+        etCount.setSelection(etCount.getText().length());
     }
 
-    public void setMiddleText(@StringRes int textRes) {
-        tvMiddle.setText(textRes);
+    public void minus() {
+        etCount.setText(String.valueOf(--count));
+        etCount.setSelection(etCount.getText().length());
     }
 
 
@@ -58,6 +68,10 @@ public class EditItemView extends LinearLayout {
 
 
     private void init(Context context, AttributeSet attrs) {
+
+        setGravity(Gravity.CENTER_VERTICAL);
+        setOrientation(LinearLayout.HORIZONTAL);
+
         int leftBorderColor = -1, rightBorderColor = -1, middleTextColor = -1,
                 leftImageRes = -1, rightImageRes = -1, middleTextSize = -1;
 
@@ -74,10 +88,10 @@ public class EditItemView extends LinearLayout {
             middleTextColor = typedArray.getColor(R.styleable.EditItemView_middle_text_color, -1);
             middleTextSize = typedArray.getDimensionPixelSize(R.styleable.EditItemView_middle_text_size, -1);
 
+            unitStringRes = typedArray.getResourceId(R.styleable.EditItemView_unit, -1);
+
             typedArray.recycle();
         }
-
-        setOrientation(LinearLayout.HORIZONTAL);
 
         ImageView leftImage = new ImageView(getContext());
         leftImage.setImageResource(leftImageRes);
@@ -91,22 +105,60 @@ public class EditItemView extends LinearLayout {
             }
         });
 
-        tvMiddle = new TextView(getContext());
-        //textView.setText(middleText);
+        //数量
+        etCount = new EditText(getContext());
+        etCount.setBackgroundResource(0);
         if (middleTextSize != -1)
-            tvMiddle.setTextSize(middleTextSize);
+            etCount.setTextSize(middleTextSize);
         if (middleTextColor != -1)
-            tvMiddle.setTextColor(middleTextColor);
-        addView(tvMiddle);
-
-        tvMiddle.setOnClickListener(new OnClickListener() {
+            etCount.setTextColor(middleTextColor);
+        etCount.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etCount.setMaxLines(1);
+        etCount.setText(String.valueOf(count));
+        etCount.setSelection(etCount.getText().length());
+        etCount.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if (onEditViewClick != null) {
-                    onEditViewClick.onClick(CLICK_MIDDLE);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!TextUtils.isEmpty(s) && TextUtils.isDigitsOnly(s)) {
+                    try {
+                        count = Integer.parseInt(s.toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
+        addView(etCount);
+
+        //单位
+        if (unitStringRes != -1) {
+            TextView tvUnit = new TextView(getContext());
+            tvUnit.setText(unitStringRes);
+            if (middleTextSize != -1)
+                tvUnit.setTextSize(middleTextSize);
+            if (middleTextColor != -1)
+                tvUnit.setTextColor(middleTextColor);
+            addView(tvUnit);
+
+            tvUnit.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onEditViewClick != null) {
+                        onEditViewClick.onClick(CLICK_MIDDLE);
+                    }
+                }
+            });
+        }
 
         ImageView rightImage = new ImageView(getContext());
         rightImage.setImageResource(rightImageRes);

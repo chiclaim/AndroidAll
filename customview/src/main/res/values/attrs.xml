@@ -9,7 +9,7 @@
 
         <attr name="middle_text_size" format="dimension" />
         <attr name="middle_text_color" format="color" />
-        <attr name="middle_text" format="string" />
+        <attr name="unit" format="reference" />
 
     </declare-styleable>
 

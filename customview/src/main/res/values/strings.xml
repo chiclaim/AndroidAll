@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CustomView</string>
+    <string name="unit">件</string>
 </resources>
