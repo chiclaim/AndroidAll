@@ -20,6 +20,8 @@ import java.util.List;
  * Created by kumu on 2017/4/6.
  */
 
+//http://stackoverflow.com/questions/32011995/how-to-have-a-listview-recyclerview-inside-a-parent-recyclerview
+
 public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
     RecyclerView recyclerView;
