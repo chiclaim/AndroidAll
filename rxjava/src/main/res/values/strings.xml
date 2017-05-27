@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">AwesomeRxJava</string>
+
+    <string name="create_operator">This sample demonstrate `create` ,`just` and `from` operators.</string>
+
+    <string name="flat_map">This sample demonstrate flatMap usage. How to get IPs from hosts. \n
+        The task of getting IPs was executed in work thread. Consuming final result in main thread.</string>
+
+    <string name="map">This sample demonstrate usage of map operator.
+        Including the operator of flatMap use case and demonstrating how to transform data by map operator </string>
+
+    <string name="compare_flatmap_concatmap">This sample demonstrate what difference between flatmap and concatmap.
+        </string>
+    <string name="multiple_observables">Retrieve data from Multiple Observables.
+        For example, getting data from memory,disk,network.
+        which layer data not null, will stop check the other layer</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+</resources>

@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="addView03"
-            android:text="AddView02"
+            android:text="AddView03"
             android:textAllCaps="false" />
     </LinearLayout>
 
