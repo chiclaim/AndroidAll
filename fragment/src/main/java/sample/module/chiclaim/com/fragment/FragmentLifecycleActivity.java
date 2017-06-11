@@ -32,6 +32,10 @@ public class FragmentLifecycleActivity extends AppCompatActivity {
 //            fragmentLifecycle = new FragmentLifecycle();
 //        }
 
+//        Bundle bundle = new Bundle();
+//        bundle.putString(key,value);
+//        fragmentLifecycle.setArguments(bundle);
+
         fragmentLifecycle = new FragmentLifecycle();
 
         showFragment(fragmentLifecycle);
@@ -91,11 +95,12 @@ public class FragmentLifecycleActivity extends AppCompatActivity {
     }
 
     public void showFragment(@NonNull Fragment fragment) {
-        //Log.e("Lifecycle", "FragmentLifecycle fragment.isAdded() : " + fragment.isAdded() + ", " + fragment);
+        //相当于new一个实例FragmentTransaction
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (fragment.isAdded()) {
             ft.show(fragment);
         } else {
+            //把该ft加入到栈中进行管理
             ft.addToBackStack(fragment.getClass().getSimpleName());
             ft.add(R.id.container, fragment);
         }
