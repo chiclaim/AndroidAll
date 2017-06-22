@@ -19,6 +19,15 @@
         <activity
             android:name=".RecyclerViewInRecyclerView"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".AddViewActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".EditViewInMZ"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

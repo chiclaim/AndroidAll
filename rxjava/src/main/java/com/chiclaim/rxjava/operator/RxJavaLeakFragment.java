@@ -12,10 +12,14 @@ import com.chiclaim.rxjava.R;
 import com.chiclaim.rxjava.api.ApiServiceFactory;
 import com.chiclaim.rxjava.api.OtherApi;
 
+import java.util.concurrent.TimeUnit;
+
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
+import rx.Observable;
 import rx.Subscription;
 import rx.functions.Action1;
+import rx.functions.Func1;
 
 /**
  * Description：
@@ -25,7 +29,7 @@ import rx.functions.Action1;
 
 public class RxJavaLeakFragment extends BaseFragment {
     OtherApi otherApi;
-    Subscription subscription;
+    Subscription retrofitSubscription;
 
     @Nullable
     @Override
@@ -45,33 +49,72 @@ public class RxJavaLeakFragment extends BaseFragment {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.btn_request_netword_and_pop:
-                if (otherApi == null) {
-                    otherApi = ApiServiceFactory.createService(OtherApi.class);
-                }
-                subscription = otherApi.testTimeout("10000")
-                        .onTerminateDetach()
-                        .subscribe(new Action1<Response>() {
-                            @Override
-                            public void call(Response response) {
-                                String content = new String(((TypedByteArray) response.getBody()).getBytes());
-                                Log.d("RxJavaLeakFragment", RxJavaLeakFragment.this + ":" + content);
-                            }
-                        }, new Action1<Throwable>() {
-                            @Override
-                            public void call(Throwable throwable) {
-                                throwable.printStackTrace();
-                            }
-                        });
+                //doRetrofit();
+                timerOperator();
                 break;
         }
+    }
+
+    private Subscription timerSubscription;
+
+    private void timerOperator() {
+        Log.e("RxJavaLeakFragment", "start test timer: " + ",current time:" + System.currentTimeMillis());
+        timerSubscription = Observable.timer(5000, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        Log.e("RxJavaLeakFragment", "fragment instance: " + RxJavaLeakFragment.this + ", call parameter:" + aLong + ",current time:" + System.currentTimeMillis());
+                        return null;
+                    }
+                }).subscribe(new Action1<Object>() {
+                    @Override
+                    public void call(Object o) {
+                        Log.e("RxJavaLeakFragment", "fragment instance: " + RxJavaLeakFragment.this + ",current time:" + System.currentTimeMillis());
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
+
+        //@TODO 只要timerSubscription.unsubscribe();执行，就不会内存泄漏？？
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (timerSubscription != null) {
+            timerSubscription.unsubscribe();
+        }
+    }
+
+    public void doRetrofit() {
+        if (otherApi == null) {
+            otherApi = ApiServiceFactory.createService(OtherApi.class);
+        }
+        retrofitSubscription = otherApi.testTimeout("10000")
+                .onTerminateDetach()
+                .subscribe(new Action1<Response>() {
+                    @Override
+                    public void call(Response response) {
+                        String content = new String(((TypedByteArray) response.getBody()).getBytes());
+                        Log.d("RxJavaLeakFragment", RxJavaLeakFragment.this + ":" + content);
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (subscription != null && !subscription.isUnsubscribed()) {
-            subscription.unsubscribe();
-            Log.d("RxJavaLeakFragment", "subscription.unsubscribe()");
+        if (retrofitSubscription != null && !retrofitSubscription.isUnsubscribed()) {
+            retrofitSubscription.unsubscribe();
+            Log.d("RxJavaLeakFragment", "retrofitSubscription.unsubscribe()");
         }
     }
 }

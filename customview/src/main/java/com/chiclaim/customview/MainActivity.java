@@ -1,8 +1,9 @@
 package com.chiclaim.customview;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.EditText;
 
 import static com.chiclaim.customview.EditItemView.CLICK_LEFT;
 import static com.chiclaim.customview.EditItemView.CLICK_RIGHT;
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        startActivity(new Intent(this, RecyclerViewInRecyclerView.class));
+        EditText editText = (EditText) findViewById(R.id.edit_text);
+        EditText editText2 = editItemView.getEditView();
+        editText2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        Log.e("MainActivity", (editText == editText2) + "");
+
+        //startActivity(new Intent(this, EditViewInMZ.class));
     }
 }

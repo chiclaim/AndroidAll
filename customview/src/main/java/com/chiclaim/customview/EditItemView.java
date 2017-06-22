@@ -3,6 +3,7 @@ package com.chiclaim.customview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -14,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 
 /**
  * Description：
@@ -27,7 +30,7 @@ public class EditItemView extends LinearLayout {
     public static final int CLICK_RIGHT = 2;
     public static final int CLICK_MIDDLE = 3;
 
-    private int count = 1;
+    private int count = 6;
     private int unitStringRes;
 
     private EditText etCount;
@@ -66,6 +69,9 @@ public class EditItemView extends LinearLayout {
 
     //ImageView  TextView ImageView
 
+    public EditText getEditView() {
+        return etCount;
+    }
 
     private void init(Context context, AttributeSet attrs) {
 
@@ -106,16 +112,32 @@ public class EditItemView extends LinearLayout {
         });
 
         //数量
-        etCount = new EditText(getContext());
+        etCount = new AppCompatEditText(getContext());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        lp.setMargins(0, 0, 0, 0);
+        lp.gravity = Gravity.CENTER_VERTICAL;
+        etCount.setLayoutParams(lp);
+        etCount.setPadding(15,0,0,0);
+
+        etCount.setCursorVisible(true);
+        try {
+            Field f = TextView.class.getDeclaredField("mCursorDrawableRes");
+            f.setAccessible(true);
+            f.set(etCount, 0);
+        } catch (Exception ignored) {
+        }
+
+        etCount.setIncludeFontPadding(false);
         etCount.setBackgroundResource(0);
         if (middleTextSize != -1)
             etCount.setTextSize(middleTextSize);
         if (middleTextColor != -1)
             etCount.setTextColor(middleTextColor);
-        etCount.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etCount.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER);
         etCount.setMaxLines(1);
+        etCount.setSingleLine(true);
         etCount.setText(String.valueOf(count));
-        etCount.setSelection(etCount.getText().length());
+        //etCount.setSelection(etCount.getText().length());
         etCount.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
