@@ -28,6 +28,11 @@ public class FragmentLifecycle extends Fragment {
         super.onCreate(savedInstanceState);
         ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreate Bundle=" + savedInstanceState);
         ((FragmentLifecycleActivity) getActivity()).log("Fragment onCreate = " + this);
+        if (savedInstanceState != null) {
+            String save = savedInstanceState.getString("save");
+            ((FragmentLifecycleActivity) getActivity()).log("Fragment savedInstanceState save value = " + save);
+        }
+
     }
 
     @Nullable
@@ -106,6 +111,7 @@ public class FragmentLifecycle extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putString("save", "value in fragment");
         ((FragmentLifecycleActivity) getActivity()).log("Fragment onSaveInstanceState outState=" + outState);
     }
 
