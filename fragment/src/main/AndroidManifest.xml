@@ -19,8 +19,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".FragmentLifecycleActivity" />
+
         <activity
-            android:name=".FragmentLifecycleActivity"  />
+            android:name=".ResultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ActivityTestFragmentResult"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

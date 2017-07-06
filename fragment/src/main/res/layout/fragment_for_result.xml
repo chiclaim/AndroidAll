@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_lifecycle"
-        android:layout_width="match_parent"
+
+    <Button
+        android:id="@+id/btn_start_activity_for_result"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text=" See console log"
-        android:textSize="20sp" />
+        android:text="start activity for result"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>

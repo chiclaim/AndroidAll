@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, FragmentLifecycleActivity.class));
     }
 
+    public void fragmentForResult(View view) {
+        startActivity(new Intent(this, ActivityTestFragmentResult.class));
+    }
+
 
     private void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, int frameId) {
         //Log.e("Lifecycle", "MainActivity fragment.isAdded() : " + fragment.isAdded() + ", " + fragment);

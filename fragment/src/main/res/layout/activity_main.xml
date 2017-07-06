@@ -14,5 +14,10 @@
         android:text="Fragment's lifecycle in Activity"
         android:textAllCaps="false" />
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fragmentForResult"
+        android:text="go fragment (test result)"
+        android:textAllCaps="false" />
 </LinearLayout>

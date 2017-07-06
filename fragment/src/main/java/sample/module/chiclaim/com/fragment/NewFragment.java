@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class NewFragment extends Fragment {
 
-    TextView textView;
+    private static final int REQUEST_CODE_1 = 1;
 
 
     @Override
@@ -42,7 +42,7 @@ public class NewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = (TextView) view.findViewById(R.id.tv_lifecycle);
+        TextView textView = (TextView) view.findViewById(R.id.tv_lifecycle);
         textView.setText("This is new fragment");
         ((FragmentLifecycleActivity) getActivity()).log("New Fragment onViewCreated");
 
