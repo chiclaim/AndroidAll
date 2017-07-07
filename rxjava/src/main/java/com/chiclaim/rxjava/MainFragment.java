@@ -11,6 +11,7 @@ import com.chiclaim.rxjava.operator.CombineLatestFragment;
 import com.chiclaim.rxjava.operator.HttpWithTokenFragment;
 import com.chiclaim.rxjava.operator.ObservableDependencyFragment;
 import com.chiclaim.rxjava.operator.RxJavaLeakFragment;
+import com.chiclaim.rxjava.operator.RxThreadFragment;
 import com.chiclaim.rxjava.operator.SearchDebounceFragment;
 import com.chiclaim.rxjava.operator.TryWhenFragment;
 import com.chiclaim.rxjava.operator.create.CreateOperatorFragment;
@@ -44,8 +45,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.btn_use_rxjava_in_right_way).setOnClickListener(this);
         view.findViewById(R.id.btn_rxjava_leak).setOnClickListener(this);
         view.findViewById(R.id.btn_defer_create).setOnClickListener(this);
-
-
+        view.findViewById(R.id.btn_rx_thread).setOnClickListener(this);
     }
 
 
@@ -84,6 +84,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.btn_defer_create:
                 addFragment(new DeferFragment());
+                break;
+            case R.id.btn_rx_thread:
+                addFragment(new RxThreadFragment());
                 break;
             case R.id.btn_rxjava_leak:
                 addFragment(new RxJavaLeakFragment());
