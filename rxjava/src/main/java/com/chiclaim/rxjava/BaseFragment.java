@@ -30,6 +30,15 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         // }
     }
 
+    protected void resetText(final TextView textView) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                textView.setText("");
+            }
+        });
+    }
+
     protected void appendText(final TextView textView, final String content) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override

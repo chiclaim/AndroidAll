@@ -120,8 +120,8 @@ public class MapOperatorFragment extends BaseFragment {
                         return strings;
                     }
                 })
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<List<String>>() {
                     @Override
                     public void call(List<String> s) {

@@ -15,6 +15,7 @@ import com.chiclaim.rxjava.api.ApiServiceFactory;
 import com.chiclaim.rxjava.api.SearchApi;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -65,36 +66,41 @@ public class SearchDebounceFragment extends BaseFragment {
         // 这个时候有可能最后的一个请求返回, 第一个请求最后返回,导致搜索结果不是想要的.
         //===========================@TODO
 
-
         subscription = RxTextView.textChanges(etKey)
                 // 对etKey[EditText]的监听操作 需要在主线程操作
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(AndroidSchedulers.mainThread())//对上游的Observable起作用
                 .debounce(400, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
+//                .debounce(400, TimeUnit.MILLISECONDS, Schedulers.io())
                 //对应用输入的关键字进行过滤
+                .observeOn(Schedulers.io())//对下游的Observable起作用
                 .filter(new Func1<CharSequence, Boolean>() {
                     @Override
                     public Boolean call(CharSequence charSequence) {
-                        tvContent.setText("");
+                        resetText(tvContent);
                         appendText(tvContent, "filter is main thread : " + (Looper.getMainLooper() == Looper.myLooper()));
                         return charSequence.toString().trim().length() > 0;
                     }
                 })
+                .observeOn(AndroidSchedulers.mainThread())//对下游的Observable起作用
                 .switchMap(new Func1<CharSequence, Observable<List<String>>>() {
                     @Override
                     public Observable<List<String>> call(CharSequence charSequence) {
                         appendText(tvContent, "switchMap is main thread : " + (Looper.getMainLooper() == Looper.myLooper()));
-                        return searchApi.search(charSequence.toString()).flatMap(new Func1<List<String>, Observable<List<String>>>() {
-                            @Override
-                            public Observable<List<String>> call(List<String> strings) {
-                                //测试searchApi.search是不是默认在子线程中执行.
-                                appendText(tvContent, "switchMap flatMap transform : " + (Looper.getMainLooper() == Looper.myLooper()));
-                                return Observable.just(strings);
-                            }
-                        });
+//                        return searchApi.search(charSequence.toString()).flatMap(new Func1<List<String>, Observable<List<String>>>() {
+//                            @Override
+//                            public Observable<List<String>> call(List<String> strings) {
+//                                //测试searchApi.search是不是默认在子线程中执行.
+//                                appendText(tvContent, "switchMap flatMap transform : " + (Looper.getMainLooper() == Looper.myLooper()));
+//                                return Observable.just(strings);
+//                            }
+//                        });
+
+                        //local data
+                        return Observable.just(Arrays.asList("Java", "C#", "Clojure"));
                     }
                 })
-                //@TODO 无法使得switchMap在子线程中执行, 待查明???
-                .subscribeOn(Schedulers.io())
+//                .last()
+//                .subscribeOn(Schedulers.io())
 //                .flatMap(new Func1<List<String>, Observable<String>>() {
 //                    @Override
 //                    public Observable<String> call(List<String> strings) {

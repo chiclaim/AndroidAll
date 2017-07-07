@@ -39,6 +39,7 @@ public class CheckCacheFragment extends BaseFragment {
         view.findViewById(R.id.btn_operator).setOnClickListener(this);
     }
 
+    //String data[] = {null, null, null};
     String data[] = {null, null, "network"};
     //String data[] = {null, "disk","network"};
     //String data[] = {"memory", null,"network"};
@@ -82,7 +83,6 @@ public class CheckCacheFragment extends BaseFragment {
             subscriber.onCompleted();
         }
     }).subscribeOn(Schedulers.io());
-
 
 
     @Override
