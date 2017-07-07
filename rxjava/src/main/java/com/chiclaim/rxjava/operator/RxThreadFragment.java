@@ -84,6 +84,14 @@ public class RxThreadFragment extends BaseFragment {
             }
         }).subscribeOn(AndroidSchedulers.mainThread());
 
+        final Observable<String> observable3 = RxUtils.deferObservable(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                Log.e("RxThreadFragment", "observable3 thread name : " + Thread.currentThread().getName());
+                return "observable3 Schedulers.io()";
+            }
+        }).subscribeOn(Schedulers.io());
+
         RxUtils.deferObservable(new Callable<String>() {
             @Override
             public String call() throws Exception {
@@ -100,6 +108,12 @@ public class RxThreadFragment extends BaseFragment {
             public Observable<String> call(String s) {
                 Log.e("RxThreadFragment", "flatMap2 thread name : " + Thread.currentThread().getName());
                 return observable2;
+            }
+        }).flatMap(new Func1<String, Observable<String>>() {
+            @Override
+            public Observable<String> call(String s) {
+                Log.e("RxThreadFragment", "flatMap3 thread name : " + Thread.currentThread().getName());
+                return observable3;
             }
         }).subscribe(new Action1<String>() {
             @Override
