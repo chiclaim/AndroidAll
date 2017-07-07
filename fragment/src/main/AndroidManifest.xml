@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FragmentLifecycleActivity" />
+        <activity
+            android:name=".FragmentLifecycleActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ResultActivity"
@@ -27,6 +29,10 @@
 
         <activity
             android:name=".ActivityTestFragmentResult"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ViewPagerActivity"
             android:screenOrientation="portrait" />
 
     </application>
