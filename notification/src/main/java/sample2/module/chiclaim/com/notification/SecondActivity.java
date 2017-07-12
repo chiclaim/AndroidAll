@@ -39,6 +39,7 @@ public class SecondActivity extends AppCompatActivity {
     public void sendNotification(View view) {
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        //@TODO 从notification启动的Activity一定要new task吗？
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(
                 this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -74,7 +75,7 @@ public class SecondActivity extends AppCompatActivity {
                 stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("SecondActivity");
+        builder.setContentTitle("from SecondActivity");
         builder.setContentText("test notification press back go main activity");
         builder.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager =
@@ -92,8 +93,8 @@ public class SecondActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("SecondActivity");
-        builder.setContentText("SecondActivity");
+        builder.setContentTitle("from SecondActivity");
+        builder.setContentText("test notification press back go main activity");
         builder.setContentIntent(pendingIntent);
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
