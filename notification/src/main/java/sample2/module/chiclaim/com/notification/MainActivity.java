@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String from = getIntent().getStringExtra("from");
         if (!TextUtils.isEmpty(from)) {
-            Toast.makeText(this, from, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "from " + from, Toast.LENGTH_SHORT).show();
         }
     }
 

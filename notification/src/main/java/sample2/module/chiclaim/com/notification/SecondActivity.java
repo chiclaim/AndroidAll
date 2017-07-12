@@ -29,6 +29,13 @@ public class SecondActivity extends AppCompatActivity {
         startActivity(new Intent(this, SecondActivity.class));
     }
 
+    /**
+     * 先弹出几个SecondActivity 然后点击sendNotification按钮弹出notification，然后点击通知栏的notification
+     * <br/>
+     * MainActivity在launchMode=[singleTask/singleInstance]的情况下，测试是否会关闭中间Activity界面
+     *
+     * @param view
+     */
     public void sendNotification(View view) {
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -38,8 +45,8 @@ public class SecondActivity extends AppCompatActivity {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!")
+                        .setContentTitle("SecondActivity")
+                        .setContentText("go main activity test launch mode")
                         .setContentIntent(contentIntent);
         mNotifyMgr.notify(1, mBuilder.build());
     }
@@ -68,7 +75,7 @@ public class SecondActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle("SecondActivity");
-        builder.setContentText("SecondActivity");
+        builder.setContentText("test notification press back go main activity");
         builder.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
