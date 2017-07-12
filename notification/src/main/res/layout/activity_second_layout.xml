@@ -18,4 +18,11 @@
         android:text="send a main activity notification"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendNotificationForBack"
+        android:text="send a second activity notification test press back"
+        android:textAllCaps="false" />
+
 </LinearLayout>
