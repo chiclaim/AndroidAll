@@ -25,6 +25,10 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second_layout);
     }
 
+    public void startMain(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
     public void startSelf(View view) {
         startActivity(new Intent(this, SecondActivity.class));
     }
@@ -39,8 +43,17 @@ public class SecondActivity extends AppCompatActivity {
     public void sendNotification(View view) {
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        //@TODO 从notification启动的Activity一定要new task吗？
         Intent intent = new Intent(this, MainActivity.class);
+
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        /*
+         * 如果MainActivity的launchMode=singleTask，点击通知栏启动MainActivity，MainActivity与MainActivity之间的Activity都会被清除
+         *
+         * 如果MainActivity的launchMode=singleInstance：点击通知栏启动MainActivity，MainActivity之间的Activity不会被清除，
+         *      且MainActivity只会存在一个，MainActivity回到栈顶
+         */
+
         PendingIntent contentIntent = PendingIntent.getActivity(
                 this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder =
