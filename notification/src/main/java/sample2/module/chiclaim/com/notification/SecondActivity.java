@@ -44,7 +44,8 @@ public class SecondActivity extends AppCompatActivity {
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Intent intent = new Intent(this, MainActivity.class);
-
+        //关于是否一定要设置Intent.FLAG_ACTIVITY_NEW_TASK
+        //https://stackoverflow.com/questions/30886618/android-notification-intent-flag-activity-new-task-required
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         /*
