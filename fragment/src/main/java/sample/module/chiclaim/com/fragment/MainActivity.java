@@ -36,4 +36,8 @@ public class MainActivity extends AppCompatActivity {
         }
         ft.commitAllowingStateLoss();
     }
+
+    public void goDrawerLayout(View view) {
+        startActivity(new Intent(this, DrawerLayoutActivity.class));
+    }
 }

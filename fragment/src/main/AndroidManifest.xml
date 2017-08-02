@@ -33,8 +33,12 @@
 
         <activity
             android:name=".ViewPagerActivity"
+            android:label="ViewPager"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".DrawerLayoutActivity"
+            android:label="DrawerLayout"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

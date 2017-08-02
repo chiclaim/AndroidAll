@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="#ffffff"
+    android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="fragmentLifecycle"
-        android:text="Fragment's lifecycle in Activity"
+        android:text="back" />
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add fragment"
         android:textAllCaps="false" />
 
     <Button
+        android:id="@+id/text_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="fragmentForResult"
-        android:text="go fragment (test result)"
         android:textAllCaps="false" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goDrawerLayout"
-        android:text="goDrawerLayout"
-        android:textAllCaps="false" />
 </LinearLayout>
