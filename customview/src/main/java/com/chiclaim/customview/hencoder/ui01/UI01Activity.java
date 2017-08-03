@@ -1,6 +1,5 @@
 package com.chiclaim.customview.hencoder.ui01;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -28,20 +27,18 @@ public class UI01Activity extends BaseActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), this);
+        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager, true);
     }
 
 
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-        private String[] titles = new String[]{"DrawColor", "DrawCircle", "DrawRect",
-                "DrawPoint", "DrawOval", "DrawLine", "DrawRoundRect", "DrawArc", "DrawPath", "直方图", "饼状图"};
-        private Context context;
+        private String[] titles = new String[]{"DrawColor", "DrawCircle", "DrawRect", "DrawRoundRect",
+                "DrawPoint", "DrawOval", "DrawLine", "DrawArc", "DrawPath", "直方图", "饼状图"};
 
-        MyFragmentPagerAdapter(FragmentManager fm, Context context) {
+        MyFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
-            this.context = context;
         }
 
         @Override

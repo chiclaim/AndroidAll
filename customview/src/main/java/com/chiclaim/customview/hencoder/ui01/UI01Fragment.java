@@ -42,6 +42,10 @@ public class UI01Fragment extends Fragment {
                     CircleView circleView = new CircleView(getContext());
                     container.addView(circleView);
                     break;
+                case 2:
+                    RectView rectView = new RectView(getContext());
+                    container.addView(rectView);
+                    break;
             }
         }
     }
