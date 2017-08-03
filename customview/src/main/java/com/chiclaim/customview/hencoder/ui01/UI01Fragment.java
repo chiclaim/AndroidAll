@@ -46,6 +46,10 @@ public class UI01Fragment extends Fragment {
                     RectView rectView = new RectView(getContext());
                     container.addView(rectView);
                     break;
+                case 3:
+                    RoundRectView roundRectView = new RoundRectView(getContext());
+                    container.addView(roundRectView);
+                    break;
             }
         }
     }

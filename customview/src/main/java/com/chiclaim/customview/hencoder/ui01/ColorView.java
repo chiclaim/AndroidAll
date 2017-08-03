@@ -31,6 +31,9 @@ public class ColorView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(getResources().getColor(R.color.colorPrimary));
+        // TODO: 2017/8/3  drawColor by mode /  drawRGB  / drawARGB
         //canvas.drawColor(color,mode);
+        //canvas.drawRGB();
+        //canvas.drawARGB();
     }
 }
