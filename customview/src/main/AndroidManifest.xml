@@ -26,7 +26,13 @@
 
 
         <activity
-            android:name=".EditViewInMZ"
+            android:name=".EditViewInMZActivity"
+            android:label="EditTextInMZ"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".hencoder.ui01.UI01Activity"
+            android:label="HenCoderUI01"
             android:screenOrientation="portrait" />
     </application>
 
