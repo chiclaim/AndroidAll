@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import com.chiclaim.android.base.BaseActivity;
 import com.chiclaim.customview.R;
 
+
 /**
  * Description：
  * <br/>
@@ -19,12 +20,14 @@ import com.chiclaim.customview.R;
  */
 
 public class UI01Activity extends BaseActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ui_01_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager, true);
@@ -32,7 +35,8 @@ public class UI01Activity extends BaseActivity {
 
 
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-        private String[] titles = new String[]{"DrawColor", "DrawCircle", "DrawRect", "DrawArc", "DrawPath", "直方图", "饼状图"};
+        private String[] titles = new String[]{"DrawColor", "DrawCircle", "DrawRect",
+                "DrawPoint", "DrawOval", "DrawLine", "DrawRoundRect", "DrawArc", "DrawPath", "直方图", "饼状图"};
         private Context context;
 
         MyFragmentPagerAdapter(FragmentManager fm, Context context) {
@@ -42,7 +46,9 @@ public class UI01Activity extends BaseActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return DrawColorFragment.newInstance();
+            Bundle bundle = new Bundle();
+            bundle.putInt("position", position);
+            return UI01Fragment.newInstance(bundle);
         }
 
         @Override

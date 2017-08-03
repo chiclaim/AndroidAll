@@ -1,0 +1,54 @@
+package com.chiclaim.customview.hencoder.ui01;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import com.chiclaim.customview.R;
+
+/**
+ * Description：
+ * <br/>
+ * Created by kumu on 2017/8/3.
+ */
+
+public class UI01Fragment extends Fragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_ui01_layout, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ViewGroup container = (ViewGroup) view.findViewById(R.id.container);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            int position = bundle.getInt("position");
+            switch (position) {
+                case 0:
+                    ColorView colorView = new ColorView(getContext());
+                    FrameLayout.LayoutParams ll = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 400);
+                    colorView.setLayoutParams(ll);
+                    container.addView(colorView);
+                    break;
+                case 1:
+                    CircleView circleView = new CircleView(getContext());
+                    container.addView(circleView);
+                    break;
+            }
+        }
+    }
+
+    public static Fragment newInstance(Bundle bundle) {
+        UI01Fragment fragment = new UI01Fragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+}

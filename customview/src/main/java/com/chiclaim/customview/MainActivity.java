@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.chiclaim.customview.hencoder.ui01.UI01Activity;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -16,5 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void testEditTextInMeiZu(View view) {
         startActivity(new Intent(this, EditViewInMZActivity.class));
+    }
+
+    public void henCoder01(View view) {
+        startActivity(new Intent(this, UI01Activity.class));
     }
 }

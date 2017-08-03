@@ -19,6 +19,13 @@
             android:text="EditText In MeiZu"
             android:textAllCaps="false" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="henCoder01"
+            android:text="CustomViewHenCoder01"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 </ScrollView>
 
