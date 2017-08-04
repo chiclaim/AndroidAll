@@ -43,7 +43,7 @@ public class RoundRectView extends View {
             //水平居中
             //canvas.drawRoundRect(left, top, right, bottom, rx, ry, paint);
             //rx, ry  是圆角的横向半径和纵向半径
-            canvas.drawRoundRect(margin, 100, margin + rectWidth, 100 + rectWidth, 5, 50, paint);
+            canvas.drawRoundRect(margin, 100, margin + rectWidth, 100 + rectWidth, 50, 50, paint);
         }
     }
 }
