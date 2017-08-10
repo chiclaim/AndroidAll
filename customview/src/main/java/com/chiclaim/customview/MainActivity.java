@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void recyclerViewNested(View view) {
+        startActivity(new Intent(this, RecyclerViewInRecyclerView.class));
+    }
+
     public void testEditTextInMeiZu(View view) {
         startActivity(new Intent(this, EditViewInMZActivity.class));
     }

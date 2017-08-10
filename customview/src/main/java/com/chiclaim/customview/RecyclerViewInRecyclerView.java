@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 
 //http://stackoverflow.com/questions/32011995/how-to-have-a-listview-recyclerview-inside-a-parent-recyclerview
+//https://stackoverflow.com/questions/33218397/recyclerview-inside-recyclerview-not-smoothly
 
 public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
@@ -33,6 +35,12 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
+
+        recyclerView.setNestedScrollingEnabled(false);
+
+        //recyclerView.setScrollingTouchSlop();
+        recyclerView.startNestedScroll(0);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         List<String> list = new ArrayList<>();
@@ -42,14 +50,57 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
         recyclerView.setAdapter(new MyAdapter(this, list));
     }
 
+    private static class ChildRecyclerAdapter extends RecyclerView.Adapter {
+        List<String> subList;
+
+        ChildRecyclerAdapter() {
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new ChildHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_child_layout, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            ChildHolder childHolder = (ChildHolder) holder;
+            childHolder.tvSubTitle.setText(subList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return subList.size();
+        }
+
+        class ChildHolder extends RecyclerView.ViewHolder {
+            TextView tvSubTitle;
+
+            public ChildHolder(View itemView) {
+                super(itemView);
+                tvSubTitle = (TextView) itemView.findViewById(R.id.tv_sub_title);
+            }
+        }
+    }
+
 
     private static class MyAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater;
         List<String> list;
+        List<String> subList;
+
+        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter();
+
+        RecyclerView.RecycledViewPool recycledViewPool = new RecyclerView.RecycledViewPool();
 
         MyAdapter(Context context, List<String> list) {
             inflater = LayoutInflater.from(context);
             this.list = list;
+            if (subList == null) {
+                subList = new ArrayList<>();
+                for (int i = 0; i < 20; i++) {
+                    subList.add("Sub Title " + i);
+                }
+            }
         }
 
         @Override
@@ -74,6 +125,7 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
             TextView tvTitle;
             RecyclerView recyclerView;
 
+
             public TitleHolder(View itemView) {
                 super(itemView);
                 tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
@@ -82,50 +134,32 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
             public void bind(int position, String title) {
                 tvTitle.setText(title);
+
                 recyclerView.setHasFixedSize(true);
+                recyclerView.setNestedScrollingEnabled(false);
+
+
+                //layoutManager.setAutoMeasureEnabled(true);
+
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
                 recyclerView.setLayoutManager(layoutManager);
-                List<String> titles = new ArrayList<>();
-                for (int i = 0; i < position + 1; i++) {
-                    titles.add("Sub Title " + i);
+
+                recyclerView.setRecycledViewPool(recycledViewPool);
+
+                RecyclerView.Adapter adapter = recyclerView.getAdapter();
+
+                if (adapter != null) {
+                    ChildRecyclerAdapter childAdapter = (ChildRecyclerAdapter) adapter;
+                    childAdapter.subList = subList;
+                    recyclerView.swapAdapter(childAdapter, false);
+                } else {
+                    childRecyclerAdapter.subList = subList;
+                    //recyclerView.setAdapter(childRecyclerAdapter);
+                    recyclerView.swapAdapter(childRecyclerAdapter, false);
                 }
-                recyclerView.setAdapter(new ChildRecyclerAdapter(titles));
+
+                Log.e("TitleHolder", "===" + recyclerView.getRecycledViewPool());
             }
-
-            class ChildRecyclerAdapter extends RecyclerView.Adapter {
-                List<String> subList;
-
-                ChildRecyclerAdapter(List<String> subList) {
-                    this.subList = subList;
-                }
-
-                @Override
-                public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                    return new ChildHolder(inflater.inflate(R.layout.item_child_layout, parent, false));
-                }
-
-                @Override
-                public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                    ChildHolder childHolder = (ChildHolder) holder;
-                    childHolder.tvSubTitle.setText(subList.get(position));
-                }
-
-                @Override
-                public int getItemCount() {
-                    return subList.size();
-                }
-
-                class ChildHolder extends RecyclerView.ViewHolder {
-                    TextView tvSubTitle;
-
-                    public ChildHolder(View itemView) {
-                        super(itemView);
-                        tvSubTitle = (TextView) itemView.findViewById(R.id.tv_sub_title);
-                    }
-                }
-            }
-
-
         }
     }
 }
