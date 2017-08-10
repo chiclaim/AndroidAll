@@ -23,7 +23,8 @@ import java.util.List;
 
 //http://stackoverflow.com/questions/32011995/how-to-have-a-listview-recyclerview-inside-a-parent-recyclerview
 //https://stackoverflow.com/questions/33218397/recyclerview-inside-recyclerview-not-smoothly
-
+//https://github.com/drakeet/MultiType/issues/67   嵌套后，自定滑到了第一个子RecyclerView，而不是最外层的RecyclerView
+    
 public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
     RecyclerView recyclerView;
