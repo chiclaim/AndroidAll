@@ -40,4 +40,8 @@ public class MainActivity extends AppCompatActivity {
     public void goDrawerLayout(View view) {
         startActivity(new Intent(this, DrawerLayoutActivity.class));
     }
+
+    public void goViewPager(View view) {
+        startActivity(new Intent(this, ViewPagerActivity.class));
+    }
 }

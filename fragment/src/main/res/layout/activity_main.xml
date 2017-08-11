@@ -27,4 +27,11 @@
         android:onClick="goDrawerLayout"
         android:text="goDrawerLayout"
         android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goViewPager"
+        android:text="ViewPager"
+        android:textAllCaps="false" />
 </LinearLayout>

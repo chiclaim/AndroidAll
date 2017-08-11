@@ -2,11 +2,13 @@ package sample.module.chiclaim.com.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,15 +27,39 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_pager_layout);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
 
+        findViewById(R.id.text_other).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
     }
 
 
-    public static class MyPagerAdapter extends FragmentPagerAdapter {
+    private static class MyPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fs;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
