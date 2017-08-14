@@ -34,7 +34,7 @@ public class CustomViewPager extends ViewPager {
                 if (diffX > 0) {
                     // swipe from left to right detected
                     //return false;
-                } else if (diffX < 0 && getCurrentItem() == 2) {
+                } else if (diffX < 0 && getCurrentItem() == 3) {
                     // swipe from right to left detected
                     return false;
                 }

@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +23,10 @@ import java.util.List;
 
 public class ViewPagerActivity extends AppCompatActivity {
 
+    private List<String> titles = Arrays.asList("未下厨", "待配送", "等待配送", "配送中", "其他");
+    private List<Fragment> fs = Arrays.asList(TabFragment.get("Content1"), TabFragment.get("Content2"),
+            TabFragment.get("Content3"), TabFragment.get("Content4"), TabFragment.get("Content5"));
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +35,21 @@ public class ViewPagerActivity extends AppCompatActivity {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
-        int moreWidth = getResources().getDisplayMetrics().widthPixels / 4;
-        int moreHeight = (int) (getResources().getDisplayMetrics().density * 36 + 0.5);
-        viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
+        int moreWidth = getResources().getDisplayMetrics().widthPixels / titles.size();
+        int moreHeight = (int) (getResources().getDisplayMetrics().density * (50 - 4) + 0.5);
+        viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), fs, titles));
+        //tabLayout.setupWithViewPager(viewPager);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+
+        for (String title : titles) {
+            TabLayout.Tab tab = tabLayout.newTab().setCustomView(R.layout.tab_layout);
+            TextView tvTitle = (TextView) tab.getCustomView().findViewById(R.id.text_title);
+            tvTitle.setText(title);
+            tabLayout.addTab(tab);
+        }
+
 
         View view = findViewById(R.id.text_other);
         RelativeLayout.LayoutParams rll = new RelativeLayout.LayoutParams(moreWidth, moreHeight);
@@ -42,7 +58,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(3, false);
+                viewPager.setCurrentItem(4, false);
             }
         });
 
@@ -68,12 +84,12 @@ public class ViewPagerActivity extends AppCompatActivity {
 
     private static class MyPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fs;
-        private List<String> titles = Arrays.asList("Title1", "Title2", "Title3", "Title4");
+        private List<String> titles;
 
-        MyPagerAdapter(FragmentManager fragmentManager) {
+        MyPagerAdapter(FragmentManager fragmentManager, List<Fragment> fs, List<String> titles) {
             super(fragmentManager);
-            fs = Arrays.asList(TabFragment.get("Content1"), TabFragment.get("Content2"),
-                    TabFragment.get("Content3"), TabFragment.get("Content4"));
+            this.fs = fs;
+            this.titles = titles;
         }
 
         @Override

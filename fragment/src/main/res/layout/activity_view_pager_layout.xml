@@ -15,7 +15,7 @@
             android:id="@+id/tab_layout"
             style="@style/AppTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             app:tabMode="fixed" />
 
 
@@ -28,7 +28,8 @@
             android:background="#ffffff"
             android:gravity="center"
             android:padding="10dp"
-            android:text="更多状态" />
+            android:text="更多状态"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
