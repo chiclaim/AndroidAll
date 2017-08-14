@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,16 +27,22 @@ public class ViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager_layout);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
+        int moreWidth = getResources().getDisplayMetrics().widthPixels / 4;
+        int moreHeight = (int) (getResources().getDisplayMetrics().density * 36 + 0.5);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
-        findViewById(R.id.text_other).setOnClickListener(new View.OnClickListener() {
+        View view = findViewById(R.id.text_other);
+        RelativeLayout.LayoutParams rll = new RelativeLayout.LayoutParams(moreWidth, moreHeight);
+        rll.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        view.setLayoutParams(rll);
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                viewPager.setCurrentItem(3, false);
             }
         });
 
@@ -61,15 +68,17 @@ public class ViewPagerActivity extends AppCompatActivity {
 
     private static class MyPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fs;
+        private List<String> titles = Arrays.asList("Title1", "Title2", "Title3", "Title4");
 
-        public MyPagerAdapter(FragmentManager fragmentManager) {
+        MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            fs = Arrays.asList(TabFragment.get("Content1"), TabFragment.get("Content2"), TabFragment.get("Content3"));
+            fs = Arrays.asList(TabFragment.get("Content1"), TabFragment.get("Content2"),
+                    TabFragment.get("Content3"), TabFragment.get("Content4"));
         }
 
         @Override
         public int getCount() {
-            return fs.size();
+            return titles.size();
         }
 
         @Override
@@ -79,7 +88,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Page " + position;
+            return titles.get(position);
         }
     }
 }

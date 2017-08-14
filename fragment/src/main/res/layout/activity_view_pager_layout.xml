@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -13,9 +13,9 @@
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
-            android:layout_width="0dp"
+            style="@style/AppTabLayout"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_weight="1"
             app:tabMode="fixed" />
 
 
@@ -23,14 +23,16 @@
             android:id="@+id/text_other"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:background="#999999"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:background="#ffffff"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Other" />
+            android:text="更多状态" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
+    <sample.module.chiclaim.com.fragment.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
