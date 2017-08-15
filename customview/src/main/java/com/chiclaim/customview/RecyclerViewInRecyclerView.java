@@ -24,7 +24,7 @@ import java.util.List;
 //http://stackoverflow.com/questions/32011995/how-to-have-a-listview-recyclerview-inside-a-parent-recyclerview
 //https://stackoverflow.com/questions/33218397/recyclerview-inside-recyclerview-not-smoothly
 //https://github.com/drakeet/MultiType/issues/67   嵌套后，自定滑到了第一个子RecyclerView，而不是最外层的RecyclerView
-    
+
 public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -66,6 +66,7 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             ChildHolder childHolder = (ChildHolder) holder;
             childHolder.tvSubTitle.setText(subList.get(position));
+            Log.d("ChildRecyclerAdapter", position + "");
         }
 
         @Override
@@ -89,7 +90,7 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
         List<String> list;
         List<String> subList;
 
-        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter();
+        //ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter();
 
         RecyclerView.RecycledViewPool recycledViewPool = new RecyclerView.RecycledViewPool();
 
@@ -113,6 +114,7 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             TitleHolder titleHolder = (TitleHolder) holder;
             titleHolder.bind(position, list.get(position));
+            Log.e("TitleHolder", "==outer onBindViewHolder " + position);
         }
 
         @Override
@@ -127,14 +129,10 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
             RecyclerView recyclerView;
 
 
-            public TitleHolder(View itemView) {
+            TitleHolder(View itemView) {
                 super(itemView);
                 tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
                 recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_child);
-            }
-
-            public void bind(int position, String title) {
-                tvTitle.setText(title);
 
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setNestedScrollingEnabled(false);
@@ -144,21 +142,25 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
                 recyclerView.setLayoutManager(layoutManager);
+            }
 
+            void bind(int position, String title) {
+                tvTitle.setText(title);
                 recyclerView.setRecycledViewPool(recycledViewPool);
-
                 RecyclerView.Adapter adapter = recyclerView.getAdapter();
-
                 if (adapter != null) {
                     ChildRecyclerAdapter childAdapter = (ChildRecyclerAdapter) adapter;
                     childAdapter.subList = subList;
-                    recyclerView.swapAdapter(childAdapter, false);
+                    //recyclerView.swapAdapter(childAdapter, false);
+                    childAdapter.notifyDataSetChanged();
+                    Log.e("TitleHolder", "!=null " + position);
                 } else {
-                    childRecyclerAdapter.subList = subList;
-                    //recyclerView.setAdapter(childRecyclerAdapter);
-                    recyclerView.swapAdapter(childRecyclerAdapter, false);
+                    ChildRecyclerAdapter childAdapter = new ChildRecyclerAdapter();
+                    childAdapter.subList = subList;
+                    recyclerView.setAdapter(childAdapter);
+                    //recyclerView.swapAdapter(childAdapter, false);
+                    Log.e("TitleHolder", "==null " + position);
                 }
-
                 Log.e("TitleHolder", "===" + recyclerView.getRecycledViewPool());
             }
         }
