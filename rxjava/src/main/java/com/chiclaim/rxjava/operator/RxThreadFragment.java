@@ -82,7 +82,7 @@ public class RxThreadFragment extends BaseFragment {
                 Log.e("RxThreadFragment", "observable2 thread name : " + Thread.currentThread().getName());
                 return "observable2 AndroidSchedulers.mainThread()";
             }
-        }).subscribeOn(AndroidSchedulers.mainThread());
+        }).subscribeOn(Schedulers.io());
 
         final Observable<String> observable3 = RxUtils.deferObservable(new Callable<String>() {
             @Override
@@ -92,30 +92,38 @@ public class RxThreadFragment extends BaseFragment {
             }
         }).subscribeOn(Schedulers.io());
 
-        RxUtils.deferObservable(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return "test thread";
-            }
-        }).flatMap(new Func1<String, Observable<String>>() {
-            @Override
-            public Observable<String> call(String s) {
-                Log.e("RxThreadFragment", "flatMap1 thread name : " + Thread.currentThread().getName());
-                return observable1;
-            }
-        }).flatMap(new Func1<String, Observable<String>>() {
-            @Override
-            public Observable<String> call(String s) {
-                Log.e("RxThreadFragment", "flatMap2 thread name : " + Thread.currentThread().getName());
-                return observable2;
-            }
-        }).flatMap(new Func1<String, Observable<String>>() {
-            @Override
-            public Observable<String> call(String s) {
-                Log.e("RxThreadFragment", "flatMap3 thread name : " + Thread.currentThread().getName());
-                return observable3;
-            }
-        }).subscribe(new Action1<String>() {
+        RxUtils
+                .deferObservable(new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        Log.e("RxThreadFragment", "test thread name : " + Thread.currentThread().getName());
+                        return "test thread";
+                    }
+                })
+                .subscribeOn(Schedulers.io())//修改上面Observable所在的线程
+                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap1所在的线程
+                .flatMap(new Func1<String, Observable<String>>() {//flatMap1
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.e("RxThreadFragment", "flatMap1 thread name : " + Thread.currentThread().getName());
+                        return observable1;
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap2所在的线程
+                .flatMap(new Func1<String, Observable<String>>() {//flatMap2
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.e("RxThreadFragment", "flatMap2 thread name : " + Thread.currentThread().getName());
+                        return observable2;
+                    }
+                })
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.e("RxThreadFragment", "flatMap3 thread name : " + Thread.currentThread().getName());
+                        return observable3;
+                    }
+                }).subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
                 Log.e("RxThreadFragment", "subscribe Action1 thread name : " + Thread.currentThread().getName());
@@ -127,13 +135,17 @@ public class RxThreadFragment extends BaseFragment {
             }
         });
 
-//        flatMap1 thread name : main
-//        observable1 thread name : RxIoScheduler-2
-//        flatMap2 thread name : RxIoScheduler-2
-//        observable2 thread name : main
-//        subscribe Action1 thread name : main
 
-        //当前observable默认使用上一个observable的线程
+//        test thread name : RxIoScheduler-2              手动设置为后台线程
+//        flatMap1 thread name : main                     手动设置为主线程
+//        observable1 thread name : RxIoScheduler-3       手动设置为后台线程
+//        flatMap2 thread name : main                     手动设置为主线程
+//        observable2 thread name : RxIoScheduler-2       手动设置为后台线程
+//        flatMap3 thread name : RxIoScheduler-2          没有设置的情况下，默认使用上一个observable的线程模式
+//        observable3 thread name : RxIoScheduler-3       没有设置的情况下，默认使用上一个observable的线程模式
+//        subscribe Action1 thread name : RxIoScheduler-3
+
+//        没有设置的情况下，当前observable默认使用上一个observable的线程模式
     }
 
     @Nullable
