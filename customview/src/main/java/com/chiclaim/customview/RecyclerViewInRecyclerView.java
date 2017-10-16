@@ -140,7 +140,7 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
 
                 //layoutManager.setAutoMeasureEnabled(true);
 
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
+                RecyclerView.LayoutManager layoutManager = new CustomLinearLayoutManager(recyclerView.getContext());
                 recyclerView.setLayoutManager(layoutManager);
             }
 
@@ -162,6 +162,15 @@ public class RecyclerViewInRecyclerView extends AppCompatActivity {
                     Log.e("TitleHolder", "==null " + position);
                 }
                 Log.e("TitleHolder", "===" + recyclerView.getRecycledViewPool());
+
+
+                //嵌套RecyclerView，
+                //对于上面的方案，如果是竖向嵌套，还是有点卡顿，特别是子列表数据比较多的时候。主要原因，显示某个Item的时候，该Item的子列表会全部会渲染，而不是显示几条渲染几条。
+
+                //如果横向嵌套估计会好一点，因为横向的不用全部显示。 @TODO 待测试
+
+
+
             }
         }
     }

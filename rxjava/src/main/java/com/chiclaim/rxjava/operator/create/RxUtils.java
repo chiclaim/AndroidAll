@@ -48,7 +48,7 @@ public class RxUtils {
                         if (true/*result.getCode() == HttpResult.SUCCESS*/) {
                             return emitData(result);
                         }
-                        return Observable.error(new ServerException("your error code", "your error image"));
+                        return Observable.error(new ServerException("your error code", "your error message"));
                     }
                 });
             }
