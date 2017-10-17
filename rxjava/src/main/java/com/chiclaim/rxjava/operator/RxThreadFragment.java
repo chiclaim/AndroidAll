@@ -143,11 +143,12 @@ public class RxThreadFragment extends BaseFragment {
 //        observable1 thread name : RxIoScheduler-3       手动设置为后台线程
 //        flatMap2 thread name : main                     手动设置为主线程
 //        observable2 thread name : RxIoScheduler-2       手动设置为后台线程
-//        flatMap3 thread name : RxIoScheduler-2          没有设置的情况下，默认使用上一个observable的线程模式
-//        observable3 thread name : RxIoScheduler-3       没有设置的情况下，默认使用上一个observable的线程模式
-//        subscribe Action1 thread name : RxIoScheduler-3 手动设置为主线程
+//        flatMap3 thread name : RxIoScheduler-2          没有设置的情况下，默认使用上一个observable(observable2)的线程模式
+//        observable3 thread name : RxIoScheduler-3       手动设置为后台线程
+//        subscribe Action1 thread name : main            手动设置为主线程
 
-//        没有设置的情况下，当前observable默认使用上一个observable的线程模式
+//        没有设置的情况下，当前observable默认使用上一个observable的线程模式(如上面的flatMap3就是使用它上面的observable2的线程模式，
+//        如果没有使用flatMap而是使用map(不需要返回observable2)，这个时候使用的就是map call所在的线程模式),
     }
 
     @Nullable
