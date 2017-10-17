@@ -100,8 +100,8 @@ public class RxThreadFragment extends BaseFragment {
                         return "test thread";
                     }
                 })
-                .subscribeOn(Schedulers.io())//修改上面Observable所在的线程
-                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap1所在的线程
+                .subscribeOn(Schedulers.io())//修改上面Observable call所在的线程
+                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap1 call所在的线程
                 .flatMap(new Func1<String, Observable<String>>() {//flatMap1
                     @Override
                     public Observable<String> call(String s) {
@@ -109,7 +109,7 @@ public class RxThreadFragment extends BaseFragment {
                         return observable1;
                     }
                 })
-                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap2所在的线程
+                .observeOn(AndroidSchedulers.mainThread())//修改下面flatMap2 call所在的线程
                 .flatMap(new Func1<String, Observable<String>>() {//flatMap2
                     @Override
                     public Observable<String> call(String s) {
@@ -123,17 +123,19 @@ public class RxThreadFragment extends BaseFragment {
                         Log.e("RxThreadFragment", "flatMap3 thread name : " + Thread.currentThread().getName());
                         return observable3;
                     }
-                }).subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                Log.e("RxThreadFragment", "subscribe Action1 thread name : " + Thread.currentThread().getName());
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        });
+                })
+                .observeOn(AndroidSchedulers.mainThread())//修改下面subscribe call所在的线程
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        Log.e("RxThreadFragment", "subscribe Action1 thread name : " + Thread.currentThread().getName());
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
 
 
 //        test thread name : RxIoScheduler-2              手动设置为后台线程
@@ -143,7 +145,7 @@ public class RxThreadFragment extends BaseFragment {
 //        observable2 thread name : RxIoScheduler-2       手动设置为后台线程
 //        flatMap3 thread name : RxIoScheduler-2          没有设置的情况下，默认使用上一个observable的线程模式
 //        observable3 thread name : RxIoScheduler-3       没有设置的情况下，默认使用上一个observable的线程模式
-//        subscribe Action1 thread name : RxIoScheduler-3
+//        subscribe Action1 thread name : RxIoScheduler-3 手动设置为主线程
 
 //        没有设置的情况下，当前observable默认使用上一个observable的线程模式
     }
