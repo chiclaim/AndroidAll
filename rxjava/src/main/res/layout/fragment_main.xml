@@ -119,6 +119,13 @@
             android:textAllCaps="false"/>
 
         <Button
+            android:id="@+id/btn_rxjava_unsubscribe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rxJava unSubscribe"
+            android:textAllCaps="false"/>
+
+        <Button
             android:id="@+id/btn_rxjava_leak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
