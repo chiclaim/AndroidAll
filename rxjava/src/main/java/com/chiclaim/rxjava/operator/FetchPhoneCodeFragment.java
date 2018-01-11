@@ -67,6 +67,7 @@ public class FetchPhoneCodeFragment extends BaseFragment {
                 .flatMap(new Func1<Void, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(Void aVoid) {
+                        //弹出loading框（省略）
                         //调用获取验证码接口 (省略)
                         return Observable.just(true);
                     }
@@ -75,8 +76,8 @@ public class FetchPhoneCodeFragment extends BaseFragment {
                     @Override
                     public Observable<Boolean> call(Boolean aBoolean) {
                         //验证码获取成功，把按钮置为不可点
-                        Log.e("FetchPhoneCodeFragment", "thread name:" + Thread.currentThread().getName());
                         mBtn.setEnabled(false);
+                        //关闭loading框（省略）
                         return intervalButton();
                     }
                 })
@@ -84,14 +85,16 @@ public class FetchPhoneCodeFragment extends BaseFragment {
                 .subscribe(new Action1<Boolean>() {
                     @Override
                     public void call(Boolean aBoolean) {
-                        //mBtn.setEnabled(true);
+                        Log.e("FetchPhoneCodeFragment", "subscribe call");
                     }
                 }, new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
                         throwable.printStackTrace();
+                        //关闭loading框（省略）
+                        //出错后把按钮设置为可用
+                        mBtn.setEnabled(true);
                         Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                        mBtn.setEnabled(false);
                     }
                 });
     }
@@ -99,12 +102,20 @@ public class FetchPhoneCodeFragment extends BaseFragment {
     public Observable<Boolean> intervalButton() {
         //如果使用Observable.interval(interval, TimeUnit)，会默认延迟interval执行
         return Observable.interval(0, 1000, TimeUnit.MILLISECONDS)
+
                 .takeWhile(new Func1<Long, Boolean>() {
                     @Override
                     public Boolean call(Long aLong) {
                         return aLong <= INTERVAL_TIME;
                     }
                 })
+
+//                .filter(new Func1<Long, Boolean>() {
+//                    @Override
+//                    public Boolean call(Long aLong) {
+//                        return aLong <= INTERVAL_TIME;
+//                    }
+//                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(new Func1<Long, Observable<Boolean>>() {
                     @Override
@@ -112,6 +123,7 @@ public class FetchPhoneCodeFragment extends BaseFragment {
                         long diff = INTERVAL_TIME - aLong;
                         Log.e("FetchPhoneCodeFragment", "thread name:" + Thread.currentThread().getName() + ",aLong:" + aLong + ",diff:" + diff);
                         mBtn.setText(diff + "s");
+                        //倒计时完毕后，按钮可以再次被点击，重新设置按钮文案
                         if (diff == 0) {
                             mBtn.setEnabled(true);
                             mBtn.setText("获取验证码");
