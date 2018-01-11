@@ -10,6 +10,7 @@ import com.chiclaim.rxjava.operator.CheckCacheFragment;
 import com.chiclaim.rxjava.operator.CombineLatestFragment;
 import com.chiclaim.rxjava.operator.HttpWithTokenFragment;
 import com.chiclaim.rxjava.operator.ObservableDependencyFragment;
+import com.chiclaim.rxjava.operator.FetchPhoneCodeFragment;
 import com.chiclaim.rxjava.operator.RxJavaLeakFragment;
 import com.chiclaim.rxjava.operator.RxThreadFragment;
 import com.chiclaim.rxjava.operator.SearchDebounceFragment;
@@ -48,6 +49,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.btn_defer_create).setOnClickListener(this);
         view.findViewById(R.id.btn_rx_thread).setOnClickListener(this);
         view.findViewById(R.id.btn_rxjava_unsubscribe).setOnClickListener(this);
+        view.findViewById(R.id.btn_fetch_phone_code).setOnClickListener(this);
     }
 
 
@@ -98,6 +100,10 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.btn_rxjava_unsubscribe:
                 addFragment(new UnSubscriptionFragment());
+                break;
+
+            case R.id.btn_fetch_phone_code:
+                addFragment(new FetchPhoneCodeFragment());
                 break;
         }
     }
