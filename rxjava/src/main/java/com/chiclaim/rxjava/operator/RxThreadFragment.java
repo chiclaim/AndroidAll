@@ -36,32 +36,38 @@ public class RxThreadFragment extends BaseFragment {
                 Log.e("RxThreadFragment", "Callable thread name : " + Thread.currentThread().getName());
                 return "123456789";
             }
-        }).subscribeOn(Schedulers.io()).flatMap(new Func1<String, Observable<String>>() {
-            @Override
-            public Observable<String> call(String string) {
-                Log.e("RxThreadFragment", "Func1--1 thread name : " + Thread.currentThread().getName());
-                String reverse = new StringBuilder(string).reverse().toString();
-                return Observable.just(reverse);
-            }
-        }).subscribeOn(AndroidSchedulers.mainThread()).flatMap(new Func1<String, Observable<String>>() {
-            @Override
-            public Observable<String> call(String s) {
-                Log.e("RxThreadFragment", "Func1--2 thread name : " + Thread.currentThread().getName());
-                String reverse = new StringBuilder(s).reverse().toString();
-                return Observable.just(reverse);
-            }
-        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                Log.e("RxThreadFragment", "Action1 thread name : " + Thread.currentThread().getName());
-                Log.e("RxThreadFragment", s);
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        });
+        })
+                .subscribeOn(Schedulers.io())
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String string) {
+                        Log.e("RxThreadFragment", "Func1--1 thread name : " + Thread.currentThread().getName());
+                        String reverse = new StringBuilder(string).reverse().toString();
+                        return Observable.just(reverse);
+                    }
+                })
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.e("RxThreadFragment", "Func1--2 thread name : " + Thread.currentThread().getName());
+                        String reverse = new StringBuilder(s).reverse().toString();
+                        return Observable.just(reverse);
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        Log.e("RxThreadFragment", "Action1 thread name : " + Thread.currentThread().getName());
+                        Log.e("RxThreadFragment", s);
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
 
         //subscribeOn切换线程只有第一次调用的时候起作用，后面调用subscribeOn无效，都是使用第一次设置的
     }
