@@ -28,6 +28,57 @@ import static com.chiclaim.rxjava.operator.create.RxUtils.deferObservable;
 
 public class RxThreadFragment extends BaseFragment {
 
+    private void rxThread0() {
+        deferObservable(new Callable<String>() { //defer observable
+            @Override
+            public String call() throws Exception {
+                Log.d("RxThreadFragment", "defer " + Thread.currentThread().getName());
+                return "task result";
+            }
+        })
+                .observeOn(AndroidSchedulers.mainThread())//指定下面的 call 在主线程中执行
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.d("RxThreadFragment", "flatMap1 " + Thread.currentThread().getName());
+                        return Observable.just(s);
+                    }
+                })
+                .observeOn(Schedulers.io())//指定下面的 call  在子线程中执行
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.d("RxThreadFragment", "flatMap2 " + Thread.currentThread().getName());
+                        return Observable.just(s);
+                    }
+                })
+                .subscribeOn(Schedulers.io())//指定上面没有指定所在线程的Observable在IO线程执行
+                .observeOn(AndroidSchedulers.mainThread())//指定下面的 call  在主线程中执行
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        //etc
+                        Log.d("RxThreadFragment", s + Thread.currentThread().getName());
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
+                    }
+                });
+
+        //注解:
+    /*
+    observeOn 指定该操作符下面相邻的Observable 发射数据所在的线程
+
+    subscribeOn 指定该操作符上面所有没有指定线程的Observable 所在的线程.
+        例如在刚刚的例子中,subscribeOn操作符上面有3个observable（"defer","flatMap1","flatMap2"）
+        由于"flatMap1","flatMap2"已经分别被observeOn指定了schedule了，所以呢，该subscribeOn只会对"defer"有效。
+
+    */
+
+    }
+
 
     private void rxThread1() {
         deferObservable(new Callable<String>() {
@@ -80,7 +131,7 @@ public class RxThreadFragment extends BaseFragment {
                 Log.e("RxThreadFragment", "observable1 thread name : " + Thread.currentThread().getName());
                 return "observable1 Schedulers.io()";
             }
-        }).subscribeOn(Schedulers.io());
+        }).subscribeOn(Schedulers.io());//指定上面call方法所在的线程
 
         final Observable<String> observable2 = RxUtils.deferObservable(new Callable<String>() {
             @Override
@@ -88,7 +139,7 @@ public class RxThreadFragment extends BaseFragment {
                 Log.e("RxThreadFragment", "observable2 thread name : " + Thread.currentThread().getName());
                 return "observable2 AndroidSchedulers.mainThread()";
             }
-        }).subscribeOn(Schedulers.io());
+        }).subscribeOn(Schedulers.io());//指定上面call方法所在的线程
 
         final Observable<String> observable3 = RxUtils.deferObservable(new Callable<String>() {
             @Override
@@ -96,7 +147,7 @@ public class RxThreadFragment extends BaseFragment {
                 Log.e("RxThreadFragment", "observable3 thread name : " + Thread.currentThread().getName());
                 return "observable3 Schedulers.io()";
             }
-        }).subscribeOn(Schedulers.io());
+        }).subscribeOn(Schedulers.io());//指定上面call方法所在的线程
 
         RxUtils
                 .deferObservable(new Callable<String>() {
@@ -153,7 +204,7 @@ public class RxThreadFragment extends BaseFragment {
 //        observable3 thread name : RxIoScheduler-3       手动设置为后台线程
 //        subscribe Action1 thread name : main            手动设置为主线程
 
-//        没有设置的情况下，当前observable默认使用上一个observable的线程模式(如上面的flatMap3就是使用它上面的observable2的线程模式，
+//        没有设置的情况下，当前observable默认使用上一个observable的线程模式(如上面的 flatMap3 就是使用它上面的 observable2 的线程模式，
 //        如果没有使用flatMap而是使用map(不需要返回observable2)，这个时候使用的就是map call所在的线程模式),
     }
 
