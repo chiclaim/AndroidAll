@@ -11,6 +11,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Fragment mFragmentAnimation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,5 +45,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void goViewPager(View view) {
         startActivity(new Intent(this, ViewPagerActivity.class));
+    }
+
+    public void fragmentAnimation(View view) {
+        if (mFragmentAnimation == null) {
+            mFragmentAnimation = new FragmentAnimation();
+        }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_expand, R.anim.fragment_collapse);
+        if (mFragmentAnimation.isVisible()) {
+            findViewById(R.id.fragment_container).setVisibility(View.GONE);
+            transaction.hide(mFragmentAnimation);
+        } else {
+            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+            if (mFragmentAnimation.isAdded()) {
+                transaction.show(mFragmentAnimation);
+            } else {
+                transaction.add(R.id.fragment_container, mFragmentAnimation);
+            }
+        }
+        transaction.commit();
     }
 }
