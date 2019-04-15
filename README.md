@@ -51,20 +51,20 @@
 
 ## Kotlin 
 
-- [从Java角度深入理解Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
-- [Kotlin操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
-- [Kotlin基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
+- [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
+- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
+- [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
 
 ## Dagger
 
-[Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
-[Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
+- [Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
+- [Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
 
 ## ButterKnife
 
-[Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
-[Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
-[Android开发之手把手教你写ButterKnife框架（一）](https://chiclaim.blog.csdn.net/article/details/52662376)
+- [Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
+- [Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
+- [Android开发之手把手教你写ButterKnife框架（一）](https://chiclaim.blog.csdn.net/article/details/52662376)
 
 ## Android WebView
 
