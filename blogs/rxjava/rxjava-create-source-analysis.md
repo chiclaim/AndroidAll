@@ -1,5 +1,5 @@
 
-#1 create操作符的基本使用
+# 1 create操作符的基本使用
 
 顾名思义，Create操作符是用来创建一个Observable的。下面来看一个简单的代码段：
 
@@ -117,7 +117,7 @@ Consume Data:'4' , Thread Name:main
 
 `observeOn`   设置subscribe的call方法所在的线程【消费数据】
 
-#2 从源码角度分析create()和subscribe()如何协同工作的
+# 2 从源码角度分析create()和subscribe()如何协同工作的
 
 从上面的分析我们知道，create方法就是一个简单的工厂方法：
 
