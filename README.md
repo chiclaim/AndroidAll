@@ -1,11 +1,13 @@
 # AndroidAll
 
+本系列知识均出自 **Chiclaim**  内容将涵盖 Android 开发中的 **Flutter、ReactNative、Kotlin、RxJava、Dagger2、Retrofit、OkHttp、ButterKnife、JNI、Android架构、数据结构与算法、自定义View、性能优化** 等。
 
+如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
 
 ## RxJava 
 
-- [RxJava create操作符的用法和源码分析](http://blog.csdn.net/johnny901114/article/details/51524470)
+- [RxJava create操作符的用法和源码分析](blogs/rxjava/RxJava create操作符的用法和源码分析.md)
 - [RxJava map操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51531348)
 - [RxJava flatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51532776)
 - [RxJava concatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51533282)
@@ -55,7 +57,7 @@
 - [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
 - [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
 
-## Dagger
+## Dagger2
 
 - [Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
 - [Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
