@@ -1,14 +1,15 @@
 package com.chiclaim.customview.hencoder.ui01;
 
+import com.chiclaim.customview.R;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.chiclaim.customview.R;
+import androidx.annotation.Nullable;
 
 /**
  * Description：

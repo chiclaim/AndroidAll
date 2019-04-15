@@ -1,17 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+
+    compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "sample2.module.chiclaim.com.notification"
-        minSdkVersion 15
-        targetSdkVersion 25
+        applicationId "com.chiclaim.notification"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {

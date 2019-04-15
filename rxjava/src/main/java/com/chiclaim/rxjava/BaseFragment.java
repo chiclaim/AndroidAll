@@ -2,10 +2,11 @@ package com.chiclaim.rxjava;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by chiclaim on 2016/01/27

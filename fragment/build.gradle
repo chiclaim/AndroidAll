@@ -1,19 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
 
+    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        applicationId "sample.module.chiclaim.com.fragmentlifecyle"
-        minSdkVersion 15
-        targetSdkVersion 25
+        applicationId "com.chiclaim.fragment"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +22,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
-    compile "com.android.support:design:${SUPPORT_LIB_VERSION}"
-    testCompile "junit:junit:${JUNIT_VERSION}"
+    compile "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
+    compile "com.android.support:design:${rootProject.supportLibVersion}"
 }

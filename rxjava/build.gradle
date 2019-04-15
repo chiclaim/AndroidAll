@@ -1,19 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "com.chiclaim.rxjava"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -38,10 +37,10 @@ dependencies {
 
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
-    compile "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
-    compile "com.android.support:recyclerview-v7:${SUPPORT_LIB_VERSION}"
-    compile "com.android.support:support-annotations:${SUPPORT_LIB_VERSION}"
-    compile "com.android.support:design:${SUPPORT_LIB_VERSION}"
+    compile "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${rootProject.supportLibVersion}"
+    compile "com.android.support:support-annotations:${rootProject.supportLibVersion}"
+    compile "com.android.support:design:${rootProject.supportLibVersion}"
 
     compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
     compile "io.reactivex:rxjava:${RXJAVA_VERSION}"

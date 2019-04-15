@@ -1,11 +1,12 @@
 package com.chiclaim.customview;
 
+import com.chiclaim.android.base.BaseActivity;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.InputType;
 import android.widget.LinearLayout;
 
-import com.chiclaim.android.base.BaseActivity;
+import androidx.annotation.Nullable;
 
 /**
  * Description：

@@ -3,12 +3,12 @@ package com.chiclaim.rxjava;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.chiclaim.rxjava.api.ApiServiceFactory;
 import com.chiclaim.rxjava.api.UserApi;
 
+import androidx.appcompat.app.AppCompatActivity;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 import rx.Subscription;

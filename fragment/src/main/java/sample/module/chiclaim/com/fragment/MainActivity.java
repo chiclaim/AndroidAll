@@ -2,14 +2,17 @@ package sample.module.chiclaim.com.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 public class MainActivity extends AppCompatActivity {
+
+    private Fragment mFragmentAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +46,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void goViewPager(View view) {
         startActivity(new Intent(this, ViewPagerActivity.class));
+    }
+
+    public void fragmentAnimation(View view) {
+        if (mFragmentAnimation == null) {
+            mFragmentAnimation = new FragmentAnimation();
+        }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_expand, R.anim.fragment_collapse);
+        if (mFragmentAnimation.isVisible()) {
+            findViewById(R.id.fragment_container).setVisibility(View.GONE);
+            transaction.hide(mFragmentAnimation);
+        } else {
+            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+            if (mFragmentAnimation.isAdded()) {
+                transaction.show(mFragmentAnimation);
+            } else {
+                transaction.add(R.id.fragment_container, mFragmentAnimation);
+            }
+        }
+        transaction.commit();
     }
 }

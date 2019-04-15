@@ -1,8 +1,9 @@
 package com.chiclaim.customview;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * Description：解决魅族手机EditText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER);第一个字符显示不全的问题

@@ -1,7 +1,7 @@
 package com.chiclaim.rxjava.operator;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import com.chiclaim.rxjava.R;
 import com.chiclaim.rxjava.operator.create.Callable;
 import com.chiclaim.rxjava.operator.create.RxUtils;
 
+import androidx.annotation.Nullable;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
