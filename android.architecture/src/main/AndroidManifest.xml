@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestLifecycleActivity"/>
+        <activity android:name=".lifecycle.TestLifecycleActivity"/>
     </application>
 
 </manifest>

@@ -1,24 +1,31 @@
-package com.chiclaim.android.arch
+package com.chiclaim.android.arch.lifecycle
 
+import com.chiclaim.android.arch.R
 import android.os.Bundle
-import android.util.Log
-
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_test_lifecycle.*
 
 class TestLifecycleActivity : AppCompatActivity() {
+
+    companion object {
+        const val CONSUME_TIME = 2000L
+    }
+
+    private var locationListener: MyLocationListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_lifecycle)
-
+        locationListener = MyLocationListener()
     }
 
     override fun onStart() {
         super.onStart()
+        text_test_lifecycle.text = "press back in $CONSUME_TIME milliseconds"
         checkUserStatus(object : Callback {
             override fun onDone(status: Boolean) {
                 if (status) {
-                    Log.e("TestLifecycleActivity", "开启位置监听")
+                    locationListener?.start()
                 }
             }
         })
@@ -26,13 +33,13 @@ class TestLifecycleActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        Log.e("TestLifecycleActivity", "关闭位置监听")
+        locationListener?.stop()
     }
 
     private fun checkUserStatus(callback: Callback?) {
         Thread(Runnable {
             try {
-                Thread.sleep(2000)
+                Thread.sleep(CONSUME_TIME)
             } catch (e: InterruptedException) {
                 e.printStackTrace()
             }

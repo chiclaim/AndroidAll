@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">Persistence sample</string>
+    <string name="app_name">Android Architecture</string>
     <string name="no_comments">No comments</string>
     <string name="loading_comments">Loading comments...</string>
     <string name="loading_products">Loading products...</string>
