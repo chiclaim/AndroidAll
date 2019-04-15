@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".lifecycle.TestLifecycleActivity"/>
+        <activity android:name=".lifecycle.TestLifecycleActivity2"/>
     </application>
 
 </manifest>

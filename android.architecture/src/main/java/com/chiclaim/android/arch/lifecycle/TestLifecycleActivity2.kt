@@ -1,40 +1,39 @@
 package com.chiclaim.android.arch.lifecycle
 
-import com.chiclaim.android.arch.R
 import android.os.Bundle
+import com.chiclaim.android.arch.R
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_test_lifecycle.*
 
-class TestLifecycleActivity : AppCompatActivity() {
+class TestLifecycleActivity2 : AppCompatActivity() {
 
     companion object {
         const val CONSUME_TIME = 2000L
     }
 
-    private lateinit var locationListener: MyLocationListener
+    private lateinit var locationListener: MyLocationListener2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_lifecycle)
-        locationListener = MyLocationListener()
-    }
 
-    override fun onStart() {
-        super.onStart()
         text_test_lifecycle.text = "press back in $CONSUME_TIME milliseconds"
+
+
+
+        locationListener = MyLocationListener2(this, lifecycle) { location ->
+            println("update UI")
+        }
+
+        lifecycle.addObserver(locationListener)
 
         checkUserStatus(object : Callback {
             override fun onDone(status: Boolean) {
                 if (status) {
-                    locationListener.start()
+                    locationListener.enable()
                 }
             }
         })
-    }
-
-    override fun onStop() {
-        super.onStop()
-        locationListener.stop()
     }
 
     private fun checkUserStatus(callback: Callback?) {
