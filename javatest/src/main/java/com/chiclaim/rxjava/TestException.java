@@ -1,4 +1,4 @@
-package com.example.rxjava;
+package com.chiclaim.rxjava;
 
 public class TestException extends Exception {
  }

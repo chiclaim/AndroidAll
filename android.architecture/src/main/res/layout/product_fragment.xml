@@ -28,7 +28,7 @@
 
         <variable
             name="productViewModel"
-            type="com.example.android.persistence.viewmodel.ProductViewModel"/>
+            type="com.chiclaim.android.arch.viewmodel.ProductViewModel"/>
     </data>
 
     <LinearLayout

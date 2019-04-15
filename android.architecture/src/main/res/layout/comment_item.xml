@@ -19,9 +19,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="comment"
-                  type="com.example.android.persistence.model.Comment"/>
+                  type="com.chiclaim.android.arch.model.Comment"/>
         <variable name="callback"
-                  type="com.example.android.persistence.ui.CommentClickCallback"/>
+                  type="com.chiclaim.android.arch.ui.CommentClickCallback"/>
     </data>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.rxjava;
+package com.chiclaim.rxjava;
 
 import org.junit.Assert;
 import org.junit.Test;

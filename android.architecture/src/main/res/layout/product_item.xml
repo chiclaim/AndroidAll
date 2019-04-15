@@ -19,9 +19,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="product"
-                  type="com.example.android.persistence.model.Product"/>
+                  type="com.chiclaim.android.arch.model.Product"/>
         <variable name="callback"
-                  type="com.example.android.persistence.ui.ProductClickCallback"/>
+                  type="com.chiclaim.android.arch.ui.ProductClickCallback"/>
     </data>
 
     <android.support.v7.widget.CardView
