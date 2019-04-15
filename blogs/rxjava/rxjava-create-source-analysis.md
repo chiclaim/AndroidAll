@@ -303,8 +303,3 @@ Observable.create(new Observable.OnSubscribe<String>() {
 
 ```
 
----
-下面是我的公众号，干货文章不错过，有需要的可以关注下，有任何问题可以联系我：
-![公众号:  chiclaim](https://upload-images.jianshu.io/upload_images/2636138-c4cba330e73fcb6c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-本文的例子放在github上 [https://github.com/chiclaim/AndroidAll](https://github.com/chiclaim/AndroidAll)
