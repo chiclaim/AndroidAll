@@ -1,6 +1,7 @@
 # AndroidAll
 
-本系列知识均出自 **Chiclaim**  内容将涵盖 Android 开发中的 **Flutter、ReactNative、Kotlin、RxJava、Dagger2、Retrofit、OkHttp、ButterKnife、JNI、Android架构、数据结构与算法、自定义View、性能优化** 等。
+本系列知识均出自 **Chiclaim**  
+内容将涵盖 Android 开发中的 「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」 等。
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
@@ -26,7 +27,6 @@
 
 
 ## Android Architecture
-
 
 - [Android MVP架构改造~如何重用顶层业务](https://chiclaim.blog.csdn.net/article/details/88050156)
 - [二维火Android云收银模块化架构实践](https://chiclaim.blog.csdn.net/article/details/78346125)
