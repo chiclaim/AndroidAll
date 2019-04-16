@@ -23,20 +23,20 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
 
-    compile "com.squareup.retrofit2:retrofit:${RETROFIT2_VERSION}"
-    compile "com.squareup.retrofit2:converter-gson:${RETROFIT2_VERSION}"
-    compile "com.squareup.retrofit2:adapter-rxjava:${RETROFIT2_VERSION}"
-    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT2_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${RETROFIT2_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${RETROFIT2_VERSION}"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 
-    compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
-    compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
+    implementation "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+    implementation "io.reactivex:rxjava:${RXJAVA_VERSION}"
 }

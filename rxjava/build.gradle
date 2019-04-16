@@ -22,34 +22,34 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    testImplementation 'junit:junit:4.12'
 
 
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
-    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
-    compile "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
-    compile "com.android.support:recyclerview-v7:${rootProject.supportLibVersion}"
-    compile "com.android.support:support-annotations:${rootProject.supportLibVersion}"
-    compile "com.android.support:design:${rootProject.supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.supportLibVersion}"
+    implementation "com.android.support:support-annotations:${rootProject.supportLibVersion}"
+    implementation "com.android.support:design:${rootProject.supportLibVersion}"
 
-    compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
-    compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.retrofit:retrofit-converters:1.9.0'
-    compile 'com.squareup.okhttp3:okhttp:3.0.1'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.0.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+    implementation "io.reactivex:rxjava:${RXJAVA_VERSION}"
+    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+    implementation 'com.squareup.retrofit:retrofit-converters:1.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.0.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
 }
 
