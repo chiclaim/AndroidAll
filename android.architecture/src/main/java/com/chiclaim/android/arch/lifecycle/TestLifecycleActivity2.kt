@@ -5,8 +5,25 @@ import com.chiclaim.android.arch.R
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_test_lifecycle.*
 
+
 class TestLifecycleActivity2 : AppCompatActivity() {
 
+/*
+
+AppCompatActivity 实现了 LifecycleOwner 接口
+    AppCompatActivity <- FragmentActivity <- ComponentActivity <- LifecycleOwner
+
+MyLocationListener2 实现了  LifecycleObserver 接口
+
+LifecycleOwner 可以无缝地和 LifecycleObserver 一起结合使用
+
+通过 addObserver 将两者关联起来
+
+lifecycle.addObserver(locationListener)
+
+
+
+ */
     companion object {
         const val CONSUME_TIME = 2000L
     }
