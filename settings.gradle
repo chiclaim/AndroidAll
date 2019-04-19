@@ -1,1 +1,6 @@
-include ':layoutInflater', ':fragment', ':retrofit', ':javascript', ':javatest', ':rxjava', ':customview', ':android.architecture', ':notification', ':base.lib'
+include ':layoutInflater', ':fragment', 
+        ':retrofit', ':javascript', 
+        ':javatest', ':rxjava', 
+        ':customview', ':android.architecture', 
+        ':notification', ':base.lib', 
+        ':framework'
