@@ -3,4 +3,4 @@ include ':layoutInflater', ':fragment',
         ':javatest', ':rxjava', 
         ':customview', ':android.architecture', 
         ':notification', ':base.lib', 
-        ':framework'
+        ':framework',':kotlin_coroutine'
