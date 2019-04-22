@@ -6,6 +6,7 @@ import com.chiclaim.customview.hencoder.ui01.UI01Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,5 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void animation(View view){
         startActivity(new Intent(this, AnimationActivity.class));
+    }
+
+
+    private long currentBackPressedTime;
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+            return;
+        }
+        if (System.currentTimeMillis() - currentBackPressedTime > 2000) {
+            currentBackPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
