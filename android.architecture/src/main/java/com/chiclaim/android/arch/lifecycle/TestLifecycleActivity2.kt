@@ -3,6 +3,7 @@ package com.chiclaim.android.arch.lifecycle
 import android.os.Bundle
 import com.chiclaim.android.arch.R
 import androidx.appcompat.app.AppCompatActivity
+import com.chiclaim.android.arch.Callback
 import kotlinx.android.synthetic.main.activity_test_lifecycle.*
 
 
@@ -44,16 +45,16 @@ lifecycle.addObserver(locationListener)
 
         lifecycle.addObserver(locationListener)
 
-        checkUserStatus(object : Callback {
-            override fun onDone(status: Boolean) {
-                if (status) {
+        checkUserStatus(object : Callback<Boolean> {
+            override fun onDone(data: Boolean) {
+                if (data) {
                     locationListener.enable()
                 }
             }
         })
     }
 
-    private fun checkUserStatus(callback: Callback?) {
+    private fun checkUserStatus(callback: Callback<Boolean>?) {
         Thread(Runnable {
             try {
                 Thread.sleep(CONSUME_TIME)
@@ -63,10 +64,6 @@ lifecycle.addObserver(locationListener)
 
             callback?.onDone(true)
         }).start()
-    }
-
-    internal interface Callback {
-        fun onDone(status: Boolean)
     }
 
 }
