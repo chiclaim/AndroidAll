@@ -20,6 +20,7 @@ public class MyTextView extends AppCompatTextView {
     }
 
     //use for PropertyValuesHolder
+    //modifier must be public
     public void setChar(Character c) {
         setText(String.valueOf(c));
     }

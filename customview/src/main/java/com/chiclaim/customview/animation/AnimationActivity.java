@@ -19,22 +19,6 @@ public class AnimationActivity extends BaseActivity implements ILabelInteraction
                 .add(android.R.id.content, new AnimationMainFragment()).commit();
     }
 
-    private long currentBackPressedTime;
-
-    @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
-            return;
-        }
-        if (System.currentTimeMillis() - currentBackPressedTime > 2000) {
-            currentBackPressedTime = System.currentTimeMillis();
-            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
-        } else {
-            super.onBackPressed();
-        }
-    }
-
     @Override
     public void setLabel(CharSequence title) {
         if (getSupportActionBar() != null)
