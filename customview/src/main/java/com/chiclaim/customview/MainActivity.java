@@ -19,10 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void recyclerViewNested(View view) {
-        startActivity(new Intent(this, RecyclerViewInRecyclerView.class));
-    }
-
     public void testEditTextInMeiZu(View view) {
         startActivity(new Intent(this, EditViewInMZActivity.class));
     }
@@ -46,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (System.currentTimeMillis() - currentBackPressedTime > 2000) {
             currentBackPressedTime = System.currentTimeMillis();
-            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.tip_app_exit, Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
         }
