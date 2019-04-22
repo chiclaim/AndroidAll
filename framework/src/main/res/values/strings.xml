@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">framework</string>
+    <string name="app_name">AndroidFramework</string>
+    <string name="main_activity_label">Android Framework Layer</string>
 </resources>
