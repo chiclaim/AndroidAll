@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebView and JavaScript Interact</title>
+
+
+    <script type="text/javascript">
+
+        function showJsToast() {
+            alert("该消息来自JS alert()函数")
+        };
+
+        function showPrompt(){
+            var name=prompt("请输入您的名字","Bill Gates")
+            if (name!=null && name!=""){
+                document.getElementById('prompt_container').innerHTML = "您输入的名字: " + name;
+                //document.write("您输入的名字: " + name)
+            }
+        };
+
+        function showConfirm(){
+            if (confirm('Are you sure you want to shutdown the device? :D')) {
+                // shutdown
+            } else {
+                // Do nothing!
+            }
+
+        }
+
+        function showAndroidToast(toast) {
+            Android.showToast(toast);
+        };
+
+
+    </script>
+</head>
+
+<body>
+
+<h5>This is html</h5>
+
+<div id="prompt_container"></div>
+<br/>
+<br/>
+
+<input type="button" value="Show Android Toast From Html" onClick="showAndroidToast('Hello Android!')"/>
+
+</body>

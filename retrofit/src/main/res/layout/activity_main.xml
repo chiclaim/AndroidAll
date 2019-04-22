@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="sample.module.chiclaim.com.retrofit.custom_parameter.MainActivity">
+    tools:context="com.module.chiclaim.com.retrofit.custom_parameter.MainActivity">
 
     <TextView
         android:id="@+id/tv_userinfo"

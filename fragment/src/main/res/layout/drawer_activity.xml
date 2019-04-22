@@ -24,7 +24,7 @@
 
         <fragment
             android:id="@+id/fragment_drawer"
-            class="sample.module.chiclaim.com.fragment.DrawerFragment"
+            class="com.module.chiclaim.com.fragment.DrawerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>

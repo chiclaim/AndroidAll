@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="sample.module.chiclaim.com.fragment">
+    package="com.module.chiclaim.com.fragment">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.module.chiclaim.com.fragment.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,23 +20,23 @@
         </activity>
 
         <activity
-            android:name=".FragmentLifecycleActivity"
+            android:name="com.module.chiclaim.com.fragment.FragmentLifecycleActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ResultActivity"
+            android:name="com.module.chiclaim.com.fragment.ResultActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ActivityTestFragmentResult"
+            android:name="com.module.chiclaim.com.fragment.ActivityTestFragmentResult"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ViewPagerActivity"
+            android:name="com.module.chiclaim.com.fragment.ViewPagerActivity"
             android:label="ViewPager"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DrawerLayoutActivity"
+            android:name="com.module.chiclaim.com.fragment.DrawerLayoutActivity"
             android:label="DrawerLayout"
             android:screenOrientation="portrait" />
     </application>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/java_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_invoke_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="invokeJs"
+            android:text="Java调用JS alert函数"
+            android:textAllCaps="false"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/btn_invoke_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_invoke_alert"
+            android:onClick="invokeAlert"
+            android:text="Java调用JS prompt函数"
+            android:textAllCaps="false"
+            android:textSize="12sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_invoke_prompt"
+            android:onClick="invokeConfirm"
+            android:text="Java调用JS confirm函数"
+            android:textAllCaps="false"
+            android:textSize="12sp"/>
+
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

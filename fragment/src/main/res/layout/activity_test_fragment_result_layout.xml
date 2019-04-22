@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_for_result"
-        class="sample.module.chiclaim.com.fragment.FragmentForResult"
+        class="com.module.chiclaim.com.fragment.FragmentForResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

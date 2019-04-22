@@ -33,7 +33,7 @@
 
     </RelativeLayout>
 
-    <sample.module.chiclaim.com.fragment.CustomViewPager
+    <com.module.chiclaim.com.fragment.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
