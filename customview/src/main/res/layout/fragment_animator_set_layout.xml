@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="play sequentially"
+        android:textAllCaps="false"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/btn_start_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_start_1"
+        android:text="play together"
+        android:textAllCaps="false"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/btn_start_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_start_2"
+        android:text="play infinitely"
+        android:textAllCaps="false"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/btn_start_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_start_3"
+        android:text="play by builder"
+        android:textAllCaps="false"
+        android:textSize="14sp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_start_4"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_target_animation_a"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:background="#5000ff00"
+            android:gravity="center"
+            android:text="hello"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_target_animation_b"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:background="#5000ff00"
+            android:gravity="center"
+            android:text="world"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp">
+
+        <Button
+            android:id="@+id/menu"
+            style="@style/MenuStyle"
+            android:background="@mipmap/menu"/>
+
+        <Button
+            android:id="@+id/item1"
+            style="@style/MenuItemStyle"
+            android:background="@mipmap/circle1"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/item2"
+            style="@style/MenuItemStyle"
+            android:background="@mipmap/circle2"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/item3"
+            style="@style/MenuItemStyle"
+            android:background="@mipmap/circle3"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/item4"
+            style="@style/MenuItemStyle"
+            android:background="@mipmap/circle4"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/item5"
+            style="@style/MenuItemStyle"
+            android:background="@mipmap/circle5"
+            android:visibility="gone"/>
+    </FrameLayout>
+</RelativeLayout>

@@ -4,33 +4,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="com.chiclaim.customview.MainActivity">
+    <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.chiclaim.customview.MainActivity">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="recyclerViewNested"
-            android:text="recyclerView in recyclerView"
-            android:textAllCaps="false" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="animation"
+                android:text="Animation"
+                android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="testEditTextInMeiZu"
-            android:text="EditText In MeiZu"
-            android:textAllCaps="false" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="recyclerViewNested"
+                android:text="recyclerView in recyclerView"
+                android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="henCoder01"
-            android:text="CustomViewHenCoder01"
-            android:textAllCaps="false" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="testEditTextInMeiZu"
+                android:text="EditText In MeiZu"
+                android:textAllCaps="false"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="henCoder01"
+                android:text="CustomViewHenCoder01"
+                android:textAllCaps="false"/>
 
     </LinearLayout>
 </ScrollView>

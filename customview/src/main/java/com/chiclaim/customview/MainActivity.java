@@ -1,5 +1,6 @@
 package com.chiclaim.customview;
 
+import com.chiclaim.customview.animation.AnimationActivity;
 import com.chiclaim.customview.hencoder.ui01.UI01Activity;
 
 import android.content.Intent;
@@ -27,5 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void henCoder01(View view) {
         startActivity(new Intent(this, UI01Activity.class));
+    }
+
+    public void animation(View view){
+        startActivity(new Intent(this, AnimationActivity.class));
     }
 }

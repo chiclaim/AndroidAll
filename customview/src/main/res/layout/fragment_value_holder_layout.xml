@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_start_animation_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start animation A"
+            android:textAllCaps="false"
+            android:textSize="14sp"/>
+
+
+        <Button
+            android:id="@+id/btn_start_animation_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_start_animation_a"
+            android:text="start animation B"
+            android:textAllCaps="false"
+            android:textSize="14sp"/>
+
+
+        <Button
+            android:id="@+id/btn_start_animation_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_start_animation_a"
+            android:text="start animation C (Keyframe)"
+            android:textAllCaps="false"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_target_animation_a"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#60000000"
+        android:gravity="center"
+        android:text="ValueHolder"
+        android:textSize="14sp"/>
+
+    <com.chiclaim.customview.animation.basic.MyTextView
+        android:id="@+id/tv_target_animation_b"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#600ff000"
+        android:gravity="center"
+        android:text="A"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/iv_key_frame"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:src="@mipmap/phone"/>
+
+</LinearLayout>

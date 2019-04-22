@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_change_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change transparent"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_change_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_change_transparent"
+            android:text="change translationX"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_change_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_change_x"
+            android:text="change translationY"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_change_rotation_z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_change_transparent"
+            android:layout_toRightOf="@id/btn_change_y"
+            android:text="change rotation"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_change_rotation_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_change_rotation_z"
+            android:text="change rotation x"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btn_change_rotation_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_change_rotation_x"
+            android:layout_below="@id/btn_change_rotation_z"
+            android:text="change rotation y"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_target"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:background="@android:color/black"/>
+
+</LinearLayout>

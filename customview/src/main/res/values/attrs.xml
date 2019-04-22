@@ -13,4 +13,9 @@
 
     </declare-styleable>
 
+    <declare-styleable name="ProgressView">
+        <attr name="frameCount" format="integer"/>
+        <attr name="duration" format="integer" />
+    </declare-styleable>
+
 </resources>

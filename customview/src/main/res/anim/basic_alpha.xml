@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- 透明度控制动画效果alpha
+        属性：
+            1. fromAlpha 属性为动画起始时透明度
+            2. toAlpha   属性为动画结束时透明度
+                以上值取0.0-1.0之间的float数据类型的数字
+                [0.0表示完全透明  1.0表示完全不透明]
+
+            3. duration  属性为动画持续时间
+                时间以毫秒为单位
+    -->
+
+    <alpha
+        android:duration="500"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"/>
+
+</set>

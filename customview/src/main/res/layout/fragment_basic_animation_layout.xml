@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#90000000"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="点击从底部出来"
+            android:textColor="#ffffff"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/image"/>
+
+
+    <Button
+        android:id="@+id/btn_alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="alpha"
+        android:textAllCaps="false"
+        android:textSize="14dp"/>
+
+    <Button
+        android:id="@+id/btn_scale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="scale"
+        android:textAllCaps="false"
+        android:textSize="14dp"/>
+
+    <Button
+        android:id="@+id/btn_translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="translate"
+        android:textAllCaps="false"
+        android:textSize="14dp"/>
+
+    <Button
+        android:id="@+id/btn_rotate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="rotate"
+        android:textAllCaps="false"
+        android:textSize="14dp"/>
+
+
+</LinearLayout>

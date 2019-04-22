@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 尺寸伸缩动画效果 scale
+       属性：
+           1. interpolator 指定一个动画的插入器
+                accelerate_decelerate_interpolator  加速-减速 动画插入器
+                accelerate_interpolator        	加速-动画插入器
+                decelerate_interpolator        	减速- 动画插入器
+
+            2. fromXScale 属性为动画起始时 X坐标上的伸缩尺寸
+            3. toXScale   属性为动画结束时 X坐标上的伸缩尺寸
+            4. fromYScale 属性为动画起始时 Y坐标上的伸缩尺寸
+            5. toYScale   属性为动画结束时 Y坐标上的伸缩尺寸
+               以上四种属性值均浮点型值：
+                    0.0表示收缩到没有
+                    1.0表示正常无伸缩
+                    值小于1.0表示收缩
+                    值大于1.0表示放大
+
+            6. pivotX     属性为动画相对于物件的X坐标的开始位置
+            7. pivotY     属性为动画相对于物件的Y坐标的开始位置
+               以上两个属性值 从0%-100%中取值  50%为物件的X或Y方向坐标上的中点位置
+               可以是数值、百分数、百分数p 三种样式，比如 50、50%、50%p，
+               1>当为数值时，表示在当前View的左上角，即原点处加上50px，做为起始缩放点；
+               2>如果是50%，表示在当前控件的左上角加上自己宽度的50%做为起始点；
+               3>如果是50%p，那么就是表示在当前的左上角加上父控件宽度的50%做为起始点x轴坐标。
+
+            8. duration  属性为动画持续时间, 时间以毫秒为单位
+
+            9. fillAfter 当设置为true 该动画转化在动画结束后被应用
+-->
+
+    <scale
+        android:duration="700"
+        android:fillAfter="false"
+        android:fromXScale="0.5"
+        android:fromYScale="0.5"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="90%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0"/>
+
+</set>

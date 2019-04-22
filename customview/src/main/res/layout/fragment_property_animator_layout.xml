@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_property_vs_tween_animation"
+            style="@style/Button_Theme"
+            android:text="ValueAnimator"/>
+
+
+        <Button
+            android:id="@+id/btn_property_interpolator"
+            style="@style/Button_Theme"
+            android:text="ValueAnimator Interpolator"/>
+
+
+        <Button
+            android:id="@+id/btn_property_custom_evaluate"
+            style="@style/Button_Theme"
+            android:text="ValueAnimator Evaluate"/>
+
+
+        <Button
+            android:id="@+id/btn_property_of_object"
+            style="@style/Button_Theme"
+            android:text="ValueAnimator Custom Evaluate"/>
+
+        <Button
+            android:id="@+id/btn_property_argb_evaluate"
+            style="@style/Button_Theme"
+            android:text="ValueAnimator ARGB Evaluate"/>
+
+        <Button
+            android:id="@+id/btn_object_animator"
+            style="@style/Button_Theme"
+            android:text="ObjectAnimator"/>
+
+        <Button
+            android:id="@+id/btn_object_animator_custom_property"
+            style="@style/Button_Theme"
+            android:text="ObjectAnimator Custom Property"/>
+
+        <Button
+            android:id="@+id/btn_object_animator_value_holder"
+            style="@style/Button_Theme"
+            android:text="ObjectAnimator ValueHolder"/>
+
+        <Button
+            android:id="@+id/btn_animator_set"
+            style="@style/Button_Theme"
+            android:text="Animator Set"/>
+
+        <Button
+            android:id="@+id/btn_animator_from_xml"
+            style="@style/Button_Theme"
+            android:text="Animator Set From Xml"/>
+
+        <Button
+            android:id="@+id/btn_animation_layout_changes"
+            style="@style/Button_Theme"
+            android:text="animationLayoutChanges"/>
+
+        <Button
+            android:id="@+id/btn_layout_transition"
+            style="@style/Button_Theme"
+            android:text="LayoutTransition"/>
+
+    </LinearLayout>
+</ScrollView>
