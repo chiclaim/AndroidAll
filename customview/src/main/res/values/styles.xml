@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
     </style>
 
 
@@ -64,5 +65,14 @@
         <item name="android:layout_width">45dp</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_gravity">right|bottom</item>
+    </style>
+
+
+    <style name="Widget.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+        <!--remove the padding/margin of left side of Toolbar-->
+        <item name="contentInsetStart">0dp</item>
+        <!--remove the padding/margin between left icon and title-->
+        <item name="contentInsetStartWithNavigation">0dp</item>
+
     </style>
 </resources>
