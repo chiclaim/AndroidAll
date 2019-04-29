@@ -49,6 +49,60 @@ class BasicCoroutineActivity : BaseActivity() {
         }
     }
 
+
+    fun sequential(view: View) {
+        text_content.text = "start tasks with sequential"
+        launch {
+            val result = withContext(Dispatchers.Default) {
+                sleep()
+                "the value1 from task1 with thread: ${Thread.currentThread().name}"
+            }
+            text_content.apply {
+                append("\n")
+                append(result)
+            }
+
+            val result2 = withContext(Dispatchers.Default) {
+                sleep()
+                "the value2 from task2 with thread: ${Thread.currentThread().name}"
+            }
+            text_content.apply {
+                append("\n")
+                append(result2)
+            }
+        }
+    }
+
+    fun parallel(view: View) {
+        text_content.text = "start tasks with parallel"
+        launch {
+            val deferred = async(Dispatchers.Default) {
+                launch(Dispatchers.Main) {
+                    text_content.apply {
+                        append("\n")
+                        append("start task1...")
+                    }
+                }
+
+                sleep()
+                "the value1 from task1 with thread: ${Thread.currentThread().name}"
+            }
+
+            val deferred2 = async(Dispatchers.Default) {
+                launch(Dispatchers.Main) {
+                    text_content.apply {
+                        append("\n")
+                        append("start task2...")
+                    }
+                }
+                sleep()
+                "the value2 from task2 with thread: ${Thread.currentThread().name}"
+            }
+            text_content.append("\n" + deferred.await() + "\n" + deferred2.await())
+        }
+    }
+
+
     private fun sleep() {
         Thread.sleep(2000)
     }

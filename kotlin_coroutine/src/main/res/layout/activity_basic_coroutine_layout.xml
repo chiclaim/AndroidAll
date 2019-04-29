@@ -4,12 +4,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
         <Button
+                android:id="@+id/btn_launch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
@@ -17,19 +18,45 @@
                 android:text="launch"/>
 
         <Button
+                android:id="@+id/btn_async"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btn_launch"
                 android:textAllCaps="false"
                 android:onClick="async"
                 android:text="async"/>
 
         <Button
+                android:id="@+id/btn_with_context"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btn_async"
                 android:textAllCaps="false"
                 android:onClick="withContext"
                 android:text="withContext"/>
-    </LinearLayout>
+
+
+        <Button
+                android:id="@+id/btn_sequential_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_launch"
+                android:textAllCaps="false"
+                android:onClick="sequential"
+                android:text="Sequential Task"/>
+
+        <Button
+                android:id="@+id/btn_parallel_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_launch"
+                android:layout_toRightOf="@id/btn_sequential_task"
+                android:textAllCaps="false"
+                android:onClick="parallel"
+                android:text="Parallel Task"/>
+
+
+    </RelativeLayout>
 
     <TextView
             android:id="@+id/text_content"
