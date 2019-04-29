@@ -3,10 +3,10 @@ package com.chiclaim.coroutine
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_basic_coroutine_layout.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
+import java.io.IOException
+import java.lang.Exception
+import java.lang.IllegalArgumentException
 
 class BasicCoroutineActivity : BaseActivity() {
 
@@ -48,7 +48,6 @@ class BasicCoroutineActivity : BaseActivity() {
             text_content.text = result
         }
     }
-
 
     fun sequential(view: View) {
         text_content.text = "start tasks with sequential"
@@ -103,7 +102,62 @@ class BasicCoroutineActivity : BaseActivity() {
     }
 
 
-    private fun sleep() {
-        Thread.sleep(2000)
+    // App will crash
+    fun asyncException(view: View) {
+        launch {
+            val run = async(Dispatchers.IO) {
+                //throw exception
+                if (isActive) {
+                    throw IOException()
+                }
+                "result"
+            }
+
+            try {
+                val result = run.await()
+                println("result=$result")
+            } catch (x: Throwable) {
+                println("catch a exception:$x")
+            }
+        }
+    }
+
+    // App would not crash
+    fun asyncException2(view: View) {
+        launch {
+            text_content.text = "async will throw exception"
+            supervisorScope {
+                val run = async(Dispatchers.IO) {
+                    //throw exception
+                    if (isActive) {
+                        throw IOException()
+                    }
+                    "the result from async"
+                }
+
+                try {
+                    val result = run.await()
+                    text_content.append("\n $result")
+
+                } catch (x: Throwable) {
+                    text_content.append("\ncatch a exception:$x")
+                }
+            }
+        }
+    }
+
+    fun cancel(view: View) {
+
+    }
+
+
+
+    private fun sleep(timeout: Long = 2000) {
+        Thread.sleep(timeout)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineContext.cancelChildren()
     }
 }

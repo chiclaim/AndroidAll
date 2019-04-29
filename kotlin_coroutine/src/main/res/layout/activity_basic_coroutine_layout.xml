@@ -7,6 +7,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#e6e6e6"
             android:orientation="horizontal">
 
         <Button
@@ -55,6 +56,36 @@
                 android:onClick="parallel"
                 android:text="Parallel Task"/>
 
+        <Button
+                android:id="@+id/btn_async_exception"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_launch"
+                android:layout_toRightOf="@id/btn_parallel_task"
+                android:textAllCaps="false"
+                android:onClick="asyncException"
+                android:text="asyncException"/>
+
+        <Button
+                android:id="@+id/btn_async_exception2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_async_exception"
+                android:textAllCaps="false"
+                android:onClick="asyncException2"
+                android:text="asyncException2"/>
+
+
+        <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btn_async_exception2"
+                android:layout_below="@+id/btn_async_exception"
+                android:textAllCaps="false"
+                android:onClick="cancel"
+                android:text="Cancel Coroutine"/>
+
 
     </RelativeLayout>
 
@@ -63,7 +94,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp"/>
 
 </LinearLayout>
