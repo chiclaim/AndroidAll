@@ -79,6 +79,8 @@
 - [（二）Flutter学习之Dart展开操作符 和 Control Flow Collections
 ](https://chiclaim.blog.csdn.net/article/details/94617048)
 - [（三）Flutter学习之Dart函数](https://chiclaim.blog.csdn.net/article/details/94861914)
+- [（四）Flutter学习之Dart操作符、控制流和异常处理](https://chiclaim.blog.csdn.net/article/details/95072693)
+- [（五）Flutter学习之Dart面向对象](https://chiclaim.blog.csdn.net/article/details/96826144)
 - 更新中...
 
 
