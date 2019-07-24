@@ -81,6 +81,7 @@
 - [（三）Flutter学习之Dart函数](https://chiclaim.blog.csdn.net/article/details/94861914)
 - [（四）Flutter学习之Dart操作符、控制流和异常处理](https://chiclaim.blog.csdn.net/article/details/95072693)
 - [（五）Flutter学习之Dart面向对象](https://chiclaim.blog.csdn.net/article/details/96826144)
+- [（六）Flutter学习之Dart异步操作详解](https://chiclaim.blog.csdn.net/article/details/97099388)
 - 更新中...
 
 
