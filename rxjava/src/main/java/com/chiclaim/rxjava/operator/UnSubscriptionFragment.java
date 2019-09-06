@@ -26,8 +26,8 @@ import rx.schedulers.Schedulers;
 
 public class UnSubscriptionFragment extends BaseFragment {
 
-    rx.Subscription subscription, subscription2;
-    TextView tvLogs;
+    private  rx.Subscription subscription, subscription2;
+    private  TextView tvLogs;
 
     @Nullable
     @Override

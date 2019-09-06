@@ -22,18 +22,17 @@ import rx.subscriptions.CompositeSubscription;
  */
 public class UseRxJavaRightWayActivity extends AppCompatActivity {
 
-    final UserApi userApi = ApiServiceFactory.createService(UserApi.class);
+    private final UserApi userApi = ApiServiceFactory.createService(UserApi.class);
 
-    CompositeSubscription compositeSubscription = new CompositeSubscription();
-    Subscription subscriptionForUser;
-    TextView tvContent;
+    private CompositeSubscription compositeSubscription = new CompositeSubscription();
+    private TextView tvContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_use_rxjava_right_way);
-        tvContent = (TextView) findViewById(R.id.tv_content);
-        subscriptionForUser = userApi.getUserInfo()
+        tvContent = findViewById(R.id.tv_content);
+        Subscription subscriptionForUser = userApi.getUserInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Response>() {

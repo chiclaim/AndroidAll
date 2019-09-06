@@ -69,11 +69,7 @@ public class ObservableDependencyFragment extends BaseFragment {
                     String ip = getIPByUrl(url);
                     subscriber.onNext(ip);
                     printLog(tvLogs, "Emit Data -> ", ip);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                    //subscriber.onError(e);
-                    subscriber.onNext(null);
-                } catch (UnknownHostException e) {
+                } catch (MalformedURLException | UnknownHostException e) {
                     e.printStackTrace();
                     //subscriber.onError(e);
                     subscriber.onNext(null);

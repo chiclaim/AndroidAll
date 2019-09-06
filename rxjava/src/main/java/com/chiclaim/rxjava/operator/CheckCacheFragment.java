@@ -24,7 +24,7 @@ import rx.schedulers.Schedulers;
 public class CheckCacheFragment extends BaseFragment {
 
 
-    TextView tvLogs;
+    private TextView tvLogs;
 
     @Nullable
     @Override
@@ -40,7 +40,7 @@ public class CheckCacheFragment extends BaseFragment {
     }
 
     //String data[] = {null, null, null};
-    String data[] = {null, null, "network"};
+    private String[] data = {null, null, "network"};
     //String data[] = {null, "disk","network"};
     //String data[] = {"memory", null,"network"};
     //String data[] = {"memory", "disk",null};

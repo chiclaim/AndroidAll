@@ -49,7 +49,7 @@ public class HttpWithTokenFragment extends BaseFragment {
     }
 
 
-    public Observable<AuthToken> createTokenObvervable() {
+    private Observable<AuthToken> createTokenObservable() {
         return Observable.create(new Observable.OnSubscribe<AuthToken>() {
             @Override
             public void call(Subscriber<? super AuthToken> observer) {
@@ -73,7 +73,7 @@ public class HttpWithTokenFragment extends BaseFragment {
                 throwable.printStackTrace();
                 // Here check if the error thrown really is a 401
                 if (isHttp401Error(throwable)) {
-                    return createTokenObvervable().flatMap(new Func1<AuthToken, Observable<? extends T>>() {
+                    return createTokenObservable().flatMap(new Func1<AuthToken, Observable<? extends T>>() {
                         @Override
                         public Observable<? extends T> call(AuthToken token) {
                             appendText(tvLogs, "refresh token success,token's validity is 10s\nResume last request");

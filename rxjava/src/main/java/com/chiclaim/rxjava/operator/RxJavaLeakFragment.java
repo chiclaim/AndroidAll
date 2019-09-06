@@ -28,8 +28,8 @@ import rx.functions.Func1;
  */
 
 public class RxJavaLeakFragment extends BaseFragment {
-    OtherApi otherApi;
-    Subscription retrofitSubscription;
+    private OtherApi otherApi;
+    private Subscription retrofitSubscription;
 
     @Nullable
     @Override

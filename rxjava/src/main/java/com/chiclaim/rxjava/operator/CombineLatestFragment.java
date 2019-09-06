@@ -30,8 +30,8 @@ import rx.schedulers.Schedulers;
 
 public class CombineLatestFragment extends BaseFragment {
 
-    UserApi userApi;
-    TextView tvLogs;
+    private UserApi userApi;
+    private TextView tvLogs;
 
     @Nullable
     @Override
