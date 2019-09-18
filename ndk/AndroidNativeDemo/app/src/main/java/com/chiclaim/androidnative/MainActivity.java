@@ -9,18 +9,24 @@ import com.chiclaim.androidnative.jni.JNIHolder;
 
 public class MainActivity extends AppCompatActivity {
 
+    private JNIHolder jniHolder = new JNIHolder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Example of a call to a native method
-        TextView tv = findViewById(R.id.sample_text);
-        tv.setText(new JNIHolder().stringFromJNI());
-
         TextView tv2 = findViewById(R.id.sample_text2);
-        tv2.setText(JNIHolder.stringFromJNI2());
+        tv2.setText(jniHolder.stringFromJNI());
+        tv2.append("\n");
+        tv2.append(JNIHolder.stringFromJNI2());
+        tv2.append("\n");
+        tv2.append(jniHolder.getIntArrayFromJNI());
+        tv2.append("\n");
+        tv2.append("在 Native 中将 number 从 ");
+        tv2.append(jniHolder.number + " ");
+        tv2.append("改成");
+        tv2.append(jniHolder.updateObjProperty() + "");
     }
 
 

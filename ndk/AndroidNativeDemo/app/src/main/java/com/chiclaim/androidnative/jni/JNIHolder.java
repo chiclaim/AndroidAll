@@ -7,18 +7,31 @@ package com.chiclaim.androidnative.jni;
  */
 public class JNIHolder {
 
-    // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
 
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
     public native String stringFromJNI();
+
     public native static String stringFromJNI2();
+
+    public native int[] getIntArray();
+
+    public native int updateObjProperty();
+
+    public String getIntArrayFromJNI() {
+        int[] arr = getIntArray();
+        StringBuilder builder = new StringBuilder();
+        builder.append("从 Native 获取 int[]：");
+        for (int i : arr) {
+            builder.append(i).append(",");
+        }
+        return builder.toString();
+    }
+
+    public int number = 5;
+
 
 
 }
