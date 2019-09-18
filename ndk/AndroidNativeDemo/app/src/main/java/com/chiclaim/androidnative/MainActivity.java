@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chiclaim.androidnative.jni.JNIHolder;
+import com.chiclaim.androidnative.jni.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
         tv2.append("\n");
         tv2.append(jniHolder.getIntArrayFromJNI());
         tv2.append("\n");
-        tv2.append("在 Native 中将 number 从 ");
-        tv2.append(jniHolder.number + " ");
-        tv2.append("改成");
+        tv2.append("在 Native 中修改 number 的值 ");
         tv2.append(jniHolder.updateObjProperty() + "");
+        tv2.append("\n");
+        tv2.append(jniHolder.invokeObjMethod());
+
+        User user = jniHolder.createObj();
+        tv2.append("\n");
+        tv2.append("Native 创建 Java 对象并返回：" + user.getUsername());
     }
 
 

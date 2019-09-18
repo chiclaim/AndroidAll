@@ -20,6 +20,10 @@ public class JNIHolder {
 
     public native int updateObjProperty();
 
+    public native String invokeObjMethod();
+
+    public native User createObj();
+
     public String getIntArrayFromJNI() {
         int[] arr = getIntArray();
         StringBuilder builder = new StringBuilder();
@@ -30,7 +34,14 @@ public class JNIHolder {
         return builder.toString();
     }
 
-    public int number = 5;
+    // 私有字段也可以被 Native 访问
+    private int number = 5;
+
+    // 私有方法也可以被 Native 调用
+    private String methodForJNI(int value) {
+        return "本方法被 Native 调用，参数为：" + value;
+    }
+
 
 
 
