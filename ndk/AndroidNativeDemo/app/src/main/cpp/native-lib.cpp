@@ -1,6 +1,16 @@
 #include <jni.h>
 #include <string>
 
+#include <android/log.h>
+
+#define TAG "AndroidNativeDemo" // 这个是自定义的LOG的标识
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) // 定义LOGD类型
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
+#define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
+
+
 // Native 返回一个字符串（实例方法）
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_chiclaim_androidnative_jni_JNIHolder_stringFromJNI(
@@ -42,9 +52,16 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_updateObjProperty(
     jclass jclazz = env->GetObjectClass(obj);
     jfieldID jfid = env->GetFieldID(jclazz, "number", "I");
 
+
+    // jclass jIntClass = env->FindClass("java/lang/Integer");
+    // jint 不能赋值给 jobject
+    // 注意区分，Java 中的 int 和 Integer，JNI 是不会自动装箱和拆箱的
+    // valueOf 入参是 int ，返回值为 Integer
+    // jmethodID valueOf = env->GetStaticMethodID(jIntClass, "valueOf", "(I)Ljava/lang/Integer;");
+    // jobject v = env->CallStaticObjectMethod(jIntClass, valueOf, COUNT);
+
     // 设置属性的值
-    //jint newValue = COUNT;
-    //env->SetObjectField(obj, jfid, (jobject) newValue);
+    env->SetIntField(obj, jfid, COUNT);
 
     // 获取属性的值
     jint value = env->GetIntField(obj, jfid);

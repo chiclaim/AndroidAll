@@ -37,7 +37,7 @@ public class JNIHolder {
     }
 
     // 私有字段也可以被 Native 访问
-    private int number = 5;
+    public int number = 5;
 
     // 私有方法也可以被 Native 调用
     private String methodForJNI(int value) {

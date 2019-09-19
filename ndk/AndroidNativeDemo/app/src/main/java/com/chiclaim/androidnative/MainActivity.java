@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         tv2.append("\n");
         tv2.append(jniHolder.getIntArrayFromJNI());
         tv2.append("\n");
-        tv2.append("在 Native 中修改 number 的值 ");
+        tv2.append("在 Native 中将 number = " + jniHolder.number + " 的值改为 ");
         tv2.append(jniHolder.updateObjProperty() + "");
         tv2.append("\n");
         tv2.append(jniHolder.invokeObjMethod());
