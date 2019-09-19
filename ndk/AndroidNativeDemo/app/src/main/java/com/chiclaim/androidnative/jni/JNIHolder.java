@@ -24,6 +24,8 @@ public class JNIHolder {
 
     public native User createObj();
 
+    public native void updateIntArray(int[] array);
+
     public String getIntArrayFromJNI() {
         int[] arr = getIntArray();
         StringBuilder builder = new StringBuilder();
@@ -41,8 +43,6 @@ public class JNIHolder {
     private String methodForJNI(int value) {
         return "本方法被 Native 调用，参数为：" + value;
     }
-
-
 
 
 }

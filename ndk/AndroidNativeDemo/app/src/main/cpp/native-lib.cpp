@@ -20,7 +20,7 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_stringFromJNI2(
 }
 
 const jint COUNT = 10;
-// Native 返回一个字符串（静态方法）
+// Native 返回一个int数组
 extern "C" JNIEXPORT jintArray JNICALL
 Java_com_chiclaim_androidnative_jni_JNIHolder_getIntArray(
         JNIEnv *env,
@@ -48,7 +48,28 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_updateObjProperty(
 
     // 获取属性的值
     jint value = env->GetIntField(obj, jfid);
+
+    env->DeleteLocalRef(jclazz);
+
     return value;
+}
+
+const int VALUE = 100;
+
+// Native 修改 Java 传递进来的数组
+extern "C" JNIEXPORT void JNICALL
+Java_com_chiclaim_androidnative_jni_JNIHolder_updateIntArray(
+        JNIEnv *env,
+        jobject,
+        jintArray intArray) {
+    jboolean isCopy = static_cast<jboolean>(false);
+    jint *arr = env->GetIntArrayElements(intArray, &isCopy);
+    jint length = env->GetArrayLength(intArray);
+    arr[0] = VALUE;
+
+    env->SetIntArrayRegion(intArray, 0, length, arr);
+
+    env->ReleaseIntArrayElements(intArray, arr, JNI_ABORT);
 }
 
 
