@@ -90,14 +90,11 @@ extern "C" JNIEXPORT jobject JNICALL
 Java_com_chiclaim_androidnative_jni_JNIHolder_createObj(
         JNIEnv *env,
         jobject) {
-    jclass jclazz = env->FindClass("com/chiclaim/androidnative/jni.User");
+    jclass jclazz = env->FindClass("com/chiclaim/androidnative/jni/User");
     jmethodID jmid = env->GetMethodID(jclazz, "<init>", "(Ljava/lang/String;)V");
     jstring username = env->NewStringUTF("Chiclaim");
     jobject user = env->NewObject(jclazz, jmid, username);
     env->DeleteLocalRef(jclazz);
-
-    // use 是否能被释放
-    // env->DeleteLocalRef(user);
     return user;
 }
 
