@@ -80,6 +80,7 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_invokeObjMethod(
         jobject obj) {
     jclass jclazz = env->GetObjectClass(obj);
     jmethodID jmid = env->GetMethodID(jclazz, "methodForJNI", "(I)Ljava/lang/String;");
+    env->DeleteLocalRef(jclazz);
     return (jstring) env->CallObjectMethod(obj, jmid, COUNT);
 }
 
@@ -93,6 +94,10 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_createObj(
     jmethodID jmid = env->GetMethodID(jclazz, "<init>", "(Ljava/lang/String;)V");
     jstring username = env->NewStringUTF("Chiclaim");
     jobject user = env->NewObject(jclazz, jmid, username);
+    env->DeleteLocalRef(jclazz);
+
+    // use 是否能被释放
+    // env->DeleteLocalRef(user);
     return user;
 }
 

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         jniHolder.updateIntArray(array);
 
         tv2.append("\n");
-        tv2.append(array[0] + "");
+        tv2.append("Native 修改 Java int数组：" + array[0]);
     }
 
 
