@@ -44,6 +44,24 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_getIntArray(
     return _intArray;
 }
 
+const int VALUE = 100;
+
+// Native 修改 Java 传递进来的数组
+extern "C" JNIEXPORT void JNICALL
+Java_com_chiclaim_androidnative_jni_JNIHolder_updateIntArray(
+        JNIEnv *env,
+        jobject,
+        jintArray intArray) {
+    jboolean isCopy = static_cast<jboolean>(false);
+    jint *arr = env->GetIntArrayElements(intArray, &isCopy);
+    jint length = env->GetArrayLength(intArray);
+    arr[0] = VALUE;
+
+    env->SetIntArrayRegion(intArray, 0, length, arr);
+
+    env->ReleaseIntArrayElements(intArray, arr, JNI_ABORT);
+}
+
 // Native 设置/获取 Java 对象的属性
 extern "C" JNIEXPORT jint JNICALL
 Java_com_chiclaim_androidnative_jni_JNIHolder_updateObjProperty(
@@ -71,23 +89,7 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_updateObjProperty(
     return value;
 }
 
-const int VALUE = 100;
 
-// Native 修改 Java 传递进来的数组
-extern "C" JNIEXPORT void JNICALL
-Java_com_chiclaim_androidnative_jni_JNIHolder_updateIntArray(
-        JNIEnv *env,
-        jobject,
-        jintArray intArray) {
-    jboolean isCopy = static_cast<jboolean>(false);
-    jint *arr = env->GetIntArrayElements(intArray, &isCopy);
-    jint length = env->GetArrayLength(intArray);
-    arr[0] = VALUE;
-
-    env->SetIntArrayRegion(intArray, 0, length, arr);
-
-    env->ReleaseIntArrayElements(intArray, arr, JNI_ABORT);
-}
 
 
 // Native 调用 Java 对象的方法
@@ -117,3 +119,9 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_createObj(
 
 
 
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_chiclaim_androidnative_jni_JNIHolder_equals(
+        JNIEnv *env, jobject thiz, jobject user1,
+        jobject user2) {
+    return env->IsSameObject(user1, user2);
+}

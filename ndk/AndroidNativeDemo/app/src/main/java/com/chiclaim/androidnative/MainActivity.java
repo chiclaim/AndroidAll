@@ -1,6 +1,8 @@
 package com.chiclaim.androidnative;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            String[] supportedAIs = Build.SUPPORTED_ABIS;
+            for (String abi : supportedAIs) {
+                Log.d("MainActivity", "----abi:" + abi);
+            }
+        }
+
 
         TextView tv2 = findViewById(R.id.sample_text2);
         tv2.setText(jniHolder.stringFromJNI());
@@ -38,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
         tv2.append("\n");
         tv2.append("Native 修改 Java int数组：" + array[0]);
+
+
+        tv2.append("\n");
+        tv2.append("判断对象是否相等：" + jniHolder.equals(user, user));
+
+        tv2.append("\n");
+        tv2.append("判断对象是否相等2：" + jniHolder.equals(user, new User("Chiclaim")));
+
     }
 
 

@@ -26,6 +26,8 @@ public class JNIHolder {
 
     public native void updateIntArray(int[] array);
 
+    public native boolean equals(User user1,User user2);
+
     public String getIntArrayFromJNI() {
         int[] arr = getIntArray();
         StringBuilder builder = new StringBuilder();
