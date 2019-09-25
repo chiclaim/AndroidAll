@@ -125,3 +125,22 @@ Java_com_chiclaim_androidnative_jni_JNIHolder_equals(
         jobject user2) {
     return env->IsSameObject(user1, user2);
 }
+
+
+jobject holdObj = NULL;
+
+extern "C" JNIEXPORT  void JNICALL
+Java_com_chiclaim_androidnative_jni_JNIHolder_holdUser(
+        JNIEnv *env, jobject thiz, jobject user) {
+    //holdObj = user; error
+    holdObj = env->NewGlobalRef(user);
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_chiclaim_androidnative_jni_JNIHolder_gcTest(
+        JNIEnv *env, jobject thiz) {
+    jclass jclazz = env->GetObjectClass(holdObj);
+    jmethodID jmid = env->GetMethodID(jclazz, "getUsername", "()Ljava/lang/String;");
+    env->DeleteLocalRef(jclazz);
+    return (jstring) env->CallObjectMethod(holdObj, jmid);
+}

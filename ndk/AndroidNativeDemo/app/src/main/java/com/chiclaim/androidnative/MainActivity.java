@@ -3,6 +3,7 @@ package com.chiclaim.androidnative;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,13 @@ import com.chiclaim.androidnative.jni.User;
 public class MainActivity extends AppCompatActivity {
 
     private JNIHolder jniHolder = new JNIHolder();
+
+    private TextView tv2;
+
+    public void testGC(View view){
+        tv2.append("\n");
+        tv2.append("测试 JNI GC：" + jniHolder.gcTest());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        TextView tv2 = findViewById(R.id.sample_text2);
+        tv2 = findViewById(R.id.sample_text2);
         tv2.setText(jniHolder.stringFromJNI());
         tv2.append("\n");
         tv2.append(JNIHolder.stringFromJNI2());
@@ -53,8 +61,13 @@ public class MainActivity extends AppCompatActivity {
         tv2.append("\n");
         tv2.append("判断对象是否相等：" + jniHolder.equals(user, user));
 
+        User u = new User("Chiclaim local obj");
+
         tv2.append("\n");
-        tv2.append("判断对象是否相等2：" + jniHolder.equals(user, new User("Chiclaim")));
+        tv2.append("判断对象是否相等2：" + jniHolder.equals(user, u));
+
+        jniHolder.holdUser(u);
+
 
     }
 
