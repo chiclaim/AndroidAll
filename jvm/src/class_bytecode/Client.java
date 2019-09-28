@@ -1,3 +1,5 @@
+package class_bytecode;
+
 import java.io.Serializable;
 
 @Deprecated
