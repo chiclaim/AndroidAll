@@ -1,10 +1,11 @@
-package feature;
+package feature.method_handle;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
 public class MethodHandleTest {
+
     class GrandFather {
         void thinking() {
             System.out.println("i am grandfather");
@@ -18,6 +19,8 @@ public class MethodHandleTest {
     }
 
     class Son extends Father {
+
+        // https://www.zhihu.com/question/40427344
         void thinking() {
             try {
                 MethodType mt = MethodType.methodType(void.class);
@@ -25,12 +28,14 @@ public class MethodHandleTest {
                         "thinking", mt, getClass());
                 mh.invoke(this);
             } catch (Throwable e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static void main(String[] args) {
-        (new MethodHandleTest().new Son()).thinking();
+    public int sum(int a, int b) {
+        return a + b;
     }
+
 
 }
