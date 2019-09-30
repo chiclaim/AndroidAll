@@ -8,6 +8,7 @@ public class Client implements Serializable {
     @Deprecated
     private String username;
 
+    @Deprecated
     public String getUsername() {
         return username;
     }
@@ -20,5 +21,6 @@ public class Client implements Serializable {
         Client client = new Client();
         client.setUsername("Chiclaim");
         System.out.println(client.getUsername());
+
     }
 }
