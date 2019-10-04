@@ -1,4 +1,4 @@
-package class_bytecode;
+package class_load;
 
 public class BytecodeVerify {
     public static void main(String[]args){
@@ -8,7 +8,7 @@ public class BytecodeVerify {
         /*
 
         Exception in thread "main" java.lang.NoSuchMethodError: java.io.PrintStream.printll(J)V
-        at class_bytecode.BytecodeVerify.main(BytecodeVerify.java:6)
+        at class_load.BytecodeVerify.main(BytecodeVerify.java:6)
 
          */
     }
