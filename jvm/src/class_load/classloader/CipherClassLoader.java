@@ -42,7 +42,7 @@ public class CipherClassLoader extends ClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        String classFileName = classDir + "\\" + name.substring(name.lastIndexOf('.') + 1) + ".class";
+        String classFileName = classDir + "\\" + name.substring(name.lastIndexOf('.') + 1) + ".class1";
         try {
             FileInputStream fis = new FileInputStream(classFileName);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
