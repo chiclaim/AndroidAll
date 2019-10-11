@@ -1,4 +1,4 @@
-package class_bytecode;
+package instruction;
 
 public class InvokeDynamic {
 
