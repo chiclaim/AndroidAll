@@ -1,4 +1,4 @@
-package class_bytecode.instruction.load;
+package instruction.load;
 
 public class Client {
 

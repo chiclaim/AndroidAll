@@ -1,4 +1,4 @@
-package class_bytecode.instruction.sync;
+package instruction.sync;
 
 public class Client {
 
