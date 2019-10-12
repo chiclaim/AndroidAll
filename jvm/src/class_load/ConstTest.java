@@ -1,8 +1,8 @@
 package class_load;
 
-public class ConstClass {
+public class ConstTest {
     static {
-        System.out.println("ConstClass init");
+        System.out.println("ConstTest init");
     }
 
     public static final String HELLO_WORLD = "HelloWorld";
