@@ -1,5 +1,4 @@
 package gc;
-
 public class GcTest {
 
     // 通过 DisableExplicitGC 禁用调用 gc API
