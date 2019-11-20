@@ -1,19 +1,21 @@
 package gc.objsize;
 
+import sun.misc.VMSupport;
+
 import java.lang.instrument.Instrumentation;
 
 public class ObjectSize {
 
-    private static volatile Instrumentation globalInstr;
+    private static volatile Instrumentation instrumentation;
 
     public static void premain(String args, Instrumentation inst) {
-        globalInstr = inst;
+        instrumentation = inst;
     }
 
     public static long getObjectSize(Object obj) {
-        if (globalInstr == null)
-            throw new IllegalStateException("Agent not initialed");
-        return globalInstr.getObjectSize(obj);
+        if (instrumentation == null)
+            throw new IllegalStateException("Instrumentation not initialed");
+        return instrumentation.getObjectSize(obj);
     }
 
     public static void main(String[] args) {
@@ -43,15 +45,15 @@ public class ObjectSize {
             1048600
 
 
-            java -XX:-UseCompressedOops XX:UseCompressedClassPointers -javaagent:agent.jar gc.objsize.ObjectSize
+            java -XX:-UseCompressedOops XX:-UseCompressedClassPointers -javaagent:agent.jar gc.objsize.ObjectSize
          */
 
-        System.out.println("empty object " + getObjectSize(new Object())); //16
-        System.out.println("empty myObject " + getObjectSize(new MyObject())); //16
-        System.out.println("empty myObject2 " + getObjectSize(new MyObject2()));
-        System.out.println("byte[0] " + getObjectSize(new byte[0])); //16
-        System.out.println("byte[7] " + getObjectSize(new byte[7])); //24 padding补齐
-        System.out.println("byte[1024 * 1024] " + getObjectSize(new byte[1024 * 1024])); //1024 * 1024 + 16 = 1048592
+        System.out.println("empty object = " + getObjectSize(new Object())); //16
+        System.out.println("empty myObject1 = " + getObjectSize(new MyObject1()));
+        System.out.println("byte[0] = " + getObjectSize(new byte[0])); //16
+        System.out.println("byte[7] = " + getObjectSize(new byte[7])); //24 padding补齐
+        System.out.println("byte[9] = " + getObjectSize(new byte[9]));
+        System.out.println("byte[1024 * 1024] = " + getObjectSize(new byte[1024 * 1024])); //1024 * 1024 + 16 = 1048592
     }
 
 
