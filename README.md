@@ -6,7 +6,9 @@
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
-## 设计模式
+## 设计原则与架构
+
+### 设计模式
 
 - [设计模式 ~ 面向对象 6 大设计原则剖析与实战](https://chiclaim.blog.csdn.net/article/details/100566036)
 - [设计模式 ~ 模板方法模式分析与实战](https://chiclaim.blog.csdn.net/article/details/100584000)
@@ -20,27 +22,8 @@
 - [设计模式 ~ 小结](https://chiclaim.blog.csdn.net/article/details/100931166)
 
 
-## RxJava 
 
-- [RxJava create操作符的用法和源码分析](/rxjava/blogs/rxjava-create-source-analysis.md)
-- [RxJava map操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51531348)
-- [RxJava flatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51532776)
-- [RxJava concatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51533282)
-- [RxJava onErrorResumeNext操作符实现app与服务器间token机制](http://blog.csdn.net/johnny901114/article/details/51533586)
-- [RxJava retryWhen操作符实现错误重试机制](http://blog.csdn.net/johnny901114/article/details/51539708)
-- [RxJava 使用debounce操作符优化app搜索功能](http://blog.csdn.net/johnny901114/article/details/51555203)
-- [RxJava concat操作处理多数据源](http://blog.csdn.net/johnny901114/article/details/51568562)
-- [RxJava zip操作符在Android中的实际使用场景](http://blog.csdn.net/johnny901114/article/details/51614927)
-- [RxJava switchIfEmpty操作符实现Android检查本地缓存逻辑判断](http://blog.csdn.net/johnny901114/article/details/52585912)
-- [RxJava defer操作符实现代码支持链式调用](http://blog.csdn.net/johnny901114/article/details/52597643)
-- [combineLatest操作符的高级使用](http://blog.csdn.net/johnny901114/article/details/61191723)
-- [RxJava导致Fragment Activity内存泄漏问题](http://blog.csdn.net/johnny901114/article/details/67640594)
-- [interval、takeWhile操作符实现获取验证码功能](http://blog.csdn.net/johnny901114/article/details/79037306)
-- [RxJava线程的自由切换](http://blog.csdn.net/johnny901114/article/details/80032801)
-
-
-
-## Android Architecture
+### Android Architecture
 
 - [Android MVP架构改造~如何重用顶层业务](https://chiclaim.blog.csdn.net/article/details/88050156)
 - [二维火Android云收银模块化架构实践](https://chiclaim.blog.csdn.net/article/details/78346125)
@@ -48,7 +31,21 @@
 - [Android-MVVM架构-Data Binding的使用](https://chiclaim.blog.csdn.net/article/details/50706329)
 
 
-## DataStructure & Algorithm
+## 虚拟机
+
+### JVM
+
+- [深入理解 Java 虚拟机（一）~ class 字节码文件剖析](https://chiclaim.blog.csdn.net/article/details/101778619)
+- [深入理解 Java 虚拟机（二）~ 类的加载过程剖析](https://chiclaim.blog.csdn.net/article/details/102177986)
+- [深入理解 Java 虚拟机（三）~ class 字节码的执行过程剖析](https://chiclaim.blog.csdn.net/article/details/102508069)
+- [深入理解 Java 虚拟机（四）~ 各种容易混淆的常量池](https://chiclaim.blog.csdn.net/article/details/102537682)
+- [深入理解 Java 虚拟机（五）~ 对象的创建过程](https://chiclaim.blog.csdn.net/article/details/102573221)
+- [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
+
+
+
+## 数据结构与算法
+
 - [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
 - [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
 - [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
@@ -71,12 +68,33 @@
 - [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
 - [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
 
-## Dagger2
+## Android 框架
+
+### RxJava 
+
+- [RxJava create操作符的用法和源码分析](/rxjava/blogs/rxjava-create-source-analysis.md)
+- [RxJava map操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51531348)
+- [RxJava flatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51532776)
+- [RxJava concatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51533282)
+- [RxJava onErrorResumeNext操作符实现app与服务器间token机制](http://blog.csdn.net/johnny901114/article/details/51533586)
+- [RxJava retryWhen操作符实现错误重试机制](http://blog.csdn.net/johnny901114/article/details/51539708)
+- [RxJava 使用debounce操作符优化app搜索功能](http://blog.csdn.net/johnny901114/article/details/51555203)
+- [RxJava concat操作处理多数据源](http://blog.csdn.net/johnny901114/article/details/51568562)
+- [RxJava zip操作符在Android中的实际使用场景](http://blog.csdn.net/johnny901114/article/details/51614927)
+- [RxJava switchIfEmpty操作符实现Android检查本地缓存逻辑判断](http://blog.csdn.net/johnny901114/article/details/52585912)
+- [RxJava defer操作符实现代码支持链式调用](http://blog.csdn.net/johnny901114/article/details/52597643)
+- [combineLatest操作符的高级使用](http://blog.csdn.net/johnny901114/article/details/61191723)
+- [RxJava导致Fragment Activity内存泄漏问题](http://blog.csdn.net/johnny901114/article/details/67640594)
+- [interval、takeWhile操作符实现获取验证码功能](http://blog.csdn.net/johnny901114/article/details/79037306)
+- [RxJava线程的自由切换](http://blog.csdn.net/johnny901114/article/details/80032801)
+
+
+### Dagger2
 
 - [Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
 - [Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
 
-## ButterKnife
+### ButterKnife
 
 - [Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
 - [Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
@@ -87,6 +105,8 @@
 - [Android WebView文件上传及自定义文件选择器](https://chiclaim.blog.csdn.net/article/details/50981391)
 
 ## 跨平台开发
+
+### Flutter 
 
 - [（一）Flutter学习之Dart变量和类型系统](https://chiclaim.blog.csdn.net/article/details/94364411)
 - [（二）Flutter学习之Dart展开操作符 和 Control Flow Collections
