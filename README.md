@@ -227,7 +227,7 @@
 	- MVVM
 	- Clean
 	- Jetpack
-	- 设计模式
+	- [设计模式](#设计模式)
 		- [6大设计原则](https://blog.csdn.net/johnny901114/article/details/100566036)
 		- [模板模式](https://chiclaim.blog.csdn.net/article/details/100584000)
 		- [观察者模式](https://chiclaim.blog.csdn.net/article/details/100610201)
