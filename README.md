@@ -24,14 +24,14 @@
 			- volatile / synchronized
 			- await / notify / notifyAll
 		- 并发库
-			- Lock
-			- Condition
-			- Semaphore
-			- CyclicBarrier
-			- CountDownLatch
-			- Exchanger
+			- [Lock](https://blog.csdn.net/johnny901114/article/details/8695708)
+			- [Condition](https://blog.csdn.net/johnny901114/article/details/8695708)
+			- [Semaphore](https://blog.csdn.net/johnny901114/article/details/8695717)
+			- [CyclicBarrier](https://blog.csdn.net/johnny901114/article/details/8695723)
+			- [CountDownLatch](https://blog.csdn.net/johnny901114/article/details/8695726)
+			- [Exchanger](https://blog.csdn.net/johnny901114/article/details/8696019)
 		- Java 并发编程
-	- I / O
+	- I/O
 		- 字节流
 			- InputStream
 				- FileInputStream
@@ -73,31 +73,38 @@
 				- FilterWriter
 	- 集合框架
 		- List
-			- ArrayList
-			- LinkedList
-			- Stack
-			- Vector
-			- TreeList
+			- [ArrayList](https://blog.csdn.net/johnny901114/article/details/80158343)
+			- [LinkedList](https://blog.csdn.net/johnny901114/article/details/80351584)
+			- [Stack](https://blog.csdn.net/johnny901114/article/details/80373290)
+			- [Vector](https://blog.csdn.net/johnny901114/article/details/80158343)
+			- [TreeList](https://blog.csdn.net/johnny901114/article/details/81046088)
 		- Set
 			- HashSet
 			- LinkedHashSet
-			- TreeSet
+			- [TreeSet](https://blog.csdn.net/johnny901114/article/details/81046088)
 		- Map
 			- HashMap
 			- LinkedHashMap
 			- WeakHashMap
-			- TreeMap
+			- [TreeMap](https://blog.csdn.net/johnny901114/article/details/81046088)
+		- Queue
+		    - [PriorityQueue](https://blog.csdn.net/johnny901114/article/details/80550279)
+		    - [ArrayDeque](https://blog.csdn.net/johnny901114/article/details/80456833)
 		- 并发包
 			- ConcurrentHashMap
-			- ConcurrentLinkedQueue
 			- CopyOnWriteArrayList
 			- CopyOnWriteArraySet
+			- [ArrayBlockingQueue](https://blog.csdn.net/johnny901114/article/details/8696026)
+			- LinkedBlockingDeque
+			- LinkedBlockingQueue
+			- ConcurrentLinkedQueue
+			- DelayQueue
 	- JVM 虚拟机
-		- class 字节码
+		- [class 字节码](https://blog.csdn.net/johnny901114/article/details/101778619)
 			- class 字节码的构成
 			- class 字节码指令
 			- 学习字节码对开发的指导意义
-		- class 字节码执行
+		- [class 字节码执行](https://chiclaim.blog.csdn.net/article/details/102508069)
 			- 方法调用
 				- 方法调用指令
 				- 方法重载解析
@@ -108,11 +115,11 @@
 				- 操作数栈
 				- 动态连接
 				- 方法返回地址
-			- 对象的创建
+			- [对象的创建](https://chiclaim.blog.csdn.net/article/details/102573221)
 				- 对象的创建过程
 				- 对象的内存布局
 				- 对象的访问定位
-		- 类加载
+		- [类加载](https://chiclaim.blog.csdn.net/article/details/102177986)
 			- 类的加载时机
 			- 类的加载过程
 			- 类加载器
@@ -120,15 +127,14 @@
 				- 自定义类加载器
 				- 类加载器死锁问题
 				- Class.forName / ClassLoader.loadClass
-		- JVM 内存区域
+		- [JVM 内存区域](https://chiclaim.blog.csdn.net/article/details/102508069)
 			- 程序计数器
 			- Java 虚拟机栈
 			- 本地方法栈
 			- Java 堆
 			- 方法区
 			- 运行时常量池
-		- JVM 内存模型
-		- 垃圾回收
+		- [垃圾回收](https://chiclaim.blog.csdn.net/article/details/103229687)
 			- 什么样的对象可以被回收
 			- 什么是 GC Root
 			- 垃圾回收算法
@@ -152,6 +158,7 @@
 				- Metaspace
 				- Compressed Class Space
 				- Code Cache	
+		- JVM 内存模型
 
 - **Android 基础**
 	- 四大组件
@@ -221,16 +228,17 @@
 	- Clean
 	- Jetpack
 	- 设计模式
-		- 6大设计原则
-		- 模板模式
-		- 观察者模式
-		- 单例模式
-		- 建造者模式
-		- 工厂模式
-		- 适配器模式
-		- 装饰器模式
+		- [6大设计原则](https://blog.csdn.net/johnny901114/article/details/100566036)
+		- [模板模式](https://chiclaim.blog.csdn.net/article/details/100584000)
+		- [观察者模式](https://chiclaim.blog.csdn.net/article/details/100610201)
+		- [单例模式](https://chiclaim.blog.csdn.net/article/details/100639132)
+		- [建造者模式](https://chiclaim.blog.csdn.net/article/details/100679809)
+		- [工厂模式](https://chiclaim.blog.csdn.net/article/details/100779270)
+		- [适配器模式](https://chiclaim.blog.csdn.net/article/details/100810001)
+		- [装饰器模式](https://chiclaim.blog.csdn.net/article/details/100850966)
+		- [代理模式](https://chiclaim.blog.csdn.net/article/details/100901769)
 		- ......
-	- 组件化
+	- [组件化](https://blog.csdn.net/johnny901114/article/details/78346125)
 		- 如何处理组件之间的代码边界
 		- 组件之间的 Router 路由
 		- 控制反转和依赖注入
