@@ -244,7 +244,7 @@
 				- DroidPlugin
 				- Small
 			- 2016 年
-				Zeus
+				- Zeus
 			- 2017 年
 				- Atlas
 				- RePlugin
