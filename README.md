@@ -1,10 +1,302 @@
 # AndroidAll
 
-本系列知识均出自 **Chiclaim**  
-
-内容将涵盖 Android 开发中的「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 等。
+内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 等。
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
+
+- **计算机基础**
+	- 协议
+		- OSI模型、TCP/IP模型
+		- HTTP / HTTP2 / HTTPS
+	- 操作系统
+		- Unix / Linux
+		- Windows
+	- 数据结构与算法
+
+- **Java**
+	- Java 基础
+		- 面向对象思想
+		- 类和接口
+		- 注解与反射
+		- 泛型
+	- 多线程
+		- 多线程通信
+			- volatile / synchronized
+			- await / notify / notifyAll
+		- 并发库
+			- Lock
+			- Condition
+			- Semaphore
+			- CyclicBarrier
+			- CountDownLatch
+			- Exchanger
+		- Java 并发编程
+	- I / O
+		- 字节流
+			- InputStream
+				- FileInputStream
+				- FilterInputStream
+					- BufferedInputStream
+					- DataInputStream
+					- PushbackInputStream
+				- ByteArrayInputStream
+				- ObjectInputStream
+				- SequenceInputStream
+				- PipedInputStream
+			- OutputStream
+				- FileOutputStream
+				- FilterOutputStream
+					- BufferedOutputStream
+					- DataOutputStream
+					- PrintStream
+				- ByteArrayOutputStream
+				- ObjectOutputStream
+				- PipedOutputStream
+		- 字符流
+			- Reader
+				- BufferedReader
+				- InputStreamReader
+					- FileReader
+				- StringReader
+				- PipedReader
+				- CharArrayReader
+				- FilterReader
+					- PushbackReader
+			- Writer
+				- BufferedWriter
+				- InputStreamWriter
+					- FileWriter
+				- PrintWriter
+				- StringWriter
+				- PipedWriter
+				- CharArrayWriter
+				- FilterWriter
+	- 集合框架
+		- List
+			- ArrayList
+			- LinkedList
+			- Stack
+			- Vector
+			- TreeList
+		- Set
+			- HashSet
+			- LinkedHashSet
+			- TreeSet
+		- Map
+			- HashMap
+			- LinkedHashMap
+			- WeakHashMap
+			- TreeMap
+		- 并发包
+			- ConcurrentHashMap
+			- ConcurrentLinkedQueue
+			- CopyOnWriteArrayList
+			- CopyOnWriteArraySet
+	- JVM 虚拟机
+		- class 字节码
+			- class 字节码的构成
+			- class 字节码指令
+			- 学习字节码对开发的指导意义
+		- class 字节码执行
+			- 方法调用
+				- 方法调用指令
+				- 方法重载解析
+				- 动态分派
+				- 动态类型语言的支持
+			- 方法执行
+				- 局部变量表
+				- 操作数栈
+				- 动态连接
+				- 方法返回地址
+			- 对象的创建
+				- 对象的创建过程
+				- 对象的内存布局
+				- 对象的访问定位
+		- 类加载
+			- 类的加载时机
+			- 类的加载过程
+			- 类加载器
+				- 双亲委派机制
+				- 自定义类加载器
+				- 类加载器死锁问题
+				- Class.forName / ClassLoader.loadClass
+		- JVM 内存区域
+			- 程序计数器
+			- Java 虚拟机栈
+			- 本地方法栈
+			- Java 堆
+			- 方法区
+			- 运行时常量池
+		- JVM 内存模型
+		- 垃圾回收
+			- 什么样的对象可以被回收
+			- 什么是 GC Root
+			- 垃圾回收算法
+				- 标记-清除算法
+				- 复制算法
+				- 标记整理算法
+				- 分代收集算法
+			- 常见的垃圾收集器
+				- Serial 收集器
+				- ParNew 收集器
+				- Parallel Scavenge 收集器
+				- Serial Old 收集器
+				- CMS 收集器
+				- Parallel Old 收集器
+				- G1 收集器
+				- ZGC
+			- 垃圾回收相关的内存池
+				- Eden Space	
+				- Survivor Space	
+				- Old Gen
+				- Metaspace
+				- Compressed Class Space
+				- Code Cache	
+
+- **Android 基础**
+	- 四大组件
+		- Activity
+		- Service
+		- ContentProvider
+		- BroadcastReceiver
+	- Activity 启动模式
+		- standard
+		- singleTop
+		- singleTask
+		- singleInstance
+	- 常用的布局控件
+		- RecyclerView
+		- ConstraintLayout
+		- WebView
+		- ......
+	- 数据存储
+		- SharedPreferences
+		- File
+		- SQLite
+		- Realm
+	- 线程异步
+		- Thread
+		- AsyncTask
+		- IntentService
+		- 线程池
+	- IPC
+		- IPC 方式
+			- Bundle
+			- 文件共享
+			- AIDL
+			- Messager
+			- ContentProvider
+			- Socket
+		- 框架
+			- Hermes
+			- HermesEventBus
+	- 熟悉常用的开源框架
+
+- UI
+	- UI绘制流程及原理
+	- 事件的传递机制
+	- 自定义 View
+	- 屏幕适配
+
+- 开源库
+	- RxJava
+	- OkHttp
+	- Retrofit
+	- Router
+	- EventBus
+	- Glide
+	- Dagger
+	- LeakCanary
+	- SQLite
+	- ......
+
+- **Android 虚拟机**
+	- Dalvik
+	- ART
+
+- **架构**
+	- MVC
+	- MVP
+	- MVVM
+	- Clean
+	- Jetpack
+	- 设计模式
+		- 6大设计原则
+		- 模板模式
+		- 观察者模式
+		- 单例模式
+		- 建造者模式
+		- 工厂模式
+		- 适配器模式
+		- 装饰器模式
+		- ......
+	- 组件化
+		- 如何处理组件之间的代码边界
+		- 组件之间的 Router 路由
+		- 控制反转和依赖注入
+		- 如何管理拆分的 Module
+	- 插件化
+		- 发展历程
+			- 2014 年
+				- Dynamic-load-apk
+			- 2015 年
+				- OpenAltas
+				- DroidPlugin
+				- Small
+			- 2016 年
+				Zeus
+			- 2017 年
+				- Atlas
+				- RePlugin
+				- VirtualAPK
+			- 2019 年
+				- Qigsaw
+				- Shadow
+	- 热修复
+		- Native Hook
+			- Dexposed 
+			- AndFix
+			- HotFix
+		- Java Multidex
+			- QZone
+			- QFix
+			- Nuwa
+			- RocooFix
+		- Java Hook
+			- Robust
+			- Aceso
+		- Dex Replace
+			- Tinker
+			- Amigo
+		- 混合/优化(商业收费)
+			- Sophix
+	- 字节码技术
+		- gradle plugin
+		- 全局的 bug 修复
+		- 日志统计
+
+- **性能优化**
+	- 安装包大小优化
+	- 启动优化（冷启动、暖启动、热启动）
+	- 耗电量优化
+	- UI性能优化
+		- XML 布局优化
+		- 代码优化
+	- 网络优化
+	- 线上、线下全链路性能监控
+
+- **NDK**
+	- C/C++
+	- AndroidStudio NDK 开发
+	- FFmpeg
+
+- **跨平台**
+	- H5
+	- Flutter
+	- Weex
+	- ReactNative
+
+
 
 ## 设计原则与架构
 
