@@ -21,15 +21,19 @@
 		- 泛型
 	- [多线程](#Java多线程)
 		- [多线程通信](#Java多线程)
-			- [volatile / synchronized](#Java多线程)
-			- [await / notify / notifyAll]#Java多线程
+			- [volatile / synchronized](https://blog.csdn.net/johnny901114/article/details/8695668)
+			- [await / notify / notifyAll](https://blog.csdn.net/johnny901114/article/details/8695668)
+		- 线程池
+			- 线程池入门 Callable 和 Future
+			- 线程池各参数的意义
 		- [并发库](#Java多线程)
-			- [Lock](#Java多线程)
-			- [Condition](#Java多线程)
-			- [Semaphore](#Java多线程)
-			- [CyclicBarrier](#Java多线程)
-			- [CountDownLatch](#Java多线程)
-			- [Exchanger](#Java多线程)
+			- [Lock](https://blog.csdn.net/johnny901114/article/details/8695708)
+			- [Condition](https://blog.csdn.net/johnny901114/article/details/8695708)
+			- [Semaphore](https://blog.csdn.net/johnny901114/article/details/8695717)
+			- [CyclicBarrier](https://blog.csdn.net/johnny901114/article/details/8695723)
+			- [CountDownLatch](https://blog.csdn.net/johnny901114/article/details/8695726)
+			- [Exchanger](https://blog.csdn.net/johnny901114/article/details/8696019)
+			- [ArrayBlockingQueue](https://blog.csdn.net/johnny901114/article/details/8696026)
 		- Java 并发编程
 	- [I/O](#JavaI/O)
 		- [字节流](#JavaI/O)
@@ -72,92 +76,92 @@
 				- [CharArrayWriter](#JavaI/O)
 				- [FilterWriter](#JavaI/O)
 	- [集合框架](#Java集合框架)
-		- List
-			- [ArrayList](#Java集合框架)
-			- [LinkedList](#Java集合框架)
-			- [Stack](#Java集合框架)
-			- [Vector](#Java集合框架)
+		- [List](#Java集合框架)
+			- [ArrayList](https://blog.csdn.net/johnny901114/article/details/80158343)
+			- [LinkedList](https://blog.csdn.net/johnny901114/article/details/80351584)
+			- [Stack](https://blog.csdn.net/johnny901114/article/details/80373290)
+			- [Vector](https://blog.csdn.net/johnny901114/article/details/80158343)
 			- [TreeList](#Java集合框架)
 		- [Set](#Java集合框架)
 			- HashSet
 			- LinkedHashSet
-			- [TreeSet](#Java集合框架)
+			- [TreeSet](https://blog.csdn.net/johnny901114/article/details/81046088)
 		- [Map](#Java集合框架)
 			- HashMap
 			- LinkedHashMap
 			- WeakHashMap
-			- [TreeMap](#Java集合框架)
+			- [TreeMap](https://blog.csdn.net/johnny901114/article/details/81046088)
 		- [Queue](#Java集合框架)
-		    - [PriorityQueue](#Java集合框架)
-		    - [ArrayDeque](#Java集合框架)
+		    - [PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
+		    - [ArrayDeque](https://blog.csdn.net/johnny901114/article/details/80456833)
 		- [并发包](#Java集合框架)
 			- ConcurrentHashMap
 			- CopyOnWriteArrayList
 			- CopyOnWriteArraySet
-			- [ArrayBlockingQueue](#Java集合框架)
+			- [ArrayBlockingQueue](https://blog.csdn.net/johnny901114/article/details/8696026)
 			- LinkedBlockingDeque
 			- LinkedBlockingQueue
 			- ConcurrentLinkedQueue
 			- DelayQueue
 	- [JVM 虚拟机](#Java虚拟机)
-		- [class 字节码](#Java虚拟机)
-			- class 字节码的构成
-			- class 字节码指令
-			- 学习字节码对开发的指导意义
-		- [class 字节码执行](#Java虚拟机)
-			- [方法调用](#Java虚拟机)
-				- 方法调用指令
-				- 方法重载解析
-				- 动态分派
-				- 动态类型语言的支持
+		- [class 字节码](https://chiclaim.blog.csdn.net/article/details/101778619)
+			- [class 字节码的构成](#Java虚拟机)
+			- [class 字节码指令](#Java虚拟机)
+			- [学习字节码对开发的指导意义](#Java虚拟机)
+		- [class 字节码执行](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [方法调用](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [方法调用指令](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [方法重载解析](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [动态分派](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [动态类型语言的支持](https://chiclaim.blog.csdn.net/article/details/102508069)
 			- [方法执行](#Java虚拟机)
-				- 局部变量表
-				- 操作数栈
-				- 动态连接
-				- 方法返回地址
-			- [对象的创建](#Java虚拟机)
-				- 对象的创建过程
-				- 对象的内存布局
-				- 对象的访问定位
-		- [类加载](#Java虚拟机)
-			- 类的加载时机
-			- 类的加载过程
-			- 类加载器
-				- 双亲委派机制
-				- 自定义类加载器
-				- 类加载器死锁问题
-				- Class.forName / ClassLoader.loadClass
-		- [JVM 内存区域](#Java虚拟机)
-			- 程序计数器
-			- Java 虚拟机栈
-			- 本地方法栈
-			- Java 堆
-			- 方法区
-			- 运行时常量池
-		- [垃圾回收](#Java虚拟机)
-			- 什么样的对象可以被回收
-			- 什么是 GC Root
-			- 垃圾回收算法
-				- 标记-清除算法
-				- 复制算法
-				- 标记整理算法
-				- 分代收集算法
-			- 常见的垃圾收集器
-				- Serial 收集器
-				- ParNew 收集器
-				- Parallel Scavenge 收集器
-				- Serial Old 收集器
-				- CMS 收集器
-				- Parallel Old 收集器
-				- G1 收集器
-				- ZGC
-			- 垃圾回收相关的内存池
-				- Eden Space	
-				- Survivor Space	
-				- Old Gen
-				- Metaspace
-				- Compressed Class Space
-				- Code Cache	
+				- [局部变量表](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [操作数栈](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [动态连接](https://chiclaim.blog.csdn.net/article/details/102508069)
+				- [方法返回地址](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [对象的创建](https://chiclaim.blog.csdn.net/article/details/102573221)
+				- [对象的创建过程](https://chiclaim.blog.csdn.net/article/details/102573221)
+				- [对象的内存布局](https://chiclaim.blog.csdn.net/article/details/102573221)
+				- [对象的访问定位](https://chiclaim.blog.csdn.net/article/details/102573221)
+		- [类加载](https://chiclaim.blog.csdn.net/article/details/102177986)
+			- [类的加载时机](https://chiclaim.blog.csdn.net/article/details/102177986)
+			- [类的加载过程](https://chiclaim.blog.csdn.net/article/details/102177986)
+			- [类加载器](https://chiclaim.blog.csdn.net/article/details/102177986)
+				- [双亲委派机制](https://chiclaim.blog.csdn.net/article/details/102177986)
+				- [自定义类加载器](https://chiclaim.blog.csdn.net/article/details/102177986)
+				- [类加载器死锁问题](https://chiclaim.blog.csdn.net/article/details/102177986)
+				- [Class.forName VS ClassLoader.loadClass](https://chiclaim.blog.csdn.net/article/details/102177986)
+		- [JVM 内存区域](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [程序计数器](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [Java 虚拟机栈](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [本地方法栈](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [Java 堆](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [方法区](https://chiclaim.blog.csdn.net/article/details/102508069)
+			- [运行时常量池](https://chiclaim.blog.csdn.net/article/details/102508069)
+		- [垃圾回收](https://blog.csdn.net/johnny901114/article/details/103229687)
+			- [什么样的对象可以被回收](https://blog.csdn.net/johnny901114/article/details/103229687)
+			- [什么是 GC Root](https://blog.csdn.net/johnny901114/article/details/103229687)
+			- [垃圾回收算法](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [标记-清除算法](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [复制算法](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [标记整理算法](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [分代收集算法](https://blog.csdn.net/johnny901114/article/details/103229687)
+			- [常见的垃圾收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Serial 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [ParNew 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Parallel Scavenge 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Serial Old 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [CMS 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Parallel Old 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [G1 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [ZGC](https://blog.csdn.net/johnny901114/article/details/103229687)
+			- [垃圾回收相关的内存池](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Eden Space](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Survivor Space](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Old Gen](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Metaspace](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Compressed Class Space](https://blog.csdn.net/johnny901114/article/details/103229687)
+				- [Code Cache](https://blog.csdn.net/johnny901114/article/details/103229687)
 		- JVM 内存模型
 
 - **Android 基础**
@@ -310,7 +314,7 @@
 
 ## Java
 
-### Java I/O 流
+### JavaI/O
 
 - [Java I/O 流操作（一）System Properties Runtime 类](https://blog.csdn.net/johnny901114/article/details/8710381)
 - [Java I/O 流操作（二）字节流与缓冲流](https://blog.csdn.net/johnny901114/article/details/8710403)
@@ -329,7 +333,7 @@
 - [Java 多线程（九）ArrayBlockingQueue 阻塞队列](https://blog.csdn.net/johnny901114/article/details/8696026)
 - [Java 多线程（十）JDK 同步集合](https://blog.csdn.net/johnny901114/article/details/8696032)
 
-### Java 集合框架
+### Java集合框架
 
 - [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
 - [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
@@ -345,6 +349,7 @@
 - [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
 - [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
+- [ArrayBlockingQueue 阻塞队列](https://blog.csdn.net/johnny901114/article/details/8696026)
 
 ### Java虚拟机
 
