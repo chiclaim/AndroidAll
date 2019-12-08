@@ -1,6 +1,6 @@
 # AndroidAll
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 等。
+内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
@@ -501,18 +501,24 @@
 
 ## 经典书籍
 
-- [Java并发编程实战]()
-- [深入理解Java虚拟机]()
-- [Effective Java 第二版]()
-- [Java与模式]()
-- [剑指Offer名企面试官精讲典型编程题]()
-- [Android开发艺术探索]()
-- [Android源码设计模式]()
-- [Android自定义控件开发入门与实战]()
-- [Android软件安全与逆向分析]()
-- [阿里巴巴-深入探索 Android 热修复技术原理]()
-- [Kotlin In Action]()
-- [HTTP权威指南]()
+- [《Android开发艺术探索》](#)
+- [《Android源码设计模式》](#)
+- [《Android自定义控件开发入门与实战》](#)
+- [《Android软件安全与逆向分析》](#)
+- [《Android群英传》](#)
+- [《Java编程思想》](#)
+- [《Java核心技术：卷I基础知识》](#)
+- [《Java8实战》](#)
+- [《重构:改善既有代码的设计》](#)
+- [《Java并发编程实战》](#)
+- [《深入理解Java虚拟机》](#)
+- [《Effective Java 第二版》](#)
+- [《Java与模式》](#)
+- [代码整洁之道](#)
+- [《剑指Offer名企面试官精讲典型编程题》](#)
+- [《阿里巴巴-深入探索 Android 热修复技术原理》](#)
+- [《Kotlin In Action》](#)
+- [《HTTP权威指南》](#)
 - 陆续整理网盘开放中...
 
 
