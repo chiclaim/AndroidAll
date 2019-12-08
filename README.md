@@ -1,6 +1,6 @@
 # AndroidAll
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」Dagger2」「Retrofit」「OkHttp」「ButterKnife」「JNI」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。
+内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台)」「[ReactNative](#跨平台)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「Retrofit」「OkHttp」「[ButterKnife](#ButterKnife)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
@@ -329,14 +329,14 @@
 	- 网络优化
 	- 线上、线下全链路性能监控
 
-- **NDK**
+- **[NDK](#NDK开发)**
 	- C/C++
-	- AndroidStudio NDK 开发
+	- [AndroidStudio NDK 开发](#NDK开发)
 	- FFmpeg
 
-- **跨平台**
+- **[跨平台](#跨平台开发)**
 	- H5
-	- Flutter
+	- [Flutter](#Flutter)
 	- Weex
 	- ReactNative
 
@@ -445,6 +445,11 @@
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
 
 
+## NDK开发
+
+- [Android NDK ~ 基础入门指南](https://blog.csdn.net/johnny901114/article/details/101112607)
+- [Android NDK ~ Java 和 Native 交互](https://blog.csdn.net/johnny901114/article/details/101124117)
+
 ## Android框架
 
 ### RxJava 
@@ -501,24 +506,24 @@
 
 ## 经典书籍
 
-- [《Android开发艺术探索》](#)
-- [《Android源码设计模式》](#)
-- [《Android自定义控件开发入门与实战》](#)
-- [《Android软件安全与逆向分析》](#)
-- [《Android群英传》](#)
-- [《Java编程思想》](#)
-- [《Java核心技术：卷I基础知识》](#)
-- [《Java8实战》](#)
-- [《重构:改善既有代码的设计》](#)
-- [《Java并发编程实战》](#)
-- [《深入理解Java虚拟机》](#)
-- [《Effective Java 第二版》](#)
-- [《Java与模式》](#)
-- [代码整洁之道](#)
-- [《剑指Offer名企面试官精讲典型编程题》](#)
-- [《阿里巴巴-深入探索 Android 热修复技术原理》](#)
-- [《Kotlin In Action》](#)
-- [《HTTP权威指南》](#)
+- [《Android开发艺术探索》](#经典书籍)
+- [《Android源码设计模式》](#经典书籍)
+- [《Android自定义控件开发入门与实战》](#经典书籍)
+- [《Android软件安全与逆向分析》](#经典书籍)
+- [《Android群英传》](#经典书籍)
+- [《Java编程思想》](#经典书籍)
+- [《Java核心技术：卷I基础知识》](#经典书籍)
+- [《Java8实战》](#经典书籍)
+- [《重构:改善既有代码的设计》](#经典书籍)
+- [《Java并发编程实战》](#经典书籍)
+- [《深入理解Java虚拟机》](#经典书籍)
+- [《Effective Java 第二版》](#经典书籍)
+- [《Java与模式》](#经典书籍)
+- [《代码整洁之道》](#经典书籍)
+- [《剑指Offer名企面试官精讲典型编程题》](#经典书籍)
+- [《阿里巴巴-深入探索 Android 热修复技术原理》](#经典书籍)
+- [《Kotlin In Action》](#经典书籍)
+- [《HTTP权威指南》](#经典书籍)
 - 陆续整理网盘开放中...
 
 
