@@ -19,7 +19,7 @@
 		- 类和接口
 		- 注解与反射
 		- 泛型
-	- 多线程
+	- [多线程](#Java 多线程)
 		- 多线程通信
 			- volatile / synchronized
 			- await / notify / notifyAll
@@ -31,7 +31,7 @@
 			- [CountDownLatch](https://blog.csdn.net/johnny901114/article/details/8695726)
 			- [Exchanger](https://blog.csdn.net/johnny901114/article/details/8696019)
 		- Java 并发编程
-	- I/O
+	- [I/O](#Java I/O)
 		- 字节流
 			- InputStream
 				- FileInputStream
@@ -71,7 +71,7 @@
 				- PipedWriter
 				- CharArrayWriter
 				- FilterWriter
-	- 集合框架
+	- [集合框架](#Java 集合框架)
 		- List
 			- [ArrayList](https://blog.csdn.net/johnny901114/article/details/80158343)
 			- [LinkedList](https://blog.csdn.net/johnny901114/article/details/80351584)
@@ -99,7 +99,7 @@
 			- LinkedBlockingQueue
 			- ConcurrentLinkedQueue
 			- DelayQueue
-	- JVM 虚拟机
+	- [JVM 虚拟机](#Java虚拟机)
 		- [class 字节码](https://blog.csdn.net/johnny901114/article/details/101778619)
 			- class 字节码的构成
 			- class 字节码指令
@@ -205,7 +205,7 @@
 	- 自定义 View
 	- 屏幕适配
 
-- 开源库
+- [开源库](#Android框架)
 	- RxJava
 	- OkHttp
 	- Retrofit
@@ -222,11 +222,12 @@
 	- ART
 
 - **架构**
-	- MVC
-	- MVP
-	- MVVM
-	- Clean
-	- Jetpack
+	- [程序架构](#Android架构)
+		- MVC
+		- MVP
+		- MVVM
+		- Clean
+		- Jetpack
 	- [设计模式](#设计模式)
 		- [6大设计原则](https://blog.csdn.net/johnny901114/article/details/100566036)
 		- [模板模式](https://chiclaim.blog.csdn.net/article/details/100584000)
@@ -305,6 +306,62 @@
 	- ReactNative
 
 
+---
+
+## Java
+
+### Java I/O 流
+
+- [Java I/O 流操作（一）System Properties Runtime 类](https://blog.csdn.net/johnny901114/article/details/8710381)
+- [Java I/O 流操作（二）字节流与缓冲流](https://blog.csdn.net/johnny901114/article/details/8710403)
+- [Java I/O 流操作（三）File 文件操作、PrintWriter、SequenceInputStream](https://blog.csdn.net/johnny901114/article/details/8710433)
+- [Java I/O 流操作（四）对象的序列化](https://blog.csdn.net/johnny901114/article/details/8710341)
+
+### Java多线程
+- [Java 多线程（一）线程间的互斥和同步通信](https://blog.csdn.net/johnny901114/article/details/8695668)
+- [Java 多线程（二）同步线程分组问题](https://blog.csdn.net/johnny901114/article/details/7854666)
+- [Java 多线程（三）线程池入门 Callable 和 Future](https://blog.csdn.net/johnny901114/article/details/8695693)
+- [Java 多线程（四）Lock 和 Condition 实现线程同步通信](https://blog.csdn.net/johnny901114/article/details/8695708)
+- [Java 多线程（五）Semaphore 实现信号灯](https://blog.csdn.net/johnny901114/article/details/8695717)
+- [Java 多线程（六）CyclicBarrier 同步的工具类](https://blog.csdn.net/johnny901114/article/details/8695723)
+- [Java 多线程（七）CountDownLatch 同步工具类](https://blog.csdn.net/johnny901114/article/details/8695726)
+- [Java 多线程（八）Exchanger 同步工具类](https://blog.csdn.net/johnny901114/article/details/8696019)
+- [Java 多线程（九）ArrayBlockingQueue 阻塞队列](https://blog.csdn.net/johnny901114/article/details/8696026)
+- [Java 多线程（十）JDK 同步集合](https://blog.csdn.net/johnny901114/article/details/8696032)
+
+### Java 集合框架
+
+- [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
+- [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
+- [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
+- [数据结构与算法（十一）Trie字典树](https://chiclaim.blog.csdn.net/article/details/80711441)
+- [数据结构与算法（十）线段树(Segment Tree)入门](https://chiclaim.blog.csdn.net/article/details/80643017)
+- [数据结构与算法（九）Set集合和BinarySearchTree的时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80628876)
+- [数据结构与算法（八）二分搜索树(Binary Search Tree)](https://chiclaim.blog.csdn.net/article/details/80598727)
+- [数据结构与算法（七）树和二叉树](https://chiclaim.blog.csdn.net/article/details/80574803)
+- [数据结构与算法（六）二叉堆、优先队列和Java PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
+- [数据结构与算法（五）深入理解递归](https://chiclaim.blog.csdn.net/article/details/80536238)
+- [数据结构与算法（四）队列和 Java ArrayDeque 源码剖析](https://chiclaim.blog.csdn.net/article/details/80456833)
+- [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
+- [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
+- [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
+
+### Java虚拟机
+
+- [深入理解 Java 虚拟机（一）~ class 字节码文件剖析](https://chiclaim.blog.csdn.net/article/details/101778619)
+- [深入理解 Java 虚拟机（二）~ 类的加载过程剖析](https://chiclaim.blog.csdn.net/article/details/102177986)
+- [深入理解 Java 虚拟机（三）~ class 字节码的执行过程剖析](https://chiclaim.blog.csdn.net/article/details/102508069)
+- [深入理解 Java 虚拟机（四）~ 各种容易混淆的常量池](https://chiclaim.blog.csdn.net/article/details/102537682)
+- [深入理解 Java 虚拟机（五）~ 对象的创建过程](https://chiclaim.blog.csdn.net/article/details/102573221)
+- [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
+
+
+## Kotlin 
+
+- [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
+- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
+- [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
+
 
 ## 设计原则与架构
 
@@ -323,24 +380,13 @@
 
 
 
-### Android Architecture
+### Android架构
 
 - [Android MVP架构改造~如何重用顶层业务](https://chiclaim.blog.csdn.net/article/details/88050156)
 - [二维火Android云收银模块化架构实践](https://chiclaim.blog.csdn.net/article/details/78346125)
 - [Android架构—MVP架构在Android中的实践](https://chiclaim.blog.csdn.net/article/details/54783106)
 - [Android-MVVM架构-Data Binding的使用](https://chiclaim.blog.csdn.net/article/details/50706329)
-
-
-## 虚拟机
-
-### JVM
-
-- [深入理解 Java 虚拟机（一）~ class 字节码文件剖析](https://chiclaim.blog.csdn.net/article/details/101778619)
-- [深入理解 Java 虚拟机（二）~ 类的加载过程剖析](https://chiclaim.blog.csdn.net/article/details/102177986)
-- [深入理解 Java 虚拟机（三）~ class 字节码的执行过程剖析](https://chiclaim.blog.csdn.net/article/details/102508069)
-- [深入理解 Java 虚拟机（四）~ 各种容易混淆的常量池](https://chiclaim.blog.csdn.net/article/details/102537682)
-- [深入理解 Java 虚拟机（五）~ 对象的创建过程](https://chiclaim.blog.csdn.net/article/details/102573221)
-- [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
+- [使用 repo 管理 Android 组件化项目](https://blog.csdn.net/johnny901114/article/details/103387569)
 
 
 
@@ -362,13 +408,7 @@
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
 
 
-## Kotlin 
-
-- [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
-- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
-- [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
-
-## Android 框架
+## Android框架
 
 ### RxJava 
 
