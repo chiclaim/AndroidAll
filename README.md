@@ -1,6 +1,6 @@
 # AndroidAll
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台)」「[ReactNative](#跨平台)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「Retrofit」「OkHttp」「[ButterKnife](#ButterKnife)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。
+内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台开发)」「[ReactNative](#跨平台开发)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「Retrofit」「OkHttp」「[ButterKnife](#ButterKnife)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「[性能优化](#Android性能优化)」「Android源码分析」 「[经典书籍](#经典书籍)」等。
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
@@ -343,6 +343,27 @@
 
 ---
 
+## 计算机
+
+
+### 数据结构与算法
+
+- [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
+- [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
+- [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
+- [数据结构与算法（十一）Trie字典树](https://chiclaim.blog.csdn.net/article/details/80711441)
+- [数据结构与算法（十）线段树(Segment Tree)入门](https://chiclaim.blog.csdn.net/article/details/80643017)
+- [数据结构与算法（九）Set集合和BinarySearchTree的时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80628876)
+- [数据结构与算法（八）二分搜索树(Binary Search Tree)](https://chiclaim.blog.csdn.net/article/details/80598727)
+- [数据结构与算法（七）树和二叉树](https://chiclaim.blog.csdn.net/article/details/80574803)
+- [数据结构与算法（六）二叉堆、优先队列和Java PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
+- [数据结构与算法（五）深入理解递归](https://chiclaim.blog.csdn.net/article/details/80536238)
+- [数据结构与算法（四）队列和 Java ArrayDeque 源码剖析](https://chiclaim.blog.csdn.net/article/details/80456833)
+- [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
+- [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
+- [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
+
+
 ## Java
 
 ### JavaIO
@@ -425,25 +446,9 @@
 - [Android-MVVM架构-Data Binding的使用](https://chiclaim.blog.csdn.net/article/details/50706329)
 - [使用 repo 管理 Android 组件化项目](https://blog.csdn.net/johnny901114/article/details/103387569)
 
+### Android性能优化
 
-
-## 数据结构与算法
-
-- [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
-- [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
-- [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
-- [数据结构与算法（十一）Trie字典树](https://chiclaim.blog.csdn.net/article/details/80711441)
-- [数据结构与算法（十）线段树(Segment Tree)入门](https://chiclaim.blog.csdn.net/article/details/80643017)
-- [数据结构与算法（九）Set集合和BinarySearchTree的时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80628876)
-- [数据结构与算法（八）二分搜索树(Binary Search Tree)](https://chiclaim.blog.csdn.net/article/details/80598727)
-- [数据结构与算法（七）树和二叉树](https://chiclaim.blog.csdn.net/article/details/80574803)
-- [数据结构与算法（六）二叉堆、优先队列和Java PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
-- [数据结构与算法（五）深入理解递归](https://chiclaim.blog.csdn.net/article/details/80536238)
-- [数据结构与算法（四）队列和 Java ArrayDeque 源码剖析](https://chiclaim.blog.csdn.net/article/details/80456833)
-- [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
-- [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
-- [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
-
+- [Android 性能优化—内存篇](https://blog.csdn.net/johnny901114/article/details/54377370)
 
 ## NDK开发
 
