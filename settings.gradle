@@ -1,6 +1,0 @@
-include ':layoutInflater', ':fragment', 
-        ':retrofit', ':javascript', 
-        ':javatest', ':rxjava', 
-        ':customview', ':android.architecture', 
-        ':notification', ':base.lib', 
-        ':framework',':kotlin_coroutine'

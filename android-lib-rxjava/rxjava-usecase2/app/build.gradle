@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.chiclaim.rxjava"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+
+
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+
+    implementation "androidx.appcompat:appcompat:${rootProject.supportLibVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.supportLibVersion}"
+    implementation "androidx.annotation:annotation:${rootProject.supportLibVersion}"
+    implementation "com.google.android.material:material:${rootProject.supportLibVersion}"
+
+    implementation "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+    implementation "io.reactivex:rxjava:${RXJAVA_VERSION}"
+    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+    implementation 'com.squareup.retrofit:retrofit-converters:1.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.0.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+}
+
