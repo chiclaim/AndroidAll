@@ -1,0 +1,72 @@
+<!--
+    Copyright (C) 2010 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS Interface Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/main.css">
+
+        <!--
+            Modernizr is used to detect the prefix for css animations & isn't
+            needed for the addJavascriptInterface
+        -->
+        <script src="bower_components/modernizr/modernizr.custom.72986.js"></script>
+    </head>
+    <body>
+        <section class="page-container init-screen">
+            <header>
+                <h1>Notify Me of Awesome</h1>
+            </header>
+
+            <button id="show-notification-btn">Press Me!</button>
+        </section>
+
+        <section class="page-container notification-opened">
+            <img src="images/arrow.png" class="notification-arrow">
+
+            <div class="main-content">
+                <header>
+                    <h1>Notification Time</h1>
+                </header>
+
+                <p>There should be a notification waiting for you...</p>
+            </div>
+        </section>
+
+        <section class="page-container launched-from-notification">
+            <header>
+                <h1>You Clicked the Notification</h1>
+            </header>
+            <div class="main-content">
+                <p>There is only so much I can do with a notification you know...</p>
+            </div>
+        </section>
+
+        <section class="page-container secret-screen">
+            <header>
+                <h1>Ssshhhhh</h1>
+            </header>
+
+            <div class="main-content">
+                <p>Secret Spot in the app, congrats :)</p>
+            </div>
+        </section>
+
+        <script type="text/javascript" src="scripts/main.js"></script>
+    </body>
+</html>
