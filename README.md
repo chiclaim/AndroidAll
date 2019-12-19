@@ -2,26 +2,26 @@
 
 内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台开发)」「[ReactNative](#跨平台开发)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「[Retrofit](#Android框架)」「[OkHttp](#Android框架)」「[ButterKnife](#ButterKnife)」「[Router](#NDK开发)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「[性能优化](#Android性能优化)」「Android源码分析」 「[经典书籍](#经典书籍)」等。
 
-**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 [思维导图](https://img-blog.csdnimg.cn/20191209145708382.jpg)**
+**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)**
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
 
 - **[计算机基础](#计算机技术)**
 	- 协议
-		- OSI模型、TCP/IP模型
-		- HTTP / HTTP2 / HTTPS
+		- [OSI模型、TCP/IP模型](#网络协议)
+		- [HTTP / HTTP2 / HTTPS](#网络协议)
 	- 操作系统
 		- Unix / Linux
 		- Windows
 	- [数据结构与算法](#数据结构与算法)
 
 - **[Java](#Java)**
-	- Java 基础
-		- 面向对象思想
-		- 类和接口
-		- 注解与反射
-		- 泛型
+	- [Java 基础](#Java基础)
+		- [面向对象思想](#Java基础)
+		- [类和接口](#Java基础)
+		- [注解与反射](#Java基础)
+		- [泛型](#Java基础)
 	- [多线程](#Java多线程)
 		- [多线程通信](#Java多线程)
 			- [volatile / synchronized](https://blog.csdn.net/johnny901114/article/details/8695668)
@@ -190,7 +190,7 @@
 	- [Kolint 操作符重载](#Kotlin)
 		- [算术操作符重载](#Kotlin)
 		- [比较操作符重载](#Kotlin)
-		- [[集合相关的操作符重载](#Kotlin)
+		- [集合相关的操作符重载](#Kotlin)
 		- [区间操作符重载](#Kotlin)
 		- [解构操作符重载](#Kotlin)
 		- [属性委托](#Kotlin)
@@ -276,6 +276,18 @@
 		- [装饰器模式](https://chiclaim.blog.csdn.net/article/details/100850966)
 		- [代理模式](https://chiclaim.blog.csdn.net/article/details/100901769)
 		- ......
+	- 架构思想
+		- 概念
+			- IoC 控制反转
+			- DI 依赖注入
+			- AOP 面向切面
+		- 开源方案
+			- ASM
+			- Javasisit
+			- AspectJ
+		- 工具
+			- APT
+			- Gradle plugin
 	- [组件化](https://blog.csdn.net/johnny901114/article/details/78346125)
 		- 如何处理组件之间的代码边界
 		- 组件之间的 Router 路由
@@ -342,10 +354,18 @@
 	- Weex
 	- ReactNative
 
+- **团队**
+	- 如何提高整体的团队水平？
+	- 如何提高提高团队内代码质量？
+	- 如何提高团队积极性？
 
 ---
 
 ## 计算机技术
+
+### 网络协议
+
+- [关于 HTTPS 一篇文章就够了](https://chiclaim.blog.csdn.net/article/details/54754921)
 
 
 ### 数据结构与算法
@@ -367,6 +387,17 @@
 
 
 ## Java
+
+### Java基础
+
+- [Java 反射技术详解](https://blog.csdn.net/johnny901114/article/details/7538998)
+- [Java XML 解析方式汇总](https://blog.csdn.net/johnny901114/article/details/7867934)
+- [Java ClassLoader 类加载器详解](https://blog.csdn.net/johnny901114/article/details/7738958)
+
+### Java网络编程
+
+- [Java 网络编程详解（一）](https://blog.csdn.net/johnny901114/article/details/7866864)
+- [Java 网络编程详解（二）](https://blog.csdn.net/johnny901114/article/details/7865617)
 
 ### JavaIO
 
