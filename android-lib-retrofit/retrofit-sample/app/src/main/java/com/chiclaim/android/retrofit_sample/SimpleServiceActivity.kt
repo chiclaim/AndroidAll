@@ -3,7 +3,7 @@ package com.chiclaim.android.retrofit_sample
 import android.os.Bundle
 import com.chiclaim.android.retrofit_sample.bean.Contributor
 import com.chiclaim.android.retrofit_sample.source.GitHub
-import kotlinx.android.synthetic.main.activity_simple_service_layout.*
+import kotlinx.android.synthetic.main.activity_content_layout.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,7 +19,7 @@ class SimpleServiceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simple_service_layout)
+        setContentView(R.layout.activity_content_layout)
 
         uiJob {
 

@@ -15,5 +15,9 @@ class MainActivity : AppCompatActivity() {
         btn_simple_service.setOnClickListener {
             startActivity(Intent(this, SimpleServiceActivity::class.java))
         }
+
+        btn_dynamic_base_url.setOnClickListener {
+            startActivity(Intent(this, DynamicBaseUrlActivity::class.java))
+        }
     }
 }
