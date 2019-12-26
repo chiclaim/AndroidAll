@@ -12,7 +12,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            android:text="SimpleService"/>
+            android:text="SimpleService"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
     <Button
@@ -21,8 +23,18 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="DynamicBaseUrl"
-            app:layout_constraintLeft_toLeftOf="@id/btn_simple_service"
-            app:layout_constraintTop_toBottomOf="@id/btn_simple_service"/>
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_simple_service"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:id="@+id/btn_retrofit_post"
+            android:text="RetrofitPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_simple_service"/>
 
 
 </android.support.constraint.ConstraintLayout>

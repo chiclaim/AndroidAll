@@ -26,6 +26,9 @@
 
         <activity android:name=".DynamicBaseUrlActivity"
                   android:screenOrientation="portrait"/>
+
+        <activity android:name=".RetrofitPostActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -19,5 +19,9 @@ class MainActivity : AppCompatActivity() {
         btn_dynamic_base_url.setOnClickListener {
             startActivity(Intent(this, DynamicBaseUrlActivity::class.java))
         }
+
+        btn_retrofit_post.setOnClickListener {
+            startActivity(Intent(this, RetrofitPostActivity::class.java))
+        }
     }
 }
