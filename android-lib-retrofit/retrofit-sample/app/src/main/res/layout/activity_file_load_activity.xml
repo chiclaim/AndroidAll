@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <Button
+            android:id="@+id/btn_file_upload"
+            android:text="上传"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="168dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="96dp"/>
+    <Button
+            android:id="@+id/btn_choose_file"
+            android:text="选择文件"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="168dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="88dp"/>
+
+    <TextView
+            android:id="@+id/text_file_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文件列表："
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="132dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>

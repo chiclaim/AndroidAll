@@ -23,5 +23,10 @@ class MainActivity : AppCompatActivity() {
         btn_retrofit_post.setOnClickListener {
             startActivity(Intent(this, RetrofitPostActivity::class.java))
         }
+
+        btn_file_upload.setOnClickListener {
+            startActivity(Intent(this, FileUploadActivity::class.java))
+
+        }
     }
 }
