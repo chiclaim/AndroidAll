@@ -1,6 +1,6 @@
 @file:JvmName("CoroutineHelper.kt")
 
-package com.chiclaim.android.retrofit_sample
+package com.chiclaim.android.retrofit_sample.helper
 
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext

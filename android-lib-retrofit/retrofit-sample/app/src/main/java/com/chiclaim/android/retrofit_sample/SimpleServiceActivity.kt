@@ -2,6 +2,8 @@ package com.chiclaim.android.retrofit_sample
 
 import android.os.Bundle
 import com.chiclaim.android.retrofit_sample.bean.Contributor
+import com.chiclaim.android.retrofit_sample.helper.startTaskAsync
+import com.chiclaim.android.retrofit_sample.helper.uiJob
 import com.chiclaim.android.retrofit_sample.source.GitHub
 import kotlinx.android.synthetic.main.activity_content_layout.*
 import retrofit2.Call
