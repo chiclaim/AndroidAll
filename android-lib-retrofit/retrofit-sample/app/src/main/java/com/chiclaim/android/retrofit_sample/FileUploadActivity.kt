@@ -102,15 +102,13 @@ class FileUploadActivity : BaseActivity() {
         }
     }
 
-    private fun getMimeType(uri: Uri): String? {
-        return if (uri.scheme == ContentResolver.SCHEME_CONTENT) {
-            val cr: ContentResolver = contentResolver
-            cr.getType(uri)
-        } else {
-            val fileExtension = MimeTypeMap.getFileExtensionFromUrl(uri.toString())
-            MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension.toLowerCase())
-        }
+    private fun getMimeType(uri: Uri) = if (uri.scheme == ContentResolver.SCHEME_CONTENT) {
+        contentResolver.getType(uri)
+    } else {
+        val fileExtension = MimeTypeMap.getFileExtensionFromUrl(uri.toString())
+        MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension.toLowerCase())
     }
+
 
     private fun uploadFile(fileUri: Uri) {
 
@@ -124,9 +122,11 @@ class FileUploadActivity : BaseActivity() {
 
         val file = File(fileUri.path)
 
+        val mineType = getMimeType(fileUri) ?: return
+
         // create RequestBody instance from file
         val requestFile: RequestBody = RequestBody.create(
-            MediaType.parse(getMimeType(fileUri)),
+            MediaType.parse(mineType),
             file
         )
 
@@ -134,14 +134,14 @@ class FileUploadActivity : BaseActivity() {
         val body = MultipartBody.Part.createFormData("picture", file.name, requestFile)
 
         // add another part within the multipart request
-        val descriptionString = "hello, this is description speaking"
+        val descriptionString = "这是文件描述"
 
         val description = RequestBody.create(MultipartBody.FORM, descriptionString)
 
         // finally, execute the request
         val call = service.upload(description, body)
         call.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody?>?) {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 Log.v("Upload", "success")
             }
 
