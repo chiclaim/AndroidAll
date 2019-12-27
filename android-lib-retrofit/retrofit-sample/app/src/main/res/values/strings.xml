@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">retrofit-sample</string>
+    <string name="file_upload_prefix">文件列表：</string>
+
+
 </resources>

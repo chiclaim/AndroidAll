@@ -124,29 +124,28 @@ class FileUploadActivity : BaseActivity() {
 
         val mineType = getMimeType(fileUri) ?: return
 
-        // create RequestBody instance from file
-        val requestFile: RequestBody = RequestBody.create(
-            MediaType.parse(mineType),
-            file
-        )
+        val fileRequestBody = RequestBody.create(MediaType.parse(mineType), file)
 
-        // MultipartBody.Part is used to send also the actual file name
-        val body = MultipartBody.Part.createFormData("picture", file.name, requestFile)
+        // 相当于 HTML 页面里面的 文件选择控件： <input type="file" name="file_1"/>
+        val filePart = MultipartBody.Part.createFormData("file_1", file.name, fileRequestBody)
 
-        // add another part within the multipart request
-        val descriptionString = "这是文件描述"
+        // 创建 form 字段，相当于 HTML 页面里面的 <input type="text" name="description"/>
+        val formFieldPart = RequestBody.create(MultipartBody.FORM, "这是文件描述")
 
-        val description = RequestBody.create(MultipartBody.FORM, descriptionString)
+        val call = service.upload(formFieldPart, filePart)
 
-        // finally, execute the request
-        val call = service.upload(description, body)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                Log.v("Upload", "success")
+                Toast.makeText(applicationContext, "upload success", Toast.LENGTH_SHORT).show()
+
+                fileUri.path?.let {
+                    files.remove(it)
+                    text_file_path.setText(R.string.file_upload_prefix)
+                }
             }
 
             override fun onFailure(call: Call<ResponseBody?>?, t: Throwable) {
-                Log.e("Upload error:", t.message)
+                Toast.makeText(applicationContext, t.message, Toast.LENGTH_SHORT).show()
             }
         })
     }

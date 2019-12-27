@@ -25,7 +25,7 @@
             android:id="@+id/text_file_path"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="文件列表："
+            android:text="@string/file_upload_prefix"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="132dp"
