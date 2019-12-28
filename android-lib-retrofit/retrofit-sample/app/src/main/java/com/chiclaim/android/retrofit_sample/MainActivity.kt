@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,17 @@ class MainActivity : AppCompatActivity() {
 
         btn_file_upload.setOnClickListener {
             startActivity(Intent(this, FileUploadActivity::class.java))
-
         }
+
+        btn_custom_call_adapter.setOnClickListener {
+            startActivity(Intent(this, CustomCustomCallActivity::class.java))
+        }
+
+        btn_rxjava_call_adapter.setOnClickListener {
+            startActivity(Intent(this, RxJavaRetrofitActivity::class.java))
+        }
+
     }
+
+    override fun showBackMenu() = false
 }

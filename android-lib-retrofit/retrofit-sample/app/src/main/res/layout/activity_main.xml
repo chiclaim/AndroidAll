@@ -13,8 +13,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="SimpleService"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
 
 
     <Button
@@ -23,27 +22,45 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="DynamicBaseUrl"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/btn_simple_service"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/btn_file_upload"
+            android:layout_marginStart="15dp"/>
     <Button
             android:id="@+id/btn_retrofit_post"
             android:text="RetrofitPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_simple_service"/>
+            app:layout_constraintBaseline_toBaselineOf="@+id/btn_file_upload"/>
     <Button
             android:id="@+id/btn_file_upload"
             android:text="FileUpload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            app:layout_constraintStart_toEndOf="@+id/btn_retrofit_post"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/btn_simple_service"
+            app:layout_constraintStart_toEndOf="@+id/btn_retrofit_post"/>
+    <Button
+            android:id="@+id/btn_custom_call_adapter"
+            android:text="CustomCallAdapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_file_upload"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btn_dynamic_base_url"/>
+    <Button
+            android:id="@+id/btn_rxjava_call_adapter"
+            android:text="RxJavaCallAdapter"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/btn_retrofit_post"
+            app:layout_constraintTop_toBottomOf="@+id/btn_retrofit_post"/>
 
 
 </android.support.constraint.ConstraintLayout>

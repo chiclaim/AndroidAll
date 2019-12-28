@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.chiclaim.android.retrofit_sample">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
@@ -15,22 +15,36 @@
         <activity android:name=".MainActivity"
                   android:screenOrientation="portrait">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
 
         <activity android:name=".SimpleServiceActivity"
+                  android:label="@string/label_basic"
                   android:screenOrientation="portrait"/>
 
         <activity android:name=".DynamicBaseUrlActivity"
+                  android:label="@string/label_dynamic_base_url"
                   android:screenOrientation="portrait"/>
 
         <activity android:name=".RetrofitPostActivity"
+                  android:label="@string/label_post"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".FileUploadActivity"/>
+
+        <activity android:name=".FileUploadActivity"
+                  android:label="@string/label_file_upload"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".CustomCustomCallActivity"
+                  android:label="@string/label_custom_call_adapter"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".RxJavaRetrofitActivity"
+                  android:label="@string/label_retrofit_rxjava"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
