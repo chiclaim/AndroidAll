@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">retrofit-sample</string>
+    <string name="app_name">Retrofit Sample</string>
     <string name="file_upload_prefix">文件列表：</string>
+
+    <string name="label_basic">Retrofit基本用法</string>
+    <string name="label_dynamic_base_url">动态BaseURL</string>
+    <string name="label_post">Post用法</string>
+    <string name="label_file_upload">文件上传</string>
+    <string name="label_custom_call_adapter">自定义CallAdapter</string>
+    <string name="label_retrofit_rxjava">Retrofit + RxJava</string>
 
 
 </resources>
