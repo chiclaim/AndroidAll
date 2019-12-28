@@ -18,10 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
+import retrofit2.http.*
 import java.io.File
 
 
@@ -40,15 +37,14 @@ class FileUploadActivity : BaseActivity() {
         const val MODE_SINGLE_FILE = 1
         const val MODE_MULTIPLE_FILE_BY_MULTIPLE_BODY = 2
         const val MODE_MULTIPLE_FILE_BY_LIST_PART = 3
-
-
+        const val MODE_PART_MAP = 4
 
 
     }
 
     private val files = hashMapOf<String, Uri>()
 
-    private val mode = MODE_MULTIPLE_FILE_BY_MULTIPLE_BODY
+    private val mode = MODE_PART_MAP
 
 
     private val uploadService: FileUploadService by lazy {
@@ -95,6 +91,9 @@ class FileUploadActivity : BaseActivity() {
                 }
                 MODE_MULTIPLE_FILE_BY_LIST_PART -> {
                     uploadFileListByListPart()
+                }
+                MODE_PART_MAP -> {
+                    uploadFileListByListPart2()
                 }
             }
 
@@ -166,13 +165,23 @@ class FileUploadActivity : BaseActivity() {
     }
 
     private fun uploadFileListByMultipartBody() {
-        val formFieldBody = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传")
-        execute(uploadService.upload(formFieldBody, buildMultipartBody()))
+        //val formFieldBody = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传")
+        //execute(uploadService.upload(formFieldBody, buildMultipartBody()))
+        execute(uploadService.upload(buildMultipartBody()))
     }
 
     private fun uploadFileListByListPart() {
         val formFieldBody = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传")
         execute(uploadService.upload(formFieldBody, buildListPart()))
+    }
+
+    private fun uploadFileListByListPart2() {
+
+        val partMap = hashMapOf<String, RequestBody>().apply {
+            this["description0"] = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 PartMap0")
+            this["description1"] = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 PartMap1")
+        }
+        execute(uploadService.upload(partMap, buildListPart()))
     }
 
     private fun singleFileCall(fileUri: Uri): Call<ResponseBody>? {
@@ -207,7 +216,7 @@ class FileUploadActivity : BaseActivity() {
             }
         }
         // 方式 3
-//        builder.addFormDataPart("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody")
+        builder.addFormDataPart("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody")
 //        builder.addPart(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody"))
         return builder.build()
     }
@@ -266,12 +275,26 @@ class FileUploadActivity : BaseActivity() {
         ): Call<ResponseBody>
 
 
+        @Multipart
+        @POST("fileUpload")
+        fun upload(
+            // @PartMap partMap: Map<String, RequestBody>,
+            // java.lang.IllegalArgumentException: Parameter type must not include a type variable or wildcard: java.util.Map<java.lang.String, ? extends okhttp3.RequestBody> (parameter #1)
+            // kotlin 和 java 泛型的不同导致的，具体可以查看 我的博客： https://blog.csdn.net/johnny901114/article/details/85575213
+            @PartMap partMap: HashMap<String, RequestBody>,
+            @Part parts: List<MultipartBody.Part>
+        ): Call<ResponseBody>
+
+
         /**
          * 多文件上传（MultipartBody）
          */
+        // @Multipart，参数中使用了 @Body 注解，该注解不能和 @Multipart 一起使用
+        // java.lang.IllegalArgumentException: @Body parameters cannot be used with form or multi-part encoding. (parameter #1)
         @POST("fileUpload")
         fun upload(
-            @Part("description") description: RequestBody,
+            // @Part("description") description: RequestBody, 该注解只能配合 @Multipart 使用
+            // java.lang.IllegalArgumentException: @Part parameters can only be used with multipart encoding. (parameter #1)
             @Body multipartBody: MultipartBody
         ): Call<ResponseBody>
     }
