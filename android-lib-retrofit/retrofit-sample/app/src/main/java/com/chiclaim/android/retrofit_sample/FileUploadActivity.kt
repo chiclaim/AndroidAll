@@ -23,7 +23,22 @@ import java.io.File
 
 
 /**
- * 单文件、多文件上传、每个参数的意义
+ * 单文件、多文件上传、每个参数的意义。
+ *
+ * 主要涉及到的注解：
+ *
+ * @POST
+ * @Multipart
+ * @Part
+ * @PartMap
+ * @Body
+ *
+ * 主要涉及到的类：
+ *
+ * MultipartBody
+ * MultipartBody.Part
+ * RequestBody
+ *
  */
 class FileUploadActivity : BaseActivity() {
 
