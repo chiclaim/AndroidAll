@@ -3,6 +3,8 @@ package com.chiclaim.android.retrofit_sample
 import android.os.Bundle
 import com.chiclaim.android.retrofit_sample.bean.ResponseModel
 import com.chiclaim.android.retrofit_sample.bean.User
+import com.chiclaim.android.retrofit_sample.call_adapter.SubscribeOnCallAdapterFactory
+import com.chiclaim.android.retrofit_sample.helper.ResponseTransformerHelper
 import com.chiclaim.android.retrofit_sample.helper.ToastHelper
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -33,7 +35,7 @@ class RxJavaRetrofitActivity : BaseActivity() {
         @POST("register")
         @FormUrlEncoded
         fun registerByRxJava(
-            @Field("username") username: String,
+            @Field("username") username: String?,
             @Field("mobile") mobile: String
         ): Observable<ResponseModel<User>>
     }
@@ -42,6 +44,7 @@ class RxJavaRetrofitActivity : BaseActivity() {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(FileUploadActivity.API_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(SubscribeOnCallAdapterFactory())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
 
@@ -55,7 +58,8 @@ class RxJavaRetrofitActivity : BaseActivity() {
 
         setContentView(R.layout.activity_content_layout)
 
-        rxJavaCall()
+//        rxJavaCall()
+        rxJavaCall2()
 
     }
 
@@ -100,11 +104,11 @@ class RxJavaRetrofitActivity : BaseActivity() {
         userService.registerByRxJava("chiclaim", "110")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
+            .subscribe({ responseModel: ResponseModel<User> ->
                 dismissLoading()
-                text_content.text = (it.message)
+                text_content.text = (responseModel.message)
                 text_content.append("\n")
-                text_content.append(it.data.toString())
+                text_content.append(responseModel.data.toString())
             }, {
                 dismissLoading()
                 text_content.text = "register failed -> ${it.message}"
@@ -112,5 +116,25 @@ class RxJavaRetrofitActivity : BaseActivity() {
                 compositeDisposable.add(this)
             }
     }
+
+    private fun rxJavaCall2() {
+        showLoading()
+        userService.registerByRxJava(null, "110")
+            // .subscribeOn(Schedulers.io())
+            // .onErrorResumeNext(ErrorFunction())
+            .observeOn(AndroidSchedulers.mainThread())
+            .compose(ResponseTransformerHelper.transformResult())
+            .subscribe({ user: User ->
+                dismissLoading()
+                text_content.append("\n")
+                text_content.append(user.toString())
+            }, {
+                dismissLoading()
+                text_content.text = "register failed -> ${it.message}"
+            }).apply {
+                compositeDisposable.add(this)
+            }
+    }
+
 
 }

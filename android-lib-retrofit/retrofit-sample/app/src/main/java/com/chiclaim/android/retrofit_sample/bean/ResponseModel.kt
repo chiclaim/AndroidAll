@@ -6,6 +6,8 @@ class ResponseModel<T> {
 
     var data: T? = null
 
+    var errorCode: String? = null
+
     var message: String? = null
 
 }

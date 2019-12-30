@@ -4,15 +4,14 @@ import android.os.Bundle
 import com.chiclaim.android.retrofit_sample.bean.ResponseModel
 import com.chiclaim.android.retrofit_sample.bean.User
 import com.chiclaim.android.retrofit_sample.helper.ToastHelper
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_content_layout.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
+import java.lang.reflect.Type
 
 class CustomCustomCallActivity : BaseActivity() {
 
@@ -62,6 +61,31 @@ class CustomCustomCallActivity : BaseActivity() {
             }
 
         })
+    }
+
+
+    class UnWrapResponseModelCallAdapter : CallAdapter.Factory() {
+
+        override fun get(returnType: Type, annotations: Array<Annotation?>, retrofit: Retrofit): CallAdapter<*, *>? {
+            if (getRawType(returnType) != Call::class.java) {
+                return null
+            }
+
+            // Look up the next call adapter which would otherwise be used if this one was not present.
+            val delegate: CallAdapter<Any, Call<ResponseModel<*>>> =
+                retrofit.nextCallAdapter(this, returnType, annotations) as CallAdapter<Any, Call<ResponseModel<*>>>
+
+            return object : CallAdapter<Any, Any?> {
+                override fun adapt(call: Call<Any>): Any? { // Delegate to get the normal Observable...
+                    val c: Call<ResponseModel<*>> = delegate.adapt(call)
+                    return c.execute().body()?.data
+                }
+
+                override fun responseType(): Type {
+                    return delegate.responseType()
+                }
+            }
+        }
     }
 
 }
