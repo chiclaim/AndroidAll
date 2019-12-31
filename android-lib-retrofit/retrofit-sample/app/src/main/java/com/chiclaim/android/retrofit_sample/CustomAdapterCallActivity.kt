@@ -92,8 +92,6 @@ class CustomAdapterCallActivity : BaseActivity() {
         call.request(object : Callback<ResponseModel<User>> {
 
             override fun onSuccess(data: ResponseModel<User>?) {
-                println("thread name onSuccess - >${Thread.currentThread().name}")
-
                 dismissLoading()
                 text_content.text = (data?.message)
                 text_content.append("\n")
@@ -101,8 +99,6 @@ class CustomAdapterCallActivity : BaseActivity() {
             }
 
             override fun onError(error: ApiException) {
-                println("thread name onFailure - >${Thread.currentThread().name}")
-
                 dismissLoading()
                 ToastHelper.showToast(applicationContext, error.message)
             }
@@ -126,7 +122,8 @@ class CustomAdapterCallActivity : BaseActivity() {
         // TODO MyResponse<T> execute() throws MyHttpException;
     }
 
-    private class UnwrapCallImpl<T>(private val call: Call<T>, private val executor: Executor?) : UnwrapCall<T> {
+    private class UnwrapCallImpl<T>(private val call: Call<T>, private val callbackExecutor: Executor?) :
+        UnwrapCall<T> {
 
         override fun cancel() {
             call.cancel()
@@ -135,23 +132,44 @@ class CustomAdapterCallActivity : BaseActivity() {
         override fun request(callback: Callback<T>) {
             call.enqueue(object : retrofit2.Callback<T> {
                 override fun onFailure(call: Call<T>, t: Throwable) {
-                    callback.onError(ExceptionHelper.transformException(t))
+                    fun processFailure() {
+                        callback.onError(ExceptionHelper.transformException(t))
+                    }
+
+                    if (callbackExecutor != null) {
+                        callbackExecutor.execute {
+                            processFailure()
+                        }
+                    } else {
+                        processFailure()
+                    }
+
                 }
 
                 override fun onResponse(call: Call<T>, response: Response<T>) {
 
-                    val code = response.code()
-                    if (code in 200..299) {
-                        callback.onSuccess(response.body())
+                    fun processResponse() {
+                        val code = response.code()
+                        if (code in 200..299) {
+                            callback.onSuccess(response.body())
+                        } else {
+                            callback.onError(ApiException("---", "$code ${response.message()}"))
+                        }
+                    }
+
+                    if (callbackExecutor != null) {
+                        callbackExecutor.execute {
+                            processResponse()
+                        }
                     } else {
-                        callback.onError(ApiException("---", "$code ${response.message()}"))
+                        processResponse()
                     }
                 }
             })
         }
 
         override fun clone(): UnwrapCall<T> {
-            return UnwrapCallImpl(call.clone(), executor)
+            return UnwrapCallImpl(call.clone(), callbackExecutor)
         }
     }
 
@@ -176,7 +194,6 @@ class CustomAdapterCallActivity : BaseActivity() {
             check(returnType is ParameterizedType) { "UnwrapCall must have generic type (e.g., UnwrapCall<ResponseBody>)" }
             val responseType = getParameterUpperBound(0, returnType)
             val executor = retrofit.callbackExecutor()
-
 
             println("getParameterUpperBound -> $responseType , executor -> $executor")
 
