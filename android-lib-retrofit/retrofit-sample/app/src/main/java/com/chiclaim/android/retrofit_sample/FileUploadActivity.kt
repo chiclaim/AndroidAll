@@ -78,10 +78,11 @@ class FileUploadActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_file_load_activity)
 
+        switchTitle()
+
         btn_choose_file.setOnClickListener {
             startChooseFile()
         }
-
 
         btn_file_upload.setOnClickListener {
             if (files.isEmpty()) {
@@ -124,31 +125,34 @@ class FileUploadActivity : BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menu.add(1, MENU_ID_SINGLE_FILE, 1, getString(R.string.menu_upload_mode_single))
-        menu.add(1, MENU_ID_MULTI_FILES_BY_BODY, 2, getString(R.string.menu_upload_mode_multi_by_list))
-        menu.add(1, MENU_ID_MULTI_FILES_BY_LIST_PART, 3, getString(R.string.menu_upload_mode_multi_by_body))
+        menu.add(1, MENU_ID_MULTI_FILES_BY_BODY, 2, getString(R.string.menu_upload_mode_multi_by_body))
+        menu.add(1, MENU_ID_MULTI_FILES_BY_LIST_PART, 3, getString(R.string.menu_upload_mode_multi_by_list))
         menu.add(1, MENU_ID_PART_MAP, 4, getString(R.string.menu_upload_mode_part_map))
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         mode = item.itemId
-        when (item.itemId) {
+        switchTitle()
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun switchTitle() {
+        when (mode) {
             MENU_ID_SINGLE_FILE -> {
                 title = getTitlePlaceholder(getString(R.string.menu_upload_mode_single))
             }
             MENU_ID_MULTI_FILES_BY_BODY -> {
-                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_list))
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_body))
 
             }
             MENU_ID_MULTI_FILES_BY_LIST_PART -> {
-                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_body))
-
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_list))
             }
             MENU_ID_PART_MAP -> {
                 title = getTitlePlaceholder(getString(R.string.menu_upload_mode_part_map))
             }
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun startChooseFile() {
@@ -255,6 +259,15 @@ class FileUploadActivity : BaseActivity() {
 
     private fun buildMultipartBody(): MultipartBody {
         val builder = MultipartBody.Builder()
+
+        // 方式 3 不会发送请求头，charset=utf-8 可能会导致乱码
+        // builder.addFormDataPart("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody")
+
+        // 会发送请求头：Content-Type: multipart/form-data; charset=utf-8
+        val formFieldPart = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传 in buildMultipartBody")
+        builder.addFormDataPart("description0", null, formFieldPart)
+
+
         var index = 0
         files.forEach { entry: Map.Entry<String, Uri> ->
             val uri = entry.value
@@ -265,9 +278,7 @@ class FileUploadActivity : BaseActivity() {
                 builder.addFormDataPart("file${++index}", file.name, requestBody)
             }
         }
-        // 方式 3
-        builder.addFormDataPart("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody")
-//        builder.addPart(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody"))
+
         return builder.build()
     }
 
@@ -281,8 +292,12 @@ class FileUploadActivity : BaseActivity() {
         //val formFieldBody = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 in list")
         //list.add(MultipartBody.Part.create(formFieldBody))
 
-        // 方式 3
-        list.add(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in list"))
+        // 方式 3 不会发送请求头，charset=utf-8 可能会导致乱码
+        // list.add(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in list"))
+
+        // 会发送请求头：Content-Type: multipart/form-data; charset=utf-8
+        val formFieldPart = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 in list")
+        list.add(MultipartBody.Part.createFormData("description0", null, formFieldPart))
 
 
         var index = 0
