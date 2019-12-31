@@ -6,6 +6,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_file_load_activity.*
@@ -49,17 +51,17 @@ class FileUploadActivity : BaseActivity() {
         // set your base url
         const val API_URL = "http://10.1.81.240:8080/"
 
-        const val MODE_SINGLE_FILE = 1
-        const val MODE_MULTIPLE_FILE_BY_MULTIPLE_BODY = 2
-        const val MODE_MULTIPLE_FILE_BY_LIST_PART = 3
-        const val MODE_PART_MAP = 4
+        const val MENU_ID_SINGLE_FILE = 1
+        const val MENU_ID_MULTI_FILES_BY_BODY = 2
+        const val MENU_ID_MULTI_FILES_BY_LIST_PART = 3
+        const val MENU_ID_PART_MAP = 4
 
 
     }
 
     private val files = hashMapOf<String, Uri>()
 
-    private val mode = MODE_PART_MAP
+    private var mode = MENU_ID_PART_MAP
 
 
     private val uploadService: FileUploadService by lazy {
@@ -96,24 +98,57 @@ class FileUploadActivity : BaseActivity() {
             }
 
             when (mode) {
-                MODE_SINGLE_FILE -> {
+                MENU_ID_SINGLE_FILE -> {
                     singleFileUri?.let {
                         uploadFile(it)
                     }
                 }
-                MODE_MULTIPLE_FILE_BY_MULTIPLE_BODY -> {
+                MENU_ID_MULTI_FILES_BY_BODY -> {
                     uploadFileListByMultipartBody()
                 }
-                MODE_MULTIPLE_FILE_BY_LIST_PART -> {
+                MENU_ID_MULTI_FILES_BY_LIST_PART -> {
                     uploadFileListByListPart()
                 }
-                MODE_PART_MAP -> {
+                MENU_ID_PART_MAP -> {
                     uploadFileListByListPart2()
                 }
             }
 
 
         }
+    }
+
+    private fun getTitlePlaceholder(mode: CharSequence): CharSequence {
+        return "${getString(R.string.label_file_upload)}($mode)"
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.add(1, MENU_ID_SINGLE_FILE, 1, getString(R.string.menu_upload_mode_single))
+        menu.add(1, MENU_ID_MULTI_FILES_BY_BODY, 2, getString(R.string.menu_upload_mode_multi_by_list))
+        menu.add(1, MENU_ID_MULTI_FILES_BY_LIST_PART, 3, getString(R.string.menu_upload_mode_multi_by_body))
+        menu.add(1, MENU_ID_PART_MAP, 4, getString(R.string.menu_upload_mode_part_map))
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        mode = item.itemId
+        when (item.itemId) {
+            MENU_ID_SINGLE_FILE -> {
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_single))
+            }
+            MENU_ID_MULTI_FILES_BY_BODY -> {
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_list))
+
+            }
+            MENU_ID_MULTI_FILES_BY_LIST_PART -> {
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_multi_by_body))
+
+            }
+            MENU_ID_PART_MAP -> {
+                title = getTitlePlaceholder(getString(R.string.menu_upload_mode_part_map))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun startChooseFile() {

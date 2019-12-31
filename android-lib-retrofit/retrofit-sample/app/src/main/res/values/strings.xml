@@ -10,4 +10,11 @@
     <string name="label_retrofit_rxjava">Retrofit + RxJava</string>
 
 
+
+    <string name="menu_upload_mode_single">SingleFile</string>
+    <string name="menu_upload_mode_multi_by_list">FilesByListPart</string>
+    <string name="menu_upload_mode_multi_by_body">FilesByBody</string>
+    <string name="menu_upload_mode_part_map">FilesPartMap</string>
+
+
 </resources>

@@ -1,6 +1,8 @@
 package com.chiclaim.android.retrofit_sample
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.chiclaim.android.retrofit_sample.bean.ResponseModel
 import com.chiclaim.android.retrofit_sample.bean.User
 import com.chiclaim.android.retrofit_sample.exception.ApiException
@@ -30,6 +32,10 @@ import java.util.concurrent.Executor
  */
 class CustomAdapterCallActivity : BaseActivity() {
 
+    companion object {
+        const val MENU_ID_NORMAL = 1
+        const val MENU_ID_CUSTOM = 2
+    }
 
     interface UserService {
         @POST("register")
@@ -63,8 +69,25 @@ class CustomAdapterCallActivity : BaseActivity() {
 
         setContentView(R.layout.activity_content_layout)
 
-        normalCall()
-//        customCall()
+        customCall()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.add(1, MENU_ID_NORMAL, 1, "Normal")
+        menu.add(1, MENU_ID_CUSTOM, 2, "Custom")
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            MENU_ID_NORMAL -> {
+                normalCall()
+            }
+            MENU_ID_CUSTOM -> {
+                customCall()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun normalCall() {
@@ -75,6 +98,7 @@ class CustomAdapterCallActivity : BaseActivity() {
             override fun onFailure(call: Call<ResponseModel<User>>, t: Throwable) {
                 dismissLoading()
                 ToastHelper.showToast(applicationContext, t.message)
+                text_content.text = t.message
             }
 
             override fun onResponse(call: Call<ResponseModel<User>>, response: Response<ResponseModel<User>>) {
@@ -111,6 +135,7 @@ class CustomAdapterCallActivity : BaseActivity() {
             override fun onError(error: ApiException) {
                 dismissLoading()
                 ToastHelper.showToast(applicationContext, error.message)
+                text_content.text = error.message
             }
         })
     }
