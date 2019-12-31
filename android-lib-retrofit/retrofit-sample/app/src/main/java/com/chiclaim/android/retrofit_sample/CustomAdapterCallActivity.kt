@@ -80,7 +80,8 @@ class CustomAdapterCallActivity : BaseActivity() {
             override fun onResponse(call: Call<ResponseModel<User>>, response: Response<ResponseModel<User>>) {
                 dismissLoading()
                 val repsModel = response.body()
-                if (response.code() == 200) {
+                val code = response.code()
+                if (code in 200..299) {
                     text_content.text = (repsModel?.message)
                     text_content.append("\n")
                     text_content.append(repsModel?.data.toString())
@@ -204,7 +205,7 @@ class CustomAdapterCallActivity : BaseActivity() {
 
             if (getRawType(returnType) != MyCall::class.java) return null
 
-            check(returnType is ParameterizedType) { "UnwrapCall must have generic type (e.g., UnwrapCall<ResponseBody>)" }
+            check(returnType is ParameterizedType) { "MyCall must have generic type (e.g., UnwrapCall<ResponseBody>)" }
             val responseType = getParameterUpperBound(0, returnType)
             val executor = retrofit.callbackExecutor()
 
