@@ -19,6 +19,15 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 import java.util.concurrent.Executor
 
+/**
+ * 自定义 CallAdapter，统一封装对错误的处理
+ *
+ * -----思考：-----
+ * 为何 normalCall 普通的方式，请求的回调会默认在主线程中执行？
+ * 下面自定义的 CallAdapter 的网络请求回调在会后台线程执行？
+ * (已从源码中找到答案)
+ *
+ */
 class CustomAdapterCallActivity : BaseActivity() {
 
 
@@ -36,7 +45,7 @@ class CustomAdapterCallActivity : BaseActivity() {
         fun register2(
             @Field("username") username: String,
             @Field("mobile") mobile: String
-        ): UnwrapCall<ResponseModel<User>>
+        ): MyCall<ResponseModel<User>>
     }
 
     private val userService by lazy {
@@ -54,8 +63,8 @@ class CustomAdapterCallActivity : BaseActivity() {
 
         setContentView(R.layout.activity_content_layout)
 
-//        normalCall()
-        customCall()
+        normalCall()
+//        customCall()
     }
 
     private fun normalCall() {
@@ -113,22 +122,26 @@ class CustomAdapterCallActivity : BaseActivity() {
         fun onError(error: ApiException)
     }
 
-    interface UnwrapCall<T> {
+    interface MyCall<T> {
         fun cancel()
         fun request(callback: Callback<T>)
-        fun clone(): UnwrapCall<T>
+        fun clone(): MyCall<T>
 
         // Left as an exercise for the reader...
         // TODO MyResponse<T> execute() throws MyHttpException;
     }
 
-    private class UnwrapCallImpl<T>(private val call: Call<T>, private val callbackExecutor: Executor?) :
-        UnwrapCall<T> {
+    private class MyCallImpl<T>(private val call: Call<T>, private val callbackExecutor: Executor?) :
+        MyCall<T> {
 
         override fun cancel() {
             call.cancel()
         }
 
+        // 思考：
+        // 为何 normalCall 普通的方式，请求的回调会默认在主线程中执行？
+        // 下面自定义的 CallAdapter 的网络请求回调在会后台线程执行？
+        // 已从源码中找到答案
         override fun request(callback: Callback<T>) {
             call.enqueue(object : retrofit2.Callback<T> {
                 override fun onFailure(call: Call<T>, t: Throwable) {
@@ -168,16 +181,16 @@ class CustomAdapterCallActivity : BaseActivity() {
             })
         }
 
-        override fun clone(): UnwrapCall<T> {
-            return UnwrapCallImpl(call.clone(), callbackExecutor)
+        override fun clone(): MyCall<T> {
+            return MyCallImpl(call.clone(), callbackExecutor)
         }
     }
 
     private class MyCallAdapter<R>(private val responseType: Type, private val executor: Executor?) :
-        CallAdapter<R, UnwrapCall<R>> {
+        CallAdapter<R, MyCall<R>> {
 
-        override fun adapt(call: Call<R>): UnwrapCall<R> {
-            return UnwrapCallImpl(call, executor)
+        override fun adapt(call: Call<R>): MyCall<R> {
+            return MyCallImpl(call, executor)
         }
 
         override fun responseType(): Type {
@@ -189,7 +202,7 @@ class CustomAdapterCallActivity : BaseActivity() {
     class MyCallAdapterFactory : CallAdapter.Factory() {
         override fun get(returnType: Type, annotations: Array<Annotation>, retrofit: Retrofit): CallAdapter<*, *>? {
 
-            if (getRawType(returnType) != UnwrapCall::class.java) return null
+            if (getRawType(returnType) != MyCall::class.java) return null
 
             check(returnType is ParameterizedType) { "UnwrapCall must have generic type (e.g., UnwrapCall<ResponseBody>)" }
             val responseType = getParameterUpperBound(0, returnType)
