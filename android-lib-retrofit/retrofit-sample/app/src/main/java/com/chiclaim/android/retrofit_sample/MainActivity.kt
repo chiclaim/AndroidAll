@@ -1,7 +1,6 @@
 package com.chiclaim.android.retrofit_sample
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,7 +28,7 @@ class MainActivity : BaseActivity() {
         }
 
         btn_custom_call_adapter.setOnClickListener {
-            startActivity(Intent(this, CustomCustomCallActivity::class.java))
+            startActivity(Intent(this, CustomAdapterCallActivity::class.java))
         }
 
         btn_rxjava_call_adapter.setOnClickListener {

@@ -11,7 +11,7 @@ public class ErrorFunction implements Function<Throwable, ObservableSource<Respo
 
     @Override
     public ObservableSource<ResponseModel<?>> apply(Throwable throwable) {
-        return Observable.error(ExceptionHelper.handleException(throwable));
+        return Observable.error(ExceptionHelper.transformException(throwable));
     }
 
 }

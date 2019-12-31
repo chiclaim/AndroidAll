@@ -38,7 +38,7 @@
                   android:label="@string/label_file_upload"
                   android:screenOrientation="portrait"/>
 
-        <activity android:name=".CustomCustomCallActivity"
+        <activity android:name=".CustomAdapterCallActivity"
                   android:label="@string/label_custom_call_adapter"
                   android:screenOrientation="portrait"/>
 

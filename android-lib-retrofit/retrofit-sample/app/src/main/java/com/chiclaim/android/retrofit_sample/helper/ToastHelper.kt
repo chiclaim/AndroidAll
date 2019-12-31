@@ -6,8 +6,9 @@ import android.widget.Toast
 class ToastHelper {
 
     companion object {
-        fun showToast(context: Context, mssage: CharSequence) {
-            Toast.makeText(context, ",", Toast.LENGTH_SHORT).show()
+        fun showToast(context: Context, message: CharSequence?) {
+            message ?: return
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }

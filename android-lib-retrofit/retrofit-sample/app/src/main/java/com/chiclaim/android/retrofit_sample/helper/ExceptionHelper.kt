@@ -10,7 +10,7 @@ class ExceptionHelper {
     companion object {
         private const val ERROR_CODE = "error_code_001"
         @JvmStatic
-        fun handleException(t: Throwable): ApiException {
+        fun transformException(t: Throwable): ApiException {
             t.printStackTrace()
             return when (t) {
                 is SocketTimeoutException -> ApiException(
