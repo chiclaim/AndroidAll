@@ -8,6 +8,7 @@
     <string name="label_file_upload">文件上传</string>
     <string name="label_custom_call_adapter">自定义CallAdapter</string>
     <string name="label_retrofit_rxjava">Retrofit + RxJava</string>
+    <string name="label_retrofit_coroutine">Retrofit + Coroutine</string>
 
 
 

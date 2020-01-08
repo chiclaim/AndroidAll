@@ -35,6 +35,10 @@ class MainActivity : BaseActivity() {
             startActivity(Intent(this, RxJavaRetrofitActivity::class.java))
         }
 
+        btn_coroutine.setOnClickListener {
+            startActivity(Intent(this, RetrofitWithCoroutineActivity::class.java))
+        }
+
     }
 
     override fun showBackMenu() = false

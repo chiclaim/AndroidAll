@@ -45,6 +45,10 @@
         <activity android:name=".RxJavaRetrofitActivity"
                   android:label="@string/label_retrofit_rxjava"
                   android:screenOrientation="portrait"/>
+
+        <activity android:name=".RetrofitWithCoroutineActivity"
+                  android:label="@string/label_retrofit_coroutine"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
