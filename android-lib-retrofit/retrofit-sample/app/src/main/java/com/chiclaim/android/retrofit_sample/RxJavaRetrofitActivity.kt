@@ -1,6 +1,8 @@
 package com.chiclaim.android.retrofit_sample
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.chiclaim.android.retrofit_sample.bean.ResponseModel
 import com.chiclaim.android.retrofit_sample.bean.User
 import com.chiclaim.android.retrofit_sample.call_adapter.SubscribeOnCallAdapterFactory
@@ -37,13 +39,28 @@ class RxJavaRetrofitActivity : BaseActivity() {
         fun registerByRxJava(
             @Field("username") username: String?,
             @Field("mobile") mobile: String
-        ): Observable<ResponseModel<User>>
+        ): Observable<ResponseModel<User>?>
+
+        @POST("register")
+        @FormUrlEncoded
+        fun registerByRxJava2(
+            @Field("username") username: String?,
+            @Field("mobile") mobile: String
+        ): Observable<Response<ResponseModel<User>?>?>
+    }
+
+    companion object {
+        const val TYPE_NORMAL = 1
+        const val TYPE_RXJAVA = 2
+        const val TYPE_RXJAVA_BODY = 3
+        const val TYPE_RXJAVA_RESPONSE = 4
     }
 
     private val userService by lazy {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(FileUploadActivity.API_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            // 自定义 CallAdapter，统一设置被观察者的执行线程，以及统一封装错误处理
             .addCallAdapterFactory(SubscribeOnCallAdapterFactory())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
@@ -59,8 +76,26 @@ class RxJavaRetrofitActivity : BaseActivity() {
         setContentView(R.layout.activity_content_layout)
 
 //        rxJavaCall()
-        rxJavaCall2()
+//        rxJavaCall2()
+        rxJavaCall3()
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.add(1, TYPE_NORMAL, 1, "Without RxJava")
+        menu.add(1, TYPE_RXJAVA, 2, "WithRxJava")
+        menu.add(1, TYPE_RXJAVA_BODY, 3, "Observable<Body>")
+        menu.add(1, TYPE_RXJAVA_RESPONSE, 4, "Observable<Response>")
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            TYPE_NORMAL -> normalCall()
+            TYPE_RXJAVA -> rxJavaCall()
+            TYPE_RXJAVA_BODY -> rxJavaCall2()
+            TYPE_RXJAVA_RESPONSE -> rxJavaCall3()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
@@ -104,11 +139,11 @@ class RxJavaRetrofitActivity : BaseActivity() {
         userService.registerByRxJava("chiclaim", "110")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ responseModel: ResponseModel<User> ->
+            .subscribe({ responseModel: ResponseModel<User>? ->
                 dismissLoading()
-                text_content.text = (responseModel.message)
+                text_content.text = (responseModel?.message)
                 text_content.append("\n")
-                text_content.append(responseModel.data.toString())
+                text_content.append(responseModel?.data.toString())
             }, {
                 dismissLoading()
                 text_content.text = "register failed -> ${it.message}"
@@ -117,17 +152,46 @@ class RxJavaRetrofitActivity : BaseActivity() {
             }
     }
 
+    /**
+     * http code = 240,205 抛出 java.lang.NullPointerException: Null is not a valid element
+     *
+     * 不用指定被观察者所在的执行线程
+     *
+     */
     private fun rxJavaCall2() {
         showLoading()
-        userService.registerByRxJava(null, "110")
-            // .subscribeOn(Schedulers.io())
-            // .onErrorResumeNext(ErrorFunction())
+        userService.registerByRxJava("chiclaim", "110")
             .observeOn(AndroidSchedulers.mainThread())
             .compose(ResponseTransformerHelper.transformResult())
-            .subscribe({ user: User ->
+            .subscribe({ user: User? ->
                 dismissLoading()
                 text_content.append("\n")
                 text_content.append(user.toString())
+            }, {
+                dismissLoading()
+                text_content.text = "register failed -> ${it.message}"
+            }).apply {
+                compositeDisposable.add(this)
+            }
+    }
+
+
+    /**
+     * http code = 240,205 不会抛出 java.lang.NullPointerException: Null is not a valid element
+     */
+    private fun rxJavaCall3() {
+        showLoading()
+        userService.registerByRxJava2("chiclaim", "110")
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response: Response<ResponseModel<User>?>? ->
+                dismissLoading()
+                val body = response?.body()
+                if (body != null) {
+                    text_content.append("\n")
+                    text_content.append(body.data?.toString())
+                } else {
+                    text_content.append("\n response body is null")
+                }
             }, {
                 dismissLoading()
                 text_content.text = "register failed -> ${it.message}"
