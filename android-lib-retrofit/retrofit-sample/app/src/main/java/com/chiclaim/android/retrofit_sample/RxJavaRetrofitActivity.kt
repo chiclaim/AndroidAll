@@ -46,7 +46,7 @@ class RxJavaRetrofitActivity : BaseActivity() {
         fun registerByRxJava2(
             @Field("username") username: String?,
             @Field("mobile") mobile: String
-        ): Observable<Response<ResponseModel<User>?>?>
+        ): Observable<Response<ResponseModel<User>?>>
     }
 
     companion object {
@@ -124,7 +124,7 @@ class RxJavaRetrofitActivity : BaseActivity() {
                     text_content.append("\n")
                     text_content.append(repsModel?.data.toString())
                 } else {
-                    text_content.text = "response code ${response.code()}\n${repsModel?.message}"
+                    text_content.text = "response code = ${response.code()}\nmessage = ${repsModel?.message}"
                 }
             }
 
@@ -165,8 +165,7 @@ class RxJavaRetrofitActivity : BaseActivity() {
             .compose(ResponseTransformerHelper.transformResult())
             .subscribe({ user: User? ->
                 dismissLoading()
-                text_content.append("\n")
-                text_content.append(user.toString())
+                text_content.text = ("\n${user.toString()}")
             }, {
                 dismissLoading()
                 text_content.text = "register failed -> ${it.message}"
@@ -183,14 +182,13 @@ class RxJavaRetrofitActivity : BaseActivity() {
         showLoading()
         userService.registerByRxJava2("chiclaim", "110")
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response: Response<ResponseModel<User>?>? ->
+            .subscribe({ response: Response<ResponseModel<User>?> ->
                 dismissLoading()
-                val body = response?.body()
+                val body = response.body()
                 if (body != null) {
-                    text_content.append("\n")
-                    text_content.append(body.data?.toString())
+                    text_content.text = ("response code = ${response.code()}\n${body.data?.toString()}")
                 } else {
-                    text_content.append("\n response body is null")
+                    text_content.text = ("response code = ${response.code()}\n response body is null")
                 }
             }, {
                 dismissLoading()
