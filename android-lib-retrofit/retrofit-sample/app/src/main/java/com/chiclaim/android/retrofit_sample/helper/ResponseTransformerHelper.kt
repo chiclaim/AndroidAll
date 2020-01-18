@@ -9,7 +9,7 @@ import io.reactivex.ObservableTransformer
 class ResponseTransformerHelper {
 
     companion object {
-        fun <T> transformResult(): ObservableTransformer<ResponseModel<T>, T> {
+        fun <T> transformResult(): ObservableTransformer<ResponseModel<T>?, T> {
             return ObservableTransformer { upstream ->
                 upstream.flatMap { responseModel ->
                     if (responseModel.status != 0) {

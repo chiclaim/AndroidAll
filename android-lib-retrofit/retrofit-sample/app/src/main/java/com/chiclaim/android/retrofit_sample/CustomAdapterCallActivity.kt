@@ -230,7 +230,7 @@ class CustomAdapterCallActivity : BaseActivity() {
 
             if (getRawType(returnType) != MyCall::class.java) return null
 
-            check(returnType is ParameterizedType) { "MyCall must have generic type (e.g., UnwrapCall<ResponseBody>)" }
+            check(returnType is ParameterizedType) { "MyCall must have generic type (e.g., MyCall<ResponseBody>)" }
             val responseType = getParameterUpperBound(0, returnType)
             val executor = retrofit.callbackExecutor()
 
