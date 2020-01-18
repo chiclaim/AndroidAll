@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.MimeTypeMap
 import android.widget.Toast
+import com.chiclaim.android.retrofit_sample.helper.UriHelper
 import kotlinx.android.synthetic.main.activity_file_load_activity.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -21,7 +22,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
-import java.io.File
 
 
 /**
@@ -49,7 +49,7 @@ class FileUploadActivity : BaseActivity() {
         const val MAX_FILE_NUMBER = 2
 
         // set your base url
-        const val API_URL = "http://10.1.81.240:8080/"
+        const val API_URL = "http://192.168.50.195:8080/"
 
         const val MENU_ID_SINGLE_FILE = 1
         const val MENU_ID_MULTI_FILES_BY_BODY = 2
@@ -199,6 +199,14 @@ class FileUploadActivity : BaseActivity() {
         MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension.toLowerCase())
     }
 
+    private fun getMediaType(uri: Uri): MediaType? {
+        val mimeType = getMimeType(uri)
+        if (mimeType != null) {
+            return MediaType.parse(mimeType)
+        }
+        return null
+    }
+
 
     private fun execute(call: Call<ResponseBody>?) {
         call?.enqueue(object : Callback<ResponseBody> {
@@ -241,11 +249,10 @@ class FileUploadActivity : BaseActivity() {
     private fun singleFileCall(fileUri: Uri): Call<ResponseBody>? {
 
         // 多媒体类型，例如： image/jpeg
-        val mineType = getMimeType(fileUri) ?: return null
+        val mediaType = getMediaType(fileUri)
+        val file = UriHelper.getFileFromUri(applicationContext, fileUri)
 
-        val file = File(fileUri.path)
-
-        val fileRequestBody = RequestBody.create(MediaType.parse(mineType), file)
+        val fileRequestBody = RequestBody.create(mediaType, file)
 
         // 相当于 HTML 页面里面的 文件选择控件： <input type="file" name="file_1"/>
         val filePart = MultipartBody.Part.createFormData("file_1", file.name, fileRequestBody)
@@ -271,12 +278,10 @@ class FileUploadActivity : BaseActivity() {
         var index = 0
         files.forEach { entry: Map.Entry<String, Uri> ->
             val uri = entry.value
-            val mineType = getMimeType(uri)
-            mineType?.let {
-                val file = File(uri.path)
-                val requestBody = RequestBody.create(MediaType.parse(it), file)
-                builder.addFormDataPart("file${++index}", file.name, requestBody)
-            }
+            val mediaType = getMediaType(uri)
+            val file = UriHelper.getFileFromUri(applicationContext, uri)
+            val requestBody = RequestBody.create(mediaType, file)
+            builder.addFormDataPart("file${++index}", file.name, requestBody)
         }
 
         return builder.build()
@@ -303,13 +308,11 @@ class FileUploadActivity : BaseActivity() {
         var index = 0
         files.forEach {
             val fileUri = it.value
-            val mineType = getMimeType(fileUri)
-            mineType?.let {
-                val file = File(fileUri.path)
-                val fileRequestBody = RequestBody.create(MediaType.parse(mineType), file)
-                val filePart = MultipartBody.Part.createFormData("file_${++index}", file.name, fileRequestBody)
-                list.add(filePart)
-            }
+            val mediaType = getMediaType(fileUri)
+            val file = UriHelper.getFileFromUri(applicationContext, fileUri)
+            val fileRequestBody = RequestBody.create(mediaType, file)
+            val filePart = MultipartBody.Part.createFormData("file_${++index}", file.name, fileRequestBody)
+            list.add(filePart)
         }
 
 
