@@ -40,7 +40,7 @@
 │  │  ├─ 字节流
 │  │  │  ├─ InputStream
 │  │  │  │  ├─ FileInputStream
-│  │  │  │  └─ FilterInputStream
+│  │  │  │  ├─ FilterInputStream
 │  │  │  │  │  ├─ BufferedInputStream
 │  │  │  │  │  ├─ DataInputStream
 │  │  │  │  │  └─ PushbackInputStream
