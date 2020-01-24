@@ -1,7 +1,7 @@
-package com.chiclaim.annotation.com.chiclaim.reflection;
+package com.chiclaim.reflection;
 
 
-import com.chiclaim.annotation.com.chiclaim.annotation.NotNull;
+import com.chiclaim.annotation.NotNull;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -50,7 +50,7 @@ public class ReflectionTest {
         Annotation[][] ass = method.getParameterAnnotations();
         for (Annotation[] as : ass) {
             for (Annotation annotation : as) {
-                System.out.println(annotation); // @com.chiclaim.annotation.com.chiclaim.annotation.NotNull()
+                System.out.println(annotation); // @com.chiclaim.annotation.NotNull()
             }
         }
     }

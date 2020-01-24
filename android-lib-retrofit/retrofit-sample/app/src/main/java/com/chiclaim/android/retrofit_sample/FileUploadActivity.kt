@@ -271,8 +271,11 @@ class FileUploadActivity : BaseActivity() {
         // builder.addFormDataPart("description0", "通过 List<MultipartBody.Part> 多文件上传 in build MultipartBody")
 
         // 会发送请求头：Content-Type: multipart/form-data; charset=utf-8
-        val formFieldPart = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传 in buildMultipartBody")
-        builder.addFormDataPart("description0", null, formFieldPart)
+        val param1 = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传 in buildMultipartBody 参数1")
+        builder.addFormDataPart("description0", null, param1)
+
+        val param2 = RequestBody.create(MultipartBody.FORM, "通过 MultipartBody 多文件上传 in buildMultipartBody 参数1")
+        builder.addFormDataPart("description0", null, param2)
 
 
         var index = 0
@@ -298,11 +301,15 @@ class FileUploadActivity : BaseActivity() {
         //list.add(MultipartBody.Part.create(formFieldBody))
 
         // 方式 3 不会发送请求头，charset=utf-8 可能会导致乱码
-        // list.add(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in list"))
+        // list.add(MultipartBody.Part.createFormData("description0", "通过 List<MultipartBody.Part> 多文件上传 in list 参数0"))
+        // list.add(MultipartBody.Part.createFormData("description1", "通过 List<MultipartBody.Part> 多文件上传 in list 参数1"))
 
         // 会发送请求头：Content-Type: multipart/form-data; charset=utf-8
-        val formFieldPart = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 in list")
-        list.add(MultipartBody.Part.createFormData("description0", null, formFieldPart))
+        val param1 = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 in list 参数0")
+        list.add(MultipartBody.Part.createFormData("description0", null, param1))
+
+        val param2 = RequestBody.create(MultipartBody.FORM, "通过 List<MultipartBody.Part> 多文件上传 in list 参数1")
+        list.add(MultipartBody.Part.createFormData("description1", null, param2))
 
 
         var index = 0

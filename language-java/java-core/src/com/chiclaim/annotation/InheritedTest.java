@@ -1,4 +1,4 @@
-package com.chiclaim.annotation.com.chiclaim.annotation;
+package com.chiclaim.annotation;
 
 public class InheritedTest extends BaseClass {
 

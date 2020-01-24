@@ -1,4 +1,4 @@
-package com.chiclaim.annotation.com.chiclaim.annotation;
+package com.chiclaim.annotation;
 
 import java.lang.annotation.*;
 

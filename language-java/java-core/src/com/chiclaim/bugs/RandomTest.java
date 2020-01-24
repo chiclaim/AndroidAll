@@ -1,4 +1,4 @@
-package com.chiclaim.annotation.com.chiclaim.bugs;
+package com.chiclaim.bugs;
 
 import java.util.Random;
 
