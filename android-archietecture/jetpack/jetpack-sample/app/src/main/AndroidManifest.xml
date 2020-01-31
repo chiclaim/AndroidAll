@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chiclaim.jetpack" >
+    package="com.chiclaim.jetpack">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,8 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".basic.ViewModelDemoActivity" />
-        <activity android:name=".basic.LiveDataDemoActivity" />
+
+        <activity
+            android:name=".basic.ViewModelDemoActivity"
+            android:label="ViewModelDemo" />
+        <activity
+            android:name=".basic.LiveDataDemoActivity"
+            android:label="LiveDataDemo" />
     </application>
 
 </manifest>
