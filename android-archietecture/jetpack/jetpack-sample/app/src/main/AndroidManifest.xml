@@ -3,6 +3,7 @@
     package="com.chiclaim.jetpack">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,12 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
+
             </intent-filter>
+
+
         </activity>
 
         <activity
@@ -24,6 +30,15 @@
         <activity
             android:name=".basic.LiveDataDemoActivity"
             android:label="LiveDataDemo" />
+
+        <activity
+            android:name=".basic.LifecycleDemoActivity"
+            android:label="LifecycleDemo" />
+
+        <provider
+            android:name=".contentprovider.MyContentProvider"
+            android:authorities="com.chiclaim.jetpack.provider"
+            android:exported="false" />
     </application>
 
 </manifest>
