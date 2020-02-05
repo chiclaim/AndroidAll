@@ -45,7 +45,19 @@ internal abstract class LocationListener(
         private val callback: (Location) -> Unit
 ) : LifecycleObserver {
 
-    protected var enabled = false
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun destroy() {
+        Log.e("MyLocationListener", "onDestroy...")
+    }
+
+}
+
+internal class MyLocationListener(
+        context: Context,
+        private val lifecycle: Lifecycle,
+        callback: (Location) -> Unit) : LocationListener(context, lifecycle, callback) {
+
+    private var enabled = false
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun start() {
@@ -61,16 +73,6 @@ internal abstract class LocationListener(
         // disconnect if connected
         Log.e("MyLocationListener", "disconnect")
 
-    }
-}
-
-internal class MyLocationListener(context: Context,
-                                  private val lifecycle: Lifecycle,
-                                  callback: (Location) -> Unit) : LocationListener(context, lifecycle, callback) {
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun create() {
-        Log.e("MyLocationListener", "create...")
     }
 
     fun enable() {
