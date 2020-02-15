@@ -476,6 +476,13 @@
 
 ## Android框架
 
+### Jetpack
+
+- [Android Jetpack（一）Lifecycle 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104189041)
+- [Android Jetpack（二）ViewModel 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104200091)
+- [Android Jetpack（三）LiveData 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104334179)
+
+
 ### RxJava 
 
 - [RxJava create操作符的用法和源码分析](/rxjava/blogs/rxjava-create-source-analysis.md)
