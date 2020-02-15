@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.chiclaim.jetpack.basic.LifecycleDemoActivity
 import com.chiclaim.jetpack.basic.LiveDataDemoActivity
+import com.chiclaim.jetpack.basic.RetrofitLiveDataDemoActivity
 import com.chiclaim.jetpack.basic.ViewModelDemoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +24,10 @@ class MainActivity : BaseActivity() {
 
         btn_view_model_demo.setOnClickListener {
             startActivity(Intent(this, ViewModelDemoActivity::class.java))
+        }
+
+        btn_retrofit_live_data.setOnClickListener {
+            startActivity(Intent(this, RetrofitLiveDataDemoActivity::class.java))
         }
     }
 

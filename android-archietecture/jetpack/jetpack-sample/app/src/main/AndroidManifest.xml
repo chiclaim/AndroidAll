@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chiclaim.jetpack">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -34,6 +36,9 @@
         <activity
             android:name=".basic.LifecycleDemoActivity"
             android:label="LifecycleDemo" />
+
+        <activity android:name=".basic.RetrofitLiveDataDemoActivity"
+            android:label="LiveDataWithRetrofit"/>
 
         <provider
             android:name=".contentprovider.MyContentProvider"
