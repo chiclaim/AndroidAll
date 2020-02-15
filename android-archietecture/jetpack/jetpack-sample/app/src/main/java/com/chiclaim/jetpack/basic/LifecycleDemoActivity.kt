@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.chiclaim.jetpack.BaseActivity
+import com.chiclaim.jetpack.R
 
 /*
 主要基于观察者模式
@@ -23,6 +24,8 @@ class LifecycleDemoActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_lifecycle_layout)
 
 
         myLocationListener = MyLocationListener(this, lifecycle) { location ->
