@@ -1,6 +1,6 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」「Dagger2」「Retrofit」「OkHttp」「ButterKnife」「Router」「NDK」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。如：
+内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」「Dagger2」「Retrofit」「OkHttp」「ButterKnife」「Router」「NDK」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。如果您有任何问题或建议欢迎 [Issues](https://github.com/chiclaim/AndroidAll/issues/new) ，核心技术栈包括：
 
 - **Java核心技术**
   - [Java 集合框架原理](Java集合框架)
@@ -50,11 +50,7 @@
   - 如何提高团队积极性？
  
 
-**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)**
-
-如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
-
-下面是每个技术点的明细：
+**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)** ，下面是每个技术点的明细：
 
 ```
 ├─ Computer Sience
