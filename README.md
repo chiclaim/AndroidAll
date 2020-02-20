@@ -1,11 +1,59 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台开发)」「[ReactNative](#跨平台开发)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「[Retrofit](#Android框架)」「[OkHttp](#Android框架)」「[ButterKnife](#ButterKnife)」「[Router](#NDK开发)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「[性能优化](#Android性能优化)」「Android源码分析」 「[经典书籍](#经典书籍)」等。
+内容涵盖绝大部分 Android 程序员所需要的技能，如：
+
+- **Java核心技术**
+  - Java 集合框架原理
+  - Java 多线程、线程池、并发库
+  - Java I/O，覆盖绝大部分 I/O 类
+  - JVM 虚拟机技术
+
+- **深入理解Kotlin技术**
+  - Kotlin 类型体系
+  - Kotlin 面向对象
+  - Lambda 表达式
+  - 高阶函数
+  - 彻底搞懂 Kotlin 泛型
+  - Kotlin 集合
+  - 操作符重载
+  - Kotlin 协程
+
+- **Android基础**
+  - 四大组件
+  - Activity 启动模式
+  - 数据存储
+  - 异步操作
+  - IPC
+  - 熟悉常用框架的使用
+
+- **Android进阶**
+  - UI 原理
+  - 性能优化
+  - 常用框架实现原理
+  - Android 架构（MVC、MVP、MVVM、Clean、Jetpack）
+  - 设计模式、6 大设计原则
+  - AOP、IoC、DI
+  - APT、Gradle Plugin、ASM、Javassist、AspectJ
+  - 组件化、插件化、热修复
+  - NDK 技术
+  - Android 虚拟机
+  
+- **跨平台**
+  - Flutter
+  - ReactNative
+  - Weex
+
+- **团队**
+  - 如何提高整体的团队水平？
+  - 如何提高提高团队内代码质量？
+  - 如何提高团队积极性？
+ 
 
 **我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)**
 
 如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
 
+下面是每个技术点的明细：
 
 ```
 ├─ Computer Sience
