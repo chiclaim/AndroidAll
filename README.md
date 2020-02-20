@@ -1,22 +1,23 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能，如：
+内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」「Dagger2」「Retrofit」「OkHttp」「ButterKnife」「Router」「NDK」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。如：
 
 - **Java核心技术**
-  - Java 集合框架原理
-  - Java 多线程、线程池、并发库
-  - Java I/O，覆盖绝大部分 I/O 类
-  - JVM 虚拟机技术
+  - [Java 集合框架原理](Java集合框架)
+  - [Java 网络编程](Java网络编程)
+  - [Java 多线程、线程池、并发库](Java多线程)
+  - [Java I/O，覆盖绝大部分 I/O 类](JavaIO)
+  - [JVM 虚拟机技术](Java虚拟机)
 
 - **深入理解Kotlin技术**
-  - Kotlin 类型体系
-  - Kotlin 面向对象
-  - Lambda 表达式
-  - 高阶函数
-  - 彻底搞懂 Kotlin 泛型
-  - Kotlin 集合
-  - 操作符重载
-  - Kotlin 协程
+  - [Kotlin 类型体系](Kotlin)
+  - [Kotlin 面向对象](Kotlin)
+  - [Lambda 表达式](Kotlin)
+  - [高阶函数](Kotlin)
+  - [彻底搞懂 Kotlin 泛型](Kotlin)
+  - [Kotlin 集合](Kotlin)
+  - [操作符重载](Kotlin)
+  - [Kotlin 协程](Kotlin)
 
 - **Android基础**
   - 四大组件
@@ -28,18 +29,18 @@
 
 - **Android进阶**
   - UI 原理
-  - 性能优化
-  - 常用框架实现原理
-  - Android 架构（MVC、MVP、MVVM、Clean、Jetpack）
-  - 设计模式、6 大设计原则
+  - [性能优化](Android性能优化)
+  - [常用框架实现原理](Android框架)
+  - [Android 架构（MVC、MVP、MVVM、Clean、Jetpack）](Android架构)
+  - [设计模式、6 大设计原则](设计模式)
   - AOP、IoC、DI
   - APT、Gradle Plugin、ASM、Javassist、AspectJ
   - 组件化、插件化、热修复
-  - NDK 技术
+  - [NDK 技术](NDK开发)
   - Android 虚拟机
   
 - **跨平台**
-  - Flutter
+  - [Flutter](跨平台开发)
   - ReactNative
   - Weex
 
@@ -288,7 +289,7 @@
 │  │  │  ├─ 事件的传递机制
 │  │  │  ├─ 自定义 View
 │  │  │  └─ 屏幕适配
-│  │  ├─ 性能优
+│  │  ├─ 性能优化
 │  │  │  ├─ 安装包大小优化
 │  │  │  ├─ 启动优化（冷启动、暖启动、热启动）
 │  │  │  ├─ 耗电量优化
@@ -395,7 +396,7 @@
 
 ---
 
-## 计算机技术
+## 【计算机技术】
 
 ### 网络协议
 
@@ -420,7 +421,7 @@
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
 
 
-## Java
+## 【Java】
 
 ### Java基础
 
@@ -481,14 +482,14 @@
 - [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
 
 
-## Kotlin 
+## 【Kotlin】
 
 - [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
 - [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
 - [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
 
 
-## 设计原则与架构
+## 【设计原则与架构】
 
 ### 设计模式
 
@@ -517,12 +518,12 @@
 
 - [Android 性能优化—内存篇](https://blog.csdn.net/johnny901114/article/details/54377370)
 
-## NDK开发
+## 【NDK开发】
 
 - [Android NDK ~ 基础入门指南](https://blog.csdn.net/johnny901114/article/details/101112607)
 - [Android NDK ~ Java 和 Native 交互](https://blog.csdn.net/johnny901114/article/details/101124117)
 
-## Android框架
+## 【Android框架】
 
 ### Jetpack
 
@@ -572,7 +573,7 @@
 
 - [Android WebView文件上传及自定义文件选择器](https://chiclaim.blog.csdn.net/article/details/50981391)
 
-## 跨平台开发
+## 【跨平台开发】
 
 ### Flutter 
 
@@ -590,7 +591,7 @@
 - 更新中...
 
 
-## 经典书籍
+## 【经典书籍】
 
 - [《Android开发艺术探索》](#经典书籍)
 - [《Android源码设计模式》](#经典书籍)
