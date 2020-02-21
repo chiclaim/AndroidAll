@@ -25,12 +25,12 @@
   - 数据存储
   - 异步操作
   - IPC
-  - [熟悉常用框架的使用](#Android框架)
+  - [熟悉常用框架的使用](#Android开源框架)
 
 - **Android进阶**
   - UI 原理
   - [性能优化](#Android性能优化)
-  - [常用框架实现原理](#Android框架)
+  - [常用的开源框架实现原理](#Android开源框架)
   - [Android 架构（MVC、MVP、MVVM、Clean、Jetpack）](#Android架构)
   - [设计模式、6 大设计原则](#设计模式)
   - AOP、IoC、DI
