@@ -16,6 +16,27 @@ import java.util.List;
 
 //  onWindowFocusChanged VS OnPreDrawListener
 
+/*
+
+    TimeRecord: onCreate
+    TimeRecord: onResume
+    TimeRecord: FirstItemDraw:186
+    TimeRecord: onWindowFocusChanged:246
+    TimeRecord: onWindowFocusChanged hasFocus -> true
+
+    // press back menu
+
+    TimeRecord: onWindowFocusChanged:5116
+    TimeRecord: onWindowFocusChanged hasFocus -> false
+
+    // 焦点发生变化都会调用 onWindowFocusChanged （界面展示、关闭、按下 HOME 键等）
+
+
+    onWindowFocusChanged 作为启动时间的结束位置，是不包括网络请求的时间的
+    OnPreDrawListener 列表第一条展示的时间位置结束位置，如果列表数据是从网络拉去的，那么是整个时间是包括网络请求的时间的
+
+*/
+
 public class ListActivity extends AppCompatActivity {
 
     private List<String> list = new ArrayList<>();
@@ -56,22 +77,4 @@ public class ListActivity extends AppCompatActivity {
         Log.e("TimeRecord", "onResume");
     }
 
-    /*
-
-    TimeRecord: onCreate
-    TimeRecord: onResume
-    TimeRecord: FirstItemDraw:186
-    TimeRecord: onWindowFocusChanged:246
-    TimeRecord: onWindowFocusChanged hasFocus -> true
-
-    // press back menu
-
-    TimeRecord: onWindowFocusChanged:5116
-    TimeRecord: onWindowFocusChanged hasFocus -> false
-
-    // 焦点发生变化都会调用 onWindowFocusChanged （界面展示、关闭、按下 HOME 键等）
-
-
-
-     */
 }
