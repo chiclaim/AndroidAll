@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +16,6 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Log.d("Optimized", "SplashActivity onCreate");
-
 
         new Handler().postDelayed(new Runnable() {
             @Override

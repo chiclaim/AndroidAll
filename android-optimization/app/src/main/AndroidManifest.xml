@@ -20,6 +20,7 @@
 
         <activity android:name=".MainActivity" />
         <activity android:name=".ThirdActivity" />
+        <activity android:name=".launchtime.ListActivity" />
     </application>
 
 </manifest>

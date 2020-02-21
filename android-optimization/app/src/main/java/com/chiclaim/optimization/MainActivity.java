@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.chiclaim.optimization.launchtime.ListActivity;
+import com.chiclaim.optimization.launchtime.TimeRecord;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ThirdActivity.class));
             }
         });
+
+        findViewById(R.id.btn_list).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ListActivity.class));
+                TimeRecord.startRecord();
+            }
+        });
+
     }
 
     @Override
