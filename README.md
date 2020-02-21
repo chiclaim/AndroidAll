@@ -25,7 +25,7 @@
   - 数据存储
   - 异步操作
   - IPC
-  - 熟悉常用框架的使用
+  - [熟悉常用框架的使用](Android框架)
 
 - **Android进阶**
   - UI 原理
@@ -34,7 +34,7 @@
   - [Android 架构（MVC、MVP、MVVM、Clean、Jetpack）](Android架构)
   - [设计模式、6 大设计原则](设计模式)
   - AOP、IoC、DI
-  - APT、Gradle Plugin、ASM、Javassist、AspectJ
+  - [APT、Gradle Plugin、ASM、Javassist、AspectJ](https://github.com/chiclaim/MRouter)
   - 组件化、插件化、热修复
   - [NDK 技术](NDK开发)
   - Android 虚拟机
