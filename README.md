@@ -1,6 +1,6 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「设计模式」「Flutter」「ReactNative」「Kotlin」「RxJava」「Dagger2」「Retrofit」「OkHttp」「ButterKnife」「Router」「NDK」「Android架构」「数据结构与算法」「自定义View」「性能优化」「Android源码分析」 「经典书籍」等。如果您有任何问题或建议欢迎 [Issues](https://github.com/chiclaim/AndroidAll/issues/new) ，核心技术栈包括：
+内容涵盖绝大部分 Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**插件化**」「**热修复**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) ，核心技术栈包括：
 
 - **Java核心技术**
   - [Java 集合框架原理](Java集合框架)
