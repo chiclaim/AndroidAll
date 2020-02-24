@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chiclaim.optimization.ListAdapter;
 import com.chiclaim.optimization.R;
 
 import java.util.ArrayList;

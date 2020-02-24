@@ -1,4 +1,4 @@
-package com.chiclaim.optimization;
+package com.chiclaim.optimization.launchtime;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,7 @@ import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chiclaim.optimization.launchtime.ItemHolder;
-import com.chiclaim.optimization.launchtime.TimeRecord;
+import com.chiclaim.optimization.R;
 
 import java.util.List;
 
