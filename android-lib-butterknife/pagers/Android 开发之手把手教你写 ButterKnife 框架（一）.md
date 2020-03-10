@@ -149,24 +149,24 @@ public class FancyButton extends Button {
   }
 }
 
-### 3. listView item点击事件
+### 3. listView item 点击事件
 @OnItemSelected(R.id.list_view)
 void onItemSelected(int position) {
   // TODO ...
 }
 
-### 4. view的onTouchEvent
+### 4. view 的 onTouchEvent
 @OnTouch(R.id.example) boolean onTouch() {
     Toast.makeText(this, "Touched!", Toast.LENGTH_SHORT).show();
     return false;
 }
 
-### 5. 监听EditText的addTextChangedListener
+### 5. 监听 EditText的addTextChangedListener
 @OnTextChanged(R.id.example) void onTextChanged(CharSequence text) {
     Toast.makeText(this, "Text changed: " + text, Toast.LENGTH_SHORT).show();
 }
 
-### 6. 设置ViewPager的OnPageChangeListener
+### 6. 设置 ViewPager的OnPageChangeListener
 @OnPageChange(R.id.example_pager) void onPageSelected(int position) {
    Toast.makeText(this, "Selected " + position + "!", Toast.LENGTH_SHORT).show();
 }
@@ -198,9 +198,9 @@ void onItemSelected(int position) {
   @BindBool(R.bool.is_tablet) boolean isTablet;
 
 
-## 四、ButterKnife的实现原理
+## 四、ButterKnife 的实现原理
 
-通过上面的例子我们知道，要使用ButterKnife首先要在目标代码使用注解，然后在onCreate生命周期方法里调用`ButterKnife.bind(this);`方法。使用注解没什么好说的，那只有看看ButterKnife.bind(this);这个方法是怎么实现的：
+通过上面的例子我们知道，要使用 ButterKnife 首先要在目标代码使用注解，然后在 onCreate 生命周期方法里调用`ButterKnife.bind(this);`方法。使用注解没什么好说的，那只有看看ButterKnife.bind(this);这个方法是怎么实现的：
 ```
   @NonNull @UiThread
   public static Unbinder bind(@NonNull Activity target) {
@@ -234,7 +234,7 @@ private static Unbinder createBinding(@NonNull Object target, @NonNull View sour
 
 ```
 
-createBinding方法的第一个参数target就是我们的activity实例，source就是decorView。上面的代码也比较简单，我也加上了注释。这个方法我就不多说了。然后看看findBindingConstructorForClass方法是怎么实现的：
+createBinding 方法的第一个参数 target 就是我们的 activity 实例，source 就是 decorView。上面的代码也比较简单，我也加上了注释。这个方法我就不多说了。然后看看findBindingConstructorForClass方法是怎么实现的：
 
 
 ```

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_lifecycle_demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LifecycleDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_view_model_demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewModelDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_live_data_demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LiveDataDemo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_retrofit_live_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RetrofitLiveData"
+        android:textAllCaps="false" />
+
+
+
+</LinearLayout>

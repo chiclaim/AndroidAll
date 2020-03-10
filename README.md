@@ -1,363 +1,394 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「[设计模式](#设计模式)」「[Flutter](#跨平台开发)」「[ReactNative](#跨平台开发)」「[Kotlin](#Kotlin)」「[RxJava](#RxJava)」「[Dagger2](#Dagger2)」「[Retrofit](#Android框架)」「[OkHttp](#Android框架)」「[ButterKnife](#ButterKnife)」「[Router](#NDK开发)」「[NDK](#NDK开发)」「[Android架构](#Android架构)」「[数据结构与算法](#数据结构与算法)」「自定义View」「[性能优化](#Android性能优化)」「Android源码分析」 「[经典书籍](#经典书籍)」等。
+内容涵盖绝大部分 Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**插件化**」「**热修复**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) ，核心技术栈包括：
 
-**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)**
+- **Java核心技术**
+  - [Java 集合框架原理](#Java集合框架)
+  - [Java 网络编程](#Java网络编程)
+  - [Java 多线程、线程池、并发库](#Java多线程)
+  - [Java I/O，覆盖绝大部分 I/O 类](#JavaIO)
+  - [JVM 虚拟机技术](#Java虚拟机)
 
-如果您有任何问题可以提 Issues ,本项目也欢迎各位开发者朋友来分享自己的一些想法和实践经验，欢迎 Pull Request。
+- **深入理解Kotlin技术**
+  - [Kotlin 类型体系](#Kotlin)
+  - [Kotlin 面向对象](#Kotlin)
+  - [Lambda 表达式](#Kotlin)
+  - [高阶函数](#Kotlin)
+  - [彻底搞懂 Kotlin 泛型](#Kotlin)
+  - [Kotlin 集合](#Kotlin)
+  - [操作符重载](#Kotlin)
+  - [Kotlin 协程](#Kotlin)
 
+- **Android基础**
+  - 四大组件
+  - Activity 启动模式
+  - 数据存储
+  - 异步操作
+  - IPC
+  - [熟悉常用框架的使用](#Android开源框架)
 
-- **[计算机基础](#计算机技术)**
-	- 协议
-		- [OSI模型、TCP/IP模型](#网络协议)
-		- [HTTP / HTTP2 / HTTPS](#网络协议)
-	- 操作系统
-		- Unix / Linux
-		- Windows
-	- [数据结构与算法](#数据结构与算法)
-
-- **[Java](#Java)**
-	- [Java 基础](#Java基础)
-		- [面向对象思想](#Java基础)
-		- [类和接口](#Java基础)
-		- [注解与反射](#Java基础)
-		- [泛型](#Java基础)
-	- [多线程](#Java多线程)
-		- [多线程通信](#Java多线程)
-			- [volatile / synchronized](https://blog.csdn.net/johnny901114/article/details/8695668)
-			- [await / notify / notifyAll](https://blog.csdn.net/johnny901114/article/details/8695668)
-		- [线程池](#Java多线程)
-			- [线程池入门 Callable 和 Future](https://blog.csdn.net/johnny901114/article/details/8695693)
-			- [线程池各参数的意义](https://blog.csdn.net/johnny901114/article/details/8332088)
-		- [并发库](#Java多线程)
-			- [Lock](https://blog.csdn.net/johnny901114/article/details/8695708)
-			- [Condition](https://blog.csdn.net/johnny901114/article/details/8695708)
-			- [Semaphore](https://blog.csdn.net/johnny901114/article/details/8695717)
-			- [CyclicBarrier](https://blog.csdn.net/johnny901114/article/details/8695723)
-			- [CountDownLatch](https://blog.csdn.net/johnny901114/article/details/8695726)
-			- [Exchanger](https://blog.csdn.net/johnny901114/article/details/8696019)
-			- [ArrayBlockingQueue](https://blog.csdn.net/johnny901114/article/details/8696026)
-		- Java 并发编程
-	- [I/O](#JavaIO)
-		- [字节流](#JavaIO)
-			- [InputStream](#JavaIO)
-				- [FileInputStream](#JavaIO)
-				- [FilterInputStream](#JavaIO)
-					- [BufferedInputStream](#JavaIO)
-					- [DataInputStream](#JavaIO)
-					- [PushbackInputStream](#JavaIO)
-				- [ByteArrayInputStream](#JavaIO)
-				- [ObjectInputStream](#JavaIO)
-				- [SequenceInputStream](#JavaIO)
-				- [PipedInputStream](#JavaIO)
-			- [OutputStream](#JavaIO)
-				- [FileOutputStream](#JavaIO)
-				- [FilterOutputStream](#JavaIO)
-					- [BufferedOutputStream](#JavaIO)
-					- [DataOutputStream](#JavaIO)
-					- [PrintStream](#JavaIO)
-				- [ByteArrayOutputStream](#JavaIO)
-				- [ObjectOutputStream](#JavaIO)
-				- [PipedOutputStream](#JavaIO)
-		- [字符流](#JavaIO)
-			- [Reader](#JavaIO)
-				- [BufferedReader](#JavaIO)
-				- [InputStreamReader](#JavaIO)
-					- [FileReader](#JavaIO)
-				- [StringReader](#JavaIO)
-				- [PipedReader](#JavaIO)
-				- [CharArrayReader](#JavaIO)
-				- [FilterReader](#JavaIO)
-					- [PushbackReader](#JavaIO)
-			- [Writer](#JavaIO)
-				- [BufferedWriter](#JavaIO)
-				- [InputStreamWriter](#JavaIO)
-					- [FileWriter](#JavaIO)
-				- [PrintWriter](#JavaIO)
-				- [StringWriter](#JavaIO)
-				- [PipedWriter](#JavaIO)
-				- [CharArrayWriter](#JavaIO)
-				- [FilterWriter](#JavaIO)
-	- [集合框架](#Java集合框架)
-		- [List](#Java集合框架)
-			- [ArrayList](https://blog.csdn.net/johnny901114/article/details/80158343)
-			- [LinkedList](https://blog.csdn.net/johnny901114/article/details/80351584)
-			- [Stack](https://blog.csdn.net/johnny901114/article/details/80373290)
-			- [Vector](https://blog.csdn.net/johnny901114/article/details/80158343)
-			- [TreeList](#Java集合框架)
-		- [Set](#Java集合框架)
-			- HashSet
-			- LinkedHashSet
-			- [TreeSet](https://blog.csdn.net/johnny901114/article/details/81046088)
-		- [Map](#Java集合框架)
-			- HashMap
-			- LinkedHashMap
-			- WeakHashMap
-			- [TreeMap](https://blog.csdn.net/johnny901114/article/details/81046088)
-		- [Queue](#Java集合框架)
-		    - [PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
-		    - [ArrayDeque](https://blog.csdn.net/johnny901114/article/details/80456833)
-		- [并发包](#Java集合框架)
-			- ConcurrentHashMap
-			- CopyOnWriteArrayList
-			- CopyOnWriteArraySet
-			- [ArrayBlockingQueue](https://blog.csdn.net/johnny901114/article/details/8696026)
-			- LinkedBlockingDeque
-			- LinkedBlockingQueue
-			- ConcurrentLinkedQueue
-			- DelayQueue
-	- [JVM 虚拟机](#Java虚拟机)
-		- [class 字节码](https://chiclaim.blog.csdn.net/article/details/101778619)
-			- [class 字节码的构成](#Java虚拟机)
-			- [class 字节码指令](#Java虚拟机)
-			- [学习字节码对开发的指导意义](#Java虚拟机)
-		- [class 字节码执行](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [方法调用](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [方法调用指令](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [方法重载解析](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [动态分派](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [动态类型语言的支持](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [方法执行](#Java虚拟机)
-				- [局部变量表](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [操作数栈](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [动态连接](https://chiclaim.blog.csdn.net/article/details/102508069)
-				- [方法返回地址](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [对象的创建](https://chiclaim.blog.csdn.net/article/details/102573221)
-				- [对象的创建过程](https://chiclaim.blog.csdn.net/article/details/102573221)
-				- [对象的内存布局](https://chiclaim.blog.csdn.net/article/details/102573221)
-				- [对象的访问定位](https://chiclaim.blog.csdn.net/article/details/102573221)
-		- [类加载](https://chiclaim.blog.csdn.net/article/details/102177986)
-			- [类的加载时机](https://chiclaim.blog.csdn.net/article/details/102177986)
-			- [类的加载过程](https://chiclaim.blog.csdn.net/article/details/102177986)
-			- [类加载器](https://chiclaim.blog.csdn.net/article/details/102177986)
-				- [双亲委派机制](https://chiclaim.blog.csdn.net/article/details/102177986)
-				- [自定义类加载器](https://chiclaim.blog.csdn.net/article/details/102177986)
-				- [类加载器死锁问题](https://chiclaim.blog.csdn.net/article/details/102177986)
-				- [Class.forName VS ClassLoader.loadClass](https://chiclaim.blog.csdn.net/article/details/102177986)
-		- [JVM 内存区域](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [程序计数器](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [Java 虚拟机栈](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [本地方法栈](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [Java 堆](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [方法区](https://chiclaim.blog.csdn.net/article/details/102508069)
-			- [运行时常量池](https://chiclaim.blog.csdn.net/article/details/102508069)
-		- [垃圾回收](https://blog.csdn.net/johnny901114/article/details/103229687)
-			- [什么样的对象可以被回收](https://blog.csdn.net/johnny901114/article/details/103229687)
-			- [什么是 GC Root](https://blog.csdn.net/johnny901114/article/details/103229687)
-			- [垃圾回收算法](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [标记-清除算法](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [复制算法](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [标记整理算法](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [分代收集算法](https://blog.csdn.net/johnny901114/article/details/103229687)
-			- [常见的垃圾收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Serial 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [ParNew 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Parallel Scavenge 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Serial Old 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [CMS 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Parallel Old 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [G1 收集器](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [ZGC](https://blog.csdn.net/johnny901114/article/details/103229687)
-			- [垃圾回收相关的内存池](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Eden Space](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Survivor Space](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Old Gen](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Metaspace](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Compressed Class Space](https://blog.csdn.net/johnny901114/article/details/103229687)
-				- [Code Cache](https://blog.csdn.net/johnny901114/article/details/103229687)
-		- JVM 内存模型
-
-- **[Kotlin](#Kotlin)**
-	- [Kotlin数据类型、访问修饰符](#Kotlin)
-	- [Kotlin 中的 Class 和 Interface](#Kotlin)
-	- [Lambda 表达式](#Kotlin)
-		- [定义 Lambda 表达式](#Kotlin)
-		- [Member Reference](#Kotlin)
-		- [常用函数 let、with、run、apply 分析](#Kotlin)
-		- [Lambda 原理分析](#Kotlin)
-	- [高阶函数](#Kotlin)
-		- [高阶函数的定义](#Kotlin)
-		- [高阶函数的原理分析](#Kotlin)
-		- [高阶函数的优化](#Kotlin)
-	- [Kotlin 泛型](#Kotlin)
-		- [Java 泛型：不变、协变、逆变](#Kotlin)
-		- [Kotlin 中的协变、逆变](#Kotlin)
-		- [Kotlin 泛型擦除和具体化](#Kotlin)
-	- [Kotlin 集合](#Kotlin)
-		- [Kotlin 集合创建方式有哪些](#Kotlin)
-		- [Kotlin 集合的常用的函数](#Kotlin)
-		- [Kotlin 集合 Sequence 原理](#Kotlin)
-	- [Kolint 操作符重载](#Kotlin)
-		- [算术操作符重载](#Kotlin)
-		- [比较操作符重载](#Kotlin)
-		- [集合相关的操作符重载](#Kotlin)
-		- [区间操作符重载](#Kotlin)
-		- [解构操作符重载](#Kotlin)
-		- [属性委托](#Kotlin)
-	- [Koltin 和 Java 交互的一些问题](#Kotlin)
-	
-
-- **Android 基础**
-	- 四大组件
-		- Activity
-		- Service
-		- ContentProvider
-		- BroadcastReceiver
-	- Activity 启动模式
-		- standard
-		- singleTop
-		- singleTask
-		- singleInstance
-	- 常用的布局控件
-		- RecyclerView
-		- ConstraintLayout
-		- WebView
-		- ......
-	- 数据存储
-		- SharedPreferences
-		- File
-		- SQLite
-		- Realm
-	- 线程异步
-		- Thread
-		- AsyncTask
-		- IntentService
-		- 线程池
-	- IPC
-		- IPC 方式
-			- Bundle
-			- 文件共享
-			- AIDL
-			- Messager
-			- ContentProvider
-			- Socket
-		- 框架
-			- Hermes
-			- HermesEventBus
-	- 熟悉常用的开源框架
-
-- UI
-	- UI绘制流程及原理
-	- 事件的传递机制
-	- 自定义 View
-	- 屏幕适配
-
-- [开源库](#Android框架)
-	- [RxJava](#Android框架)
-	- OkHttp
-	- Retrofit
-	- [Router](#Android框架)
-	- EventBus
-	- Glide
-	- [Dagger](#Android框架)
-	- LeakCanary
-	- SQLite
-	- ......
-
-- **Android 虚拟机**
-	- Dalvik
-	- ART
-
-- **[架构](#Android架构)**
-	- [程序架构](#Android架构)
-		- MVC
-		- [MVP](#Android架构)
-		- [MVVM](#Android架构)
-		- Clean
-		- Jetpack
-	- [设计模式](#设计模式)
-		- [6大设计原则](https://blog.csdn.net/johnny901114/article/details/100566036)
-		- [模板模式](https://chiclaim.blog.csdn.net/article/details/100584000)
-		- [观察者模式](https://chiclaim.blog.csdn.net/article/details/100610201)
-		- [单例模式](https://chiclaim.blog.csdn.net/article/details/100639132)
-		- [建造者模式](https://chiclaim.blog.csdn.net/article/details/100679809)
-		- [工厂模式](https://chiclaim.blog.csdn.net/article/details/100779270)
-		- [适配器模式](https://chiclaim.blog.csdn.net/article/details/100810001)
-		- [装饰器模式](https://chiclaim.blog.csdn.net/article/details/100850966)
-		- [代理模式](https://chiclaim.blog.csdn.net/article/details/100901769)
-		- ......
-	- 架构思想
-		- 概念
-			- IoC 控制反转
-			- DI 依赖注入
-			- AOP 面向切面
-		- 开源方案
-			- ASM
-			- Javasisit
-			- AspectJ
-		- 工具
-			- APT
-			- Gradle plugin
-	- [组件化](https://blog.csdn.net/johnny901114/article/details/78346125)
-		- 如何处理组件之间的代码边界
-		- 组件之间的 Router 路由
-		- 控制反转和依赖注入
-		- 如何管理拆分的 Module
-	- 插件化
-		- 发展历程
-			- 2014 年
-				- Dynamic-load-apk
-			- 2015 年
-				- OpenAltas
-				- DroidPlugin
-				- Small
-			- 2016 年
-				- Zeus
-			- 2017 年
-				- Atlas
-				- RePlugin
-				- VirtualAPK
-			- 2019 年
-				- Qigsaw
-				- Shadow
-	- 热修复
-		- Native Hook
-			- Dexposed 
-			- AndFix
-			- HotFix
-		- Java Multidex
-			- QZone
-			- QFix
-			- Nuwa
-			- RocooFix
-		- Java Hook
-			- Robust
-			- Aceso
-		- Dex Replace
-			- Tinker
-			- Amigo
-		- 混合/优化(商业收费)
-			- Sophix
-	- 字节码技术
-		- gradle plugin
-		- 全局的 bug 修复
-		- 日志统计
-
-- **性能优化**
-	- 安装包大小优化
-	- 启动优化（冷启动、暖启动、热启动）
-	- 耗电量优化
-	- UI性能优化
-		- XML 布局优化
-		- 代码优化
-	- 网络优化
-	- 线上、线下全链路性能监控
-
-- **[NDK](#NDK开发)**
-	- C/C++
-	- [AndroidStudio NDK 开发](#NDK开发)
-	- FFmpeg
-
-- **[跨平台](#跨平台开发)**
-	- H5
-	- [Flutter](#Flutter)
-	- Weex
-	- ReactNative
+- **Android进阶**
+  - UI 原理
+  - [性能优化](#Android性能优化)
+  - [常用的开源框架实现原理](#Android开源框架)
+  - [Android 架构（MVC、MVP、MVVM、Clean、Jetpack）](#Android架构)
+  - [设计模式、6 大设计原则](#设计模式)
+  - AOP、IoC、DI
+  - [APT、Gradle Plugin、ASM、Javassist、AspectJ](https://github.com/chiclaim/MRouter)
+  - 组件化、插件化、热修复
+  - [NDK 技术](#NDK开发)
+  - Android 虚拟机
+  
+- **跨平台**
+  - [Flutter](#Flutter)
+  - ReactNative
+  - Weex
 
 - **团队**
-	- 如何提高整体的团队水平？
-	- 如何提高提高团队内代码质量？
-	- 如何提高团队积极性？
+  - 如何提高整体的团队水平？
+  - 如何提高提高团队内代码质量？
+  - 如何提高团队积极性？
+ 
+
+**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)** ，下面是每个技术点的明细：
+
+```
+├─ Computer Sience
+│  ├─ Protocol
+│  │  └─ OSI、TCP/IP Model
+│  ├─ Operating System
+│  │  ├─ Unix、Linux
+│  │  └─ Windows
+├─ Java
+│  ├─ Java Basic
+│  │  ├─ OOP
+│  │  ├─ Class/Interface
+│  │  ├─ Annotation/Reflection
+│  │  └─ Generic
+│  ├─ 多线程
+│  │  ├─ 多线程通信
+│  │  │  ├─ volatile/synchronized
+│  │  │  └─ await/notify/notifyAll
+│  │  ├─ Thread Pool
+│  │  │  ├─ Callable/Future
+│  │  │  └─ 线程池各参数的意义
+│  │  ├─ 并发库
+│  │  │  ├─ Lock
+│  │  │  ├─ Condition
+│  │  │  ├─ Semaphore
+│  │  │  ├─ CyclicBarrier
+│  │  │  ├─ CountDownLatch
+│  │  │  ├─ Exchanger
+│  │  │  └─ ArrayBlockingQueue
+│  │  └─ Java 并发编程
+│  ├─ I/O
+│  │  ├─ 字节流
+│  │  │  ├─ InputStream
+│  │  │  │  ├─ FileInputStream
+│  │  │  │  ├─ FilterInputStream
+│  │  │  │  │  ├─ BufferedInputStream
+│  │  │  │  │  ├─ DataInputStream
+│  │  │  │  │  └─ PushbackInputStream
+│  │  │  │  ├─ ByteArrayInputStream
+│  │  │  │  ├─ ObjectInputStream
+│  │  │  │  ├─ SequenceInputStream
+│  │  │  │  └─ PipedInputStream
+│  │  │  └─ OutputStream
+│  │  │  │  ├─ FileOutputStream
+│  │  │  │  ├─ FilterOutputStream
+│  │  │  │  │  ├─ BufferedOutputStream
+│  │  │  │  │  ├─ DataOutputStream
+│  │  │  │  │  └─ PrintStream
+│  │  │  │  ├─ ByteArrayOutputStream
+│  │  │  │  ├─ ObjectOutputStream
+│  │  │  │  └─ PipedOutputStream
+│  │  ├─ 字符流
+│  │  │  ├─ Reader
+│  │  │  │  ├─ BufferedReader
+│  │  │  │  ├─ InputStreamReader
+│  │  │  │  │  └─ FileReader
+│  │  │  │  ├─ StringReader
+│  │  │  │  ├─ PipedReader
+│  │  │  │  ├─ CharArrayReader
+│  │  │  │  └─ FilterReader
+│  │  │  │  │  └─ PushbackReader
+│  │  │  ├─ Writer
+│  │  │  │  ├─ BufferedWriter
+│  │  │  │  ├─ InputStreamWriter
+│  │  │  │  │  └─ FileWriter
+│  │  │  │  ├─ PrintWriter
+│  │  │  │  ├─ StringWriter
+│  │  │  │  ├─ PipedWriter
+│  │  │  │  ├─ CharArrayWriter
+│  │  │  │  └─ FilterWriter
+│  ├─ 集合框架
+│  │  ├─ List
+│  │  │  ├─ ArrayList
+│  │  │  ├─ LinkedList
+│  │  │  ├─ Stack
+│  │  │  ├─ Vector
+│  │  │  └─ TreeList
+│  │  ├─ Set
+│  │  │  ├─ HashSet
+│  │  │  ├─ LinkedHashSet
+│  │  │  └─ TreeSet
+│  │  ├─ Map
+│  │  │  ├─ HashMap
+│  │  │  ├─ LinkedHashMap
+│  │  │  ├─ WeakHashMap
+│  │  │  └─ TreeMap
+│  │  ├─ Queue
+│  │  │  ├─ PriorityQueue
+│  │  │  └─ ArrayDeque
+│  │  ├─ 并发包
+│  │  │  ├─ ConcurrentHashMap
+│  │  │  ├─ CopyOnWriteArrayList
+│  │  │  ├─ CopyOnWriteArraySet
+│  │  │  ├─ ArrayBlockingQueue
+│  │  │  ├─ LinkedBlockingDeque
+│  │  │  ├─ LinkedBlockingQueue
+│  │  │  ├─ ConcurrentLinkedQueue
+│  │  │  └─ DelayQueue
+│  ├─ JVM
+│  │  ├─ class 字节码
+│  │  │  ├─ class 字节码的构成
+│  │  │  ├─ class 字节码指令
+│  │  │  └─ 学习字节码对开发的指导意义
+│  │  ├─ class 字节码的执行
+│  │  │  ├─ 方法调用
+│  │  │  │  ├─ 方法调用指令
+│  │  │  │  ├─ 方法重载解析
+│  │  │  │  ├─ 动态分派
+│  │  │  │  └─ 动态类型语言的支持
+│  │  │  ├─ 方法执行
+│  │  │  │  ├─ 局部变量表
+│  │  │  │  ├─ 操作数栈
+│  │  │  │  ├─ 动态连接
+│  │  │  │  └─ 方法返回地址
+│  │  │  └─ 对象的创建
+│  │  │  │  ├─ 对象的创建过程
+│  │  │  │  ├─ 对象的内存布局
+│  │  │  │  └─ 对象的访问定位
+│  │  ├─ 类加载
+│  │  │  ├─ 类的加载时机
+│  │  │  ├─ 类的加载过程
+│  │  │  └─ 类加载器
+│  │  │  │  ├─ 双亲委派机制
+│  │  │  │  ├─ 自定义类加载器
+│  │  │  │  ├─ 类加载器死锁问题
+│  │  │  │  └─ Class.forName VS ClassLoader.loadClass
+│  │  ├─ JVM 内存区域
+│  │  │  ├─ 程序计数器
+│  │  │  ├─ Java 虚拟机栈
+│  │  │  ├─ 本地方法栈
+│  │  │  ├─ Java 堆
+│  │  │  ├─ 方法区
+│  │  │  └─ 运行时常量池
+│  │  ├─ 垃圾回收
+│  │  │  ├─ 什么样的对象可以被回收
+│  │  │  ├─ 什么是 GC Root
+│  │  │  ├─ 垃圾回收算法
+│  │  │  │  ├─ 标记-清除算法
+│  │  │  │  ├─ 复制算法
+│  │  │  │  ├─ 标记整理算法
+│  │  │  │  └─ 分代收集算法
+│  │  │  ├─ 常见的垃圾收集器
+│  │  │  │  ├─ Serial 收集器
+│  │  │  │  ├─ ParNew 收集器
+│  │  │  │  ├─ Parallel Scavenge 收集器
+│  │  │  │  ├─ Serial Old 收集器
+│  │  │  │  ├─ CMS 收集器
+│  │  │  │  ├─ Parallel Old 收集器
+│  │  │  │  ├─ G1 收集器
+│  │  │  │  └─ ZGC
+│  │  │  ├─ 垃圾回收相关的内存池
+│  │  │  │  ├─ Eden Space
+│  │  │  │  ├─ Survivor Space
+│  │  │  │  ├─ Old Gen
+│  │  │  │  ├─ Metaspace
+│  │  │  │  ├─ Compressed Class Space
+│  │  │  │  └─ Code Cache
+│  │  │  └─ JVM 内存模型
+├─ Kotlin
+│  ├─ Kotlin数据类型、访问修饰符
+│  ├─ Kotlin 中的 Class 和 Interface
+│  ├─ Lambda 表达式
+│  │  ├─ 定义 Lambda 表达式
+│  │  ├─ Member Reference
+│  │  ├─ 常用函数 let、with、run、apply 分析
+│  │  └─ Lambda 原理分析
+│  ├─ 高阶函数
+│  │  ├─ 高阶函数的定义
+│  │  ├─ 高阶函数的原理分析
+│  │  └─ 高阶函数的优化
+│  ├─ Kotlin 泛型
+│  │  ├─ Java 泛型：不变、协变、逆变
+│  │  ├─ Kotlin 中的协变、逆变
+│  │  └─ Kotlin 泛型擦除和具体化
+│  ├─ Kotlin 集合
+│  │  ├─ Kotlin 集合创建方式有哪些
+│  │  ├─ Kotlin 集合的常用的函数
+│  │  └─ Kotlin 集合 Sequence 原理
+│  ├─ Kolint 操作符重载
+│  │  ├─ 算术操作符重载
+│  │  ├─ 比较操作符重载
+│  │  ├─ 集合相关的操作符重载
+│  │  ├─ 区间操作符重载
+│  │  ├─ 解构操作符重载
+│  │  └─ 属性委托
+│  └─ Koltin 和 Java 交互的一些问题
+├─ Android
+│  ├─ Android 基础
+│  │  ├─ 四大组件
+│  │  │  ├─ Activity
+│  │  │  ├─ Service
+│  │  │  ├─ ContentProvider
+│  │  │  └─ BroadcastReceiver
+│  │  ├─ Activity 启动模式
+│  │  │  ├─ standard
+│  │  │  ├─ singleTop
+│  │  │  ├─ singleTask
+│  │  │  └─ singleInstance
+│  │  ├─ 数据存储
+│  │  │  ├─ SharedPreferences
+│  │  │  ├─ File
+│  │  │  ├─ SQLite
+│  │  │  └─ Realm
+│  │  ├─ 线程异步
+│  │  │  ├─ Thread
+│  │  │  ├─ AsyncTask
+│  │  │  ├─ IntentService
+│  │  │  └─ 线程池
+│  │  ├─ IPC
+│  │  │  ├─ IPC 方式
+│  │  │  │  ├─ Bundle
+│  │  │  │  ├─ 文件共享
+│  │  │  │  ├─ AIDL
+│  │  │  │  ├─ Messager
+│  │  │  │  ├─ ContentProvider
+│  │  │  │  └─ Socket
+│  │  │  └─ 框架
+│  │  │  │  ├─ Hermes
+│  │  │  │  └─ HermesEventBus
+│  │  ├─ 熟悉常用的开源框架
+│  │  │  │  ├─ Glide
+│  │  │  │  ├─ Retrofit
+│  │  │  │  ├─ OkHttp
+│  │  │  │  ├─ Dagger2
+│  │  │  │  ├─ Router
+│  │  │  │  ├─ EventBus
+│  │  │  │  ├─ LeakCanary
+│  │  │  │  └─ RxJava
+│  ├─ Android 进阶
+│  │  ├─ UI 原理
+│  │  │  ├─ UI绘制流程及原理
+│  │  │  ├─ 事件的传递机制
+│  │  │  ├─ 自定义 View
+│  │  │  └─ 屏幕适配
+│  │  ├─ 性能优化
+│  │  │  ├─ 安装包大小优化
+│  │  │  ├─ 启动优化（冷启动、暖启动、热启动）
+│  │  │  ├─ 耗电量优化
+│  │  │  ├─ UI性能优化
+│  │  │  │  ├─ XML 布局优化
+│  │  │  │  └─ 代码优化
+│  │  │  ├─ 字节码技术
+│  │  │  │  ├─ 全局的 bug 修复
+│  │  │  │  └─ 日志打点统计
+│  │  │  ├─ 网络优化
+│  │  │  └─ 线上、线下全链路性能监控
+│  │  ├─ UI 原理
+│  │  │  ├─ UI绘制流程及原理
+│  │  │  ├─ 事件的传递机制
+│  │  │  ├─ 自定义 View
+│  │  │  └─ 屏幕适配
+│  │  ├─ Android架构
+│  │  │  ├─ 程序架构
+│  │  │  │  ├─ MVC
+│  │  │  │  ├─ MVP
+│  │  │  │  ├─ MVVM
+│  │  │  │  ├─ Clean
+│  │  │  │  └─ Jetpack
+│  │  │  ├─ 设计模式
+│  │  │  │  ├─ 6大设计原则
+│  │  │  │  ├─ 模板模式
+│  │  │  │  ├─ 观察者模式
+│  │  │  │  ├─ 单例模式
+│  │  │  │  ├─ 建造者模式
+│  │  │  │  ├─ 工厂模式
+│  │  │  │  ├─ 适配器模式
+│  │  │  │  └─ 代理模式
+│  │  │  ├─ 架构思想
+│  │  │  │  ├─ 概念
+│  │  │  │  │  ├─ IoC 控制反转
+│  │  │  │  │  ├─ DI 依赖注入
+│  │  │  │  │  └─ AOP 面向切面
+│  │  │  │  ├─ 开源方案
+│  │  │  │  │  ├─ ASM
+│  │  │  │  │  ├─ Javasisit
+│  │  │  │  │  └─ AspectJ
+│  │  │  │  └─ 工具
+│  │  │  │  │  ├─ APT
+│  │  │  │  │  └─ Gradle plugin
+│  │  │  ├─ 组件化
+│  │  │  │  ├─ 如何处理组件之间的代码边界
+│  │  │  │  ├─ 组件之间的 Router 路由
+│  │  │  │  ├─ 控制反转和依赖注入
+│  │  │  │  └─ 如何管理拆分的 Module
+│  │  │  ├─ 插件化
+│  │  │  │  ├─ 发展历程
+│  │  │  │  │  ├─ 2014 年
+│  │  │  │  │  │  └─ Dynamic-load-apk
+│  │  │  │  │  ├─ 2015 年
+│  │  │  │  │  │  ├─ OpenAltas
+│  │  │  │  │  │  ├─ DroidPlugin
+│  │  │  │  │  │  └─ Small
+│  │  │  │  │  ├─ 2016 年
+│  │  │  │  │  │  └─ Zeus
+│  │  │  │  │  ├─ 2017 年
+│  │  │  │  │  │  ├─ Atlas
+│  │  │  │  │  │  ├─ RePlugin
+│  │  │  │  │  │  └─ VirtualAPK
+│  │  │  │  │  ├─ 2019 年
+│  │  │  │  │  │  ├─ Qigsaw
+│  │  │  │  │  │  └─ Shadow
+│  │  │  ├─ 热修复
+│  │  │  │  ├─ Native Hook
+│  │  │  │  │  ├─ Dexposed
+│  │  │  │  │  ├─ AndFix
+│  │  │  │  │  └─ HotFix
+│  │  │  │  ├─ Java Multidex
+│  │  │  │  │  ├─ QZone
+│  │  │  │  │  ├─ QFix
+│  │  │  │  │  ├─ Nuwa
+│  │  │  │  │  └─ RocooFix
+│  │  │  │  ├─ Java Hook
+│  │  │  │  │  ├─ Robust
+│  │  │  │  │  └─ Aceso
+│  │  │  │  ├─ Dex Replace
+│  │  │  │  │  ├─ Tinker
+│  │  │  │  │  └─ Amigo
+│  │  │  │  ├─ 混合/优化(商业收费)
+│  │  │  │  │  └─ Sophix
+│  │  │  ├─ 知晓常用开源框架的实现原理
+├─ Android 虚拟机
+│  ├─ Dalvik
+│  └─ ART
+├─ NDK
+│  ├─ C/C++
+│  ├─ FFmpeg
+│  └─ AndroidStudio NDK
+├─ 跨平台
+│  ├─ H5
+│  ├─ ReactNative
+│  ├─ Weex
+│  └─ Flutter
+├─ 团队
+│  ├─ 如何提高整体的团队水平？
+│  ├─ 如何提高提高团队内代码质量？
+│  └─ 如何提高团队积极性？
+```
+
 
 ---
 
@@ -386,7 +417,7 @@
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
 
 
-## Java
+## Java核心技术
 
 ### Java基础
 
@@ -447,7 +478,7 @@
 - [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
 
 
-## Kotlin 
+## 深入理解Kotlin
 
 - [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
 - [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
@@ -488,7 +519,14 @@
 - [Android NDK ~ 基础入门指南](https://blog.csdn.net/johnny901114/article/details/101112607)
 - [Android NDK ~ Java 和 Native 交互](https://blog.csdn.net/johnny901114/article/details/101124117)
 
-## Android框架
+## Android开源框架
+
+### Jetpack
+
+- [Android Jetpack（一）Lifecycle 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104189041)
+- [Android Jetpack（二）ViewModel 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104200091)
+- [Android Jetpack（三）LiveData 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104334179)
+
 
 ### RxJava 
 
@@ -508,6 +546,13 @@
 - [interval、takeWhile操作符实现获取验证码功能](http://blog.csdn.net/johnny901114/article/details/79037306)
 - [RxJava线程的自由切换](http://blog.csdn.net/johnny901114/article/details/80032801)
 
+### Retrofit
+
+- [Android Retrofit 源码系列（一）~ 原理剖析](https://chiclaim.blog.csdn.net/article/details/103934516)
+- [Android Retrofit 源码系列（二）~ 自定义 CallAdapter](https://chiclaim.blog.csdn.net/article/details/103944895)
+- [Android Retrofit 源码系列（三）~ 整合 RxJava、Coroutine 分析](https://chiclaim.blog.csdn.net/article/details/104018960)
+- [Android Retrofit 源码系列（四）~ 文件上传](https://chiclaim.blog.csdn.net/article/details/104032454)
+- [Android Retrofit 源码系列（五）~ 设计模式分析](https://chiclaim.blog.csdn.net/article/details/104093006)
 
 ### Dagger2
 

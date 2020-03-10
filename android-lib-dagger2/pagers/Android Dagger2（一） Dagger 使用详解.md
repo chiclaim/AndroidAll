@@ -1,6 +1,3 @@
-> 欢迎转载，转载请标明出处： 
-[http://blog.csdn.net/johnny901114/article/details/58225116](http://blog.csdn.net/johnny901114/article/details/58225116)
-本文出自:[【Chiclaim的博客】](http://blog.csdn.net/johnny901114)
 
 Dagger2 是一个 依赖注入框架(DI), 对Java开发有些了解的读者, 肯定熟悉这个概念, 好处就是解耦, 需要某个对象, 不需要自己通过new关键字去创建。
 
