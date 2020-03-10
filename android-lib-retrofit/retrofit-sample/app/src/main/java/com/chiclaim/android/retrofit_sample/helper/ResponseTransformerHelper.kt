@@ -9,13 +9,16 @@ import io.reactivex.ObservableTransformer
 class ResponseTransformerHelper {
 
     companion object {
-        fun <T> transformResult(): ObservableTransformer<ResponseModel<T>, T> {
+        fun <T> transformResult(): ObservableTransformer<ResponseModel<T>?, T> {
             return ObservableTransformer { upstream ->
-                upstream.flatMap { responseModel ->
-                    if (responseModel.status != 0) {
-                        Observable.error(ApiException(responseModel.errorCode, responseModel.message))
-                    } else {
-                        Observable.just(responseModel.data)
+                upstream.flatMap { responseModel: ResponseModel<T>? ->
+                    responseModel?.let {
+                        if (it.status != 0) {
+                            Observable.error(ApiException(it.errorCode, it.message))
+                        } else {
+                            Observable.just(it.data)
+                        }
+
                     }
                 }
             }
