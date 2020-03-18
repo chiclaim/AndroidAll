@@ -1,6 +1,8 @@
 package com.chiclaim.viewbindingdemo
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.chiclaim.viewbindingdemo.databinding.ViewLayoutBinding
 
 /**
  * desc: ViewBindingDemo
@@ -9,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class ViewBindingDemoActivity : AppCompatActivity() {
 
-    /*private lateinit var binding: ViewLayoutBinding
+    private lateinit var binding: ViewLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ViewLayoutBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-    }*/
+        setContentView(binding.root)
+        binding.textContent.text = "setText By ViewBinding"
+
+    }
 }

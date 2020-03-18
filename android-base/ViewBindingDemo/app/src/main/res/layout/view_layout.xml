@@ -5,11 +5,11 @@
 
 
     <TextView
+        android:id="@+id/text_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="ViewBindingLayout"
         android:textAllCaps="false"
         android:textSize="18sp" />
 
