@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="safe"/>
+
+    <!--
+        shrinkMode = safe or strict 默认为 safe 模式
+
+        如果为 shrinkResources = true 且如果使用了 resources.getIdentifier(A) 方式获取资源：
+            当 shrinkMode = strict 资源 A 会被缩减
+            当 shrinkMode = safe 资源 A 不会被缩减
+    -->
+
+    <!--
+        保留资源文件
+        tools:keep="@drawable/ic_get_by_identifier"
+    -->
