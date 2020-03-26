@@ -1,4 +1,4 @@
-package com.chiclaim.optimization.launchcategory;
+package com.chiclaim.optimization.launchstate;
 
 import android.os.Bundle;
 import android.util.Log;
