@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_launch_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Launch Category"
@@ -17,11 +17,27 @@
         android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/btn_list"
+        android:id="@+id/time_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="onWindowFocusChanged VS OnPreDrawListener"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/trace_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="TraceView"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/systrace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Systrace"
         android:textAllCaps="false" />
 
 
