@@ -44,6 +44,9 @@ public class RoundRectView extends View {
 
         width = getSize(widthMeasureSpec);
         height = getSize(heightMeasureSpec);
+
+        // 外层布局为 LinearLayout，则自定义 View 会调用 2 次 onMeasure
+        // 外层布局为 RelativeLayout，则自定义 View 会调用 3 次 onMeasure
         Log.d("RoundRectView", "onMeasure width=" + width + ", height=" + height);
 
         setMeasuredDimension(width, height);

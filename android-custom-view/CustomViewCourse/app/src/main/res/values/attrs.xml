@@ -18,4 +18,14 @@
         <attr name="duration" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="StatusView">
+        <attr name="outside_circle_border_width" format="dimension"/>
+        <attr name="inside_circle_border_width" format="dimension"/>
+        <attr name="circles_gap" format="dimension"/>
+        <attr name="text_margin" format="dimension"/>
+        <attr name="circle_color" format="color"/>
+        <attr name="text" format="string"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+
 </resources>
