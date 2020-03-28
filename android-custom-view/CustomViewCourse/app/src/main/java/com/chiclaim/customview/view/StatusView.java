@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -90,26 +91,31 @@ public class StatusView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        // outside circle
         paint.setAntiAlias(true);
-        //paint.setColor(Color.parseColor("#ff9900"));
         paint.setColor(circleColor);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(outCircleBorder);
         canvas.drawCircle(width / 2f, height / 2f, (width - 2 * outCircleBorder) / 2.0f, paint);
 
+        // inside circle
         paint.setStrokeWidth(innerCircleBorder);
         float innerCircleRadius = (width - 2 * outCircleBorder - 2 * innerCircleBorder - 2 * circlesGap) / 2.0f;
         canvas.drawCircle(width / 2f, height / 2f, innerCircleRadius, paint);
 
-        float rawTextSize = (innerCircleRadius * 2 - textMargin * 2) / 3;
+        canvas.save();
 
-        paint.setTextSize(rawTextSize);
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(textColor);
+        // text
+        if (!TextUtils.isEmpty(text)) {
+            float rawTextSize = (innerCircleRadius * 2 - textMargin * 2) / text.length();
 
-        paint.getTextBounds(text, 0, text.length(), rect);
-        int textWidth = rect.width();
-        int textHeight = rect.height();
+            paint.setTextSize(rawTextSize);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(textColor);
+
+            paint.getTextBounds(text, 0, text.length(), rect);
+            int textWidth = rect.width();
+            int textHeight = rect.height();
 
 //        Paint.FontMetrics fm = paint.getFontMetrics();
 //        float fontHeight = fm.bottom - fm.top + fm.leading;
@@ -118,15 +124,14 @@ public class StatusView extends View {
 //                + ",fontHeight=" + fontHeight
 //                + ",rawTextSize=" + rawTextSize);
 
-        canvas.save();
+            canvas.rotate(25, width / 2f, height / 2f);
 
-        canvas.rotate(25, width / 2f, height / 2f);
-
-        canvas.drawText(
-                text,
-                outCircleBorder + innerCircleBorder + circlesGap + textMargin,
-                height / 2f + textHeight / 2f,
-                paint);
+            canvas.drawText(
+                    text,
+                    outCircleBorder + innerCircleBorder + circlesGap + textMargin,
+                    height / 2f + textHeight / 2f,
+                    paint);
+        }
 
 
         // test text is center
