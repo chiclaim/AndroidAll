@@ -1,8 +1,6 @@
 package com.chiclaim.customview;
 
-import com.chiclaim.customview.animation.AnimationActivity;
-import com.chiclaim.customview.compat.EditViewInMZActivity;
-import com.chiclaim.customview.hencoder.ui01.UI01Activity;
+import com.chiclaim.customview.view.ExtendViewActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,16 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void testEditTextInMeiZu(View view) {
-        startActivity(new Intent(this, EditViewInMZActivity.class));
-    }
-
-    public void henCoder01(View view) {
-        startActivity(new Intent(this, UI01Activity.class));
-    }
-
-    public void animation(View view){
-        startActivity(new Intent(this, AnimationActivity.class));
+    public void goExtendViews(View view) {
+        startActivity(new Intent(this, ExtendViewActivity.class));
     }
 
 

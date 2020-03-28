@@ -1,4 +1,4 @@
-package com.chiclaim.customview.hencoder.ui01;
+package com.chiclaim.customview.view;
 
 import com.chiclaim.customview.R;
 

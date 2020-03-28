@@ -21,8 +21,8 @@
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="testEditTextInMeiZu"
-                android:text="EditText In MeiZu"
+                android:onClick="goExtendViews"
+                android:text="Custom by Extend View"
                 android:textAllCaps="false"/>
 
         <Button

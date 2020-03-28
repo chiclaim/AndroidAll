@@ -29,14 +29,11 @@
                 android:screenOrientation="portrait"/>
 
         <activity
-                android:name=".hencoder.ui01.UI01Activity"
+                android:name=".view.ui01.UI01Activity"
                 android:label="HenCoderUI01"
                 android:screenOrientation="portrait"/>
+        <activity android:name=".view.ExtendViewActivity" />
 
-        <activity
-                android:name=".animation.AnimationActivity"
-                android:label="Android Animation"
-                android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
