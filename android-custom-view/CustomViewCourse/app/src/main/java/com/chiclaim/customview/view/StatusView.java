@@ -3,12 +3,13 @@ package com.chiclaim.customview.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -26,8 +27,10 @@ public class StatusView extends View {
     private int circlesGap;
     private int circleColor;
     private int textColor;
+    private int textAngle;
     private String text;
-    private float textMargin = 10;
+    private float textMargin;
+
 
 
     public StatusView(Context context) {
@@ -54,6 +57,7 @@ public class StatusView extends View {
         circlesGap = typedArray.getDimensionPixelOffset(R.styleable.StatusView_circles_gap, 0);
         circleColor = typedArray.getColor(R.styleable.StatusView_circle_color, 0);
         text = typedArray.getString(R.styleable.StatusView_text);
+        textAngle = typedArray.getInt(R.styleable.StatusView_text_angle,25);
         textColor = typedArray.getColor(R.styleable.StatusView_textColor, 0);
         if (textColor == 0) {
             textColor = circleColor;
@@ -87,6 +91,8 @@ public class StatusView extends View {
         setMeasuredDimension(width, height);
     }
 
+    private StaticLayout textLayout;
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -107,36 +113,30 @@ public class StatusView extends View {
 
         // text
         if (!TextUtils.isEmpty(text)) {
-            float rawTextSize = (innerCircleRadius * 2 - textMargin * 2) / text.length();
 
-            paint.setTextSize(rawTextSize);
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(textColor);
+            if (textLayout == null) {
+                TextPaint textPaint = new TextPaint();
+                textPaint.setTextSize((innerCircleRadius * 2 - textMargin * 2) / text.length());
+                textPaint.setStyle(Paint.Style.FILL);
+                textPaint.setColor(textColor);
+                textLayout = new StaticLayout(text, textPaint, getWidth(), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            }
 
-            paint.getTextBounds(text, 0, text.length(), rect);
-            int textWidth = rect.width();
-            int textHeight = rect.height();
-
-//        Paint.FontMetrics fm = paint.getFontMetrics();
-//        float fontHeight = fm.bottom - fm.top + fm.leading;
-//
-//        Log.d("StatusView", "textWidth=" + textWidth + ",textHeight=" + textHeight
-//                + ",fontHeight=" + fontHeight
-//                + ",rawTextSize=" + rawTextSize);
-
-            canvas.rotate(25, width / 2f, height / 2f);
-
-            canvas.drawText(
-                    text,
+            canvas.rotate(textAngle, width / 2f, height / 2f);
+            canvas.translate(
                     outCircleBorder + innerCircleBorder + circlesGap + textMargin,
-                    height / 2f + textHeight / 2f,
-                    paint);
+                    height / 2f - textLayout.getHeight() / 2.f);
+
+            textLayout.draw(canvas);
+
+            canvas.restore();
+
         }
 
 
         // test text is center
-        //paint.setStrokeWidth((float) 20.0);         //线宽
-        //paint.setColor(getResources().getColor(android.R.color.holo_red_light));
-        //canvas.drawPoint(width / 2f, height / 2f, paint);
+//        paint.setStrokeWidth((float) 20.0);         //线宽
+//        paint.setColor(getResources().getColor(android.R.color.holo_red_light));
+//        canvas.drawPoint(width / 2f, height / 2f, paint);
     }
 }
