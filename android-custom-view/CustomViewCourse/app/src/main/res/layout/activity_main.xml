@@ -14,13 +14,6 @@
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="animation"
-                android:text="Animation"
-                android:textAllCaps="false"/>
-
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:onClick="goExtendViews"
                 android:text="Custom by Extend View"
                 android:textAllCaps="false"/>

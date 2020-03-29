@@ -14,6 +14,7 @@ public class ExtendViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_extend_view_layout);
 
+
     }
 
 }
