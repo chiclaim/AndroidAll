@@ -24,7 +24,7 @@
         <attr name="circles_gap" format="dimension"/>
         <attr name="text_margin" format="dimension"/>
         <attr name="text_angle" format="integer"/>
-        <attr name="text_angle" format="integer"/>
+        <attr name="line_normal_text_length" format="integer"/>
         <attr name="circle_color" format="color"/>
         <attr name="text" format="string"/>
         <attr name="textColor" format="color"/>
