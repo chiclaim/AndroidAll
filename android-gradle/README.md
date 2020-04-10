@@ -1,25 +1,13 @@
 
-```
-gradle -q -b hello.gradle hello
-```
+## Android Gradle
 
-+ -q 控制 gradle 日志输出级别（Log errors only）
-+ -b 指定脚本文件，不指定默认找 build.gradle
+**主要包括**
 
-加 -q 还不加 -q 的区别：
+- Gradle 任务、插件
+- Groovy 基本语法
+- Custom Android Gradle project
+- Android Gradle 高级自定义
+- Android Gradle 多项目、多渠道构建
+- Android Gradle NDK
+- Android Gradle CI
 
-```
-gradle -b hello.gradle hello
-
-> Task :hello
-hello world
-
-BUILD SUCCESSFUL in 606ms
-1 actionable task: 1 executed
-```
-
-```
-gradle -b hello.gradle hello
-
-hello world
-```
