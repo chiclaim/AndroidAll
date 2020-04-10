@@ -512,7 +512,8 @@
 
 ### Android性能优化
 
-- [Android 性能优化—内存篇](https://blog.csdn.net/johnny901114/article/details/54377370)
+- [Android 性能优化 ~ 内存优化](https://blog.csdn.net/johnny901114/article/details/54377370)
+- [Android 性能优化 ~ 包体积优化实战](https://chiclaim.blog.csdn.net/article/details/105189854)
 
 ## NDK开发
 

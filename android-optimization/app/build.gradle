@@ -40,6 +40,8 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:1.2.5'
 
     implementation 'com.taobao.android:weex_sdk:0.18.0'
+    implementation 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
+
 
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'

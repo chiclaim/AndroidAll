@@ -28,7 +28,7 @@
             android:name=".MainActivity"
             android:label="Main" />
         <activity
-            android:name=".launchcategory.LaunchCategoryActivity"
+            android:name=".launchstate.LaunchCategoryActivity"
             android:label="LaunchCategory" />
         <activity
             android:name=".launchtime.ListActivity"
@@ -102,7 +102,10 @@
                 <category android:name="com.chiclaim.optimization" />
             </intent-filter>
         </activity>
-        <activity android:name=".traceview.TraceViewTestActivity" />
+
+        <activity android:name=".traceview.TraceViewTestActivity" android:label="TraceView"/>
+
+        <activity android:name=".systrace.SystraceTestActivity" android:label="Systrace"/>
 
         <!-- Required SDK 核心功能-->
         <service

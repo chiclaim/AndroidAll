@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.chiclaim.customview.view.StatusView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            app:circle_color="#ff9900"
+            app:circles_gap="2dp"
+            app:inside_circle_border_width="1dp"
+            app:outside_circle_border_width="1.7dp"
+            app:text="退款中"
+            app:text_margin="4dp" />
+
+        <com.chiclaim.customview.view.StatusView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            app:circle_color="#ff0033"
+            app:circles_gap="2dp"
+            app:inside_circle_border_width="1dp"
+            app:outside_circle_border_width="1.7dp"
+            app:text="退款失败"
+            app:text_margin="4dp" />
+
+        <com.chiclaim.customview.view.StatusView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            app:circle_color="#00cc33"
+            app:circles_gap="2dp"
+            app:inside_circle_border_width="1dp"
+            app:outside_circle_border_width="1.7dp"
+            app:text="退款成功"
+            app:text_margin="4dp" />
+
+        <com.chiclaim.customview.view.StatusView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            app:circle_color="#dcdcdc"
+            app:circles_gap="2dp"
+            app:inside_circle_border_width="1dp"
+            app:outside_circle_border_width="1.7dp"
+            app:text="退款关闭"
+            app:text_margin="4dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+
+        <com.chiclaim.customview.view.RectView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp" />
+
+
+        <com.chiclaim.customview.view.RoundRectView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+
+        <com.chiclaim.customview.view.CircleView
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+    </LinearLayout>
+
+
+</LinearLayout>
