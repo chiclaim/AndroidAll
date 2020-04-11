@@ -30,6 +30,11 @@ public class Message implements Parcelable {
         return 0;
     }
 
+    public void readFromParcel(Parcel parcel) {
+        this.content = parcel.readString();
+        this.isSendSuccess = parcel.readByte() != 0;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.content);

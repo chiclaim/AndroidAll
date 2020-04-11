@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(MainActivity.this, message.getContent(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, String.valueOf(message.getContent()), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -95,18 +95,25 @@ public class MainActivity extends AppCompatActivity {
         message.setContent("send message from main");
         messageServiceProxy.sendMessage(message);
 
+        // 会输出 false，因为在 aidl 定义的时候使用的是 in 关键字：void sendMessage(in Message message);
+        // in 关键字表示 在主进程中给对象设置的属性会传递给 Binder 进程
+        // out 关键字表示 Binder 进程设置的属性，会传递给主进程
+        // inout 关键字表示双向
+        // 因为 Message.isSendSuccess = true 是在 Binder 进程设置的，并不会影响到主进程，所以输出是 false
+        Log.d("MainActivity", "message send status : " + message.isSendSuccess());
+
     }
 
     public void registerListener(View view) throws RemoteException {
-        // 此处打印的 messageReceiverListener 和 RemoteService 打印的不一样
+        // 此处打印的 messageReceiverListener 和 MainActivity 打印的不一样
         // 对象传递给另一个进程，messageReceiverListener 会序列化和反序列化
 
-        Log.d("RemoteService", "MainActivity registerListener : " + messageReceiverListener.toString());
+        Log.d("MainActivity", "MainActivity registerListener : " + messageReceiverListener.toString());
         messageServiceProxy.registerReceiveListener(messageReceiverListener);
     }
 
     public void unRegisterListener(View view) throws RemoteException {
-        Log.d("RemoteService", "MainActivity unRegisterListener : " + messageReceiverListener.toString());
+        Log.d("MainActivity", "MainActivity unRegisterListener : " + messageReceiverListener.toString());
         messageServiceProxy.unRegisterReceiveListener(messageReceiverListener);
     }
 }

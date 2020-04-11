@@ -119,9 +119,10 @@ public class RemoteService extends Service {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(RemoteService.this, message.getContent(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RemoteService.this, String.valueOf(message.getContent()), Toast.LENGTH_SHORT).show();
                 }
             });
+            message.setSendSuccess(isConnected);
         }
 
         @Override
