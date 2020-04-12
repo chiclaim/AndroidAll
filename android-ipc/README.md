@@ -162,9 +162,170 @@ void unRegisterReceiveListener(IMessageReceiverListener listener);
 这个时候可以使用 RemoteCallbackList，将监听交给 RemoteCallbackList 来管理。RemoteCallbackList 是通过 IBinder 作为 key 来定位之前的监听对象，虽然监听对象发生变化，但是 IBinder 是唯一的。
 
 
-### 如何通过 AIDL 实现 callback
+### Messenger
 
+Messenger 内部也是使用 AIDL + Handler 来实现 IPC 通信：
+
+```
+private Handler messengerHandler = new Handler(Looper.getMainLooper()) {
+    @Override
+    public void handleMessage(@NonNull android.os.Message msg) {
+        super.handleMessage(msg);
+    }
+};
+private Messenger messenger = new Messenger(messengerHandler);
+```
+
+通过 replyTo 实现反向通信：
+
+```
+// 发送端：
+public void sendByMessenger(View view) throws RemoteException {
+    Message raw = new Message();
+    raw.setContent("send message in main by messenger");
+    android.os.Message message = new android.os.Message();
+    // 发送端设置 replyTo，接收端可以拿到该对象反向发送消息给发送端
+    message.replyTo = messenger;
+    Bundle bundle = new Bundle();
+    bundle.putParcelable("message", raw);
+    message.setData(bundle);
+    messengerProxy.send(message);
+}
+
+// 接收端：
+private Handler messengerHandler = new Handler(Looper.getMainLooper()) {
+    @Override
+    public void handleMessage(@NonNull android.os.Message msg) {
+        super.handleMessage(msg);
+        Bundle bundle = msg.getData();
+        // Class not found when unmarshalling: com.chiclaim.ipc.bean.Message
+        bundle.setClassLoader(Message.class.getClassLoader());
+        Message data = bundle.getParcelable("message");
+        Toast.makeText(getApplicationContext(), data.getContent(), Toast.LENGTH_SHORT).show();
+
+        Messenger replyTo = msg.replyTo;
+        Message raw = new Message();
+        raw.setContent("I receive your message: " + data.getContent());
+        android.os.Message message = new android.os.Message();
+        Bundle replyBundle = new Bundle();
+        replyBundle.putParcelable("message", raw);
+        message.setData(replyBundle);
+        try {
+            replyTo.send(message);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+};
+private Messenger messenger = new Messenger(messengerHandler);
+```
 
 ### AIDL 如何实现 IPC
+
+Android 实现 IPC 的核心是 Binder，开发中一般是 Binder 结合 Service 一起使用。
+
+Service 中有一个 onBind 方法，如果 Service 需要 IPC ，那么我们覆写该方法（以程序中的 Demo 为例）：
+
+```
+public class MyService extends Service{
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return serviceManager.asBinder();
+    }
+}
+```
+
+上面的 onBind 方法返回的 IBinder 对象，会包装成 BinderProxy（用于对应 native 层的 IBinder 对象） 对象返回给客户端 bindService 时 ServiceConnection 的回调中：
+
+```
+bindService(intent, serviceConnection = new ServiceConnection() {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        // service object is BinderProxy
+        IServiceManager serviceManager = IServiceManager.Stub.asInterface(service);
+        try {
+            connectionServiceProxy = IConnectionService.Stub.asInterface(serviceManager.getService(IConnectionService.class.getSimpleName()));
+            messageServiceProxy = IMessageService.Stub.asInterface(serviceManager.getService(IMessageService.class.getSimpleName()));
+            messengerProxy = new Messenger(serviceManager.getService(Messenger.class.getSimpleName()));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+
+    }
+}, Context.BIND_AUTO_CREATE);
+
+```
+
+上面的 serviceManager 其实就是根据我们新建的 IServiceManager.AIDL 文件生成的类。生成的类有几个关键内部类我们来介绍下：
+
+**Stub**
+
+Stub 类是一个抽象内部类，它实现了 IServiceManager 接口，该类不会实现 IServiceManager 接口里面的方法（生成的类也不知道如何实现），而是由服务端来实现（Service）。
+
+Stub 中有几个重要的方法：
+
+- asInterface
+
+    该方法主要用于将 IBinder 对象转换成对应的接口。该方法中会判断客户端和服务端的进程，如果进程一样，没有必要 IPC 那么该方法返回服务端的 Stub，否则返回 Stub.Proxy 内部类对象。
+
+- asBinder
+
+    该方法用于获取对应的 Binder 对象。
+
+
+- onTransact(int code,android.os.Parcel data, android.os.Parcel reply, int flags)
+
+    该方法运行在服务端的 Binder 线程池中，通过 code 参数来确定客户端要调用哪个方法，然后从 data 对象中获取执行目标方法所需要的参数，执行完方法后，如果该方法有返回值，就向 reply 中写入返回值。
+    如果 onTransact 方法返回 false，那么客户端的请求会失败，因此我们可以利用这个特性来做权限验证，毕竟我们也不希望随便一个进程都能远程调用我们的服务。
+    ```
+    @Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags)
+            throws android.os.RemoteException
+        {
+          java.lang.String descriptor = DESCRIPTOR;
+          switch (code)
+          {
+            case INTERFACE_TRANSACTION:
+            {
+              reply.writeString(descriptor);
+              return true;
+            }
+            case TRANSACTION_getService:
+            {
+              data.enforceInterface(descriptor);
+              java.lang.String _arg0;
+              _arg0 = data.readString();
+              // 实际上调用的是 RemoteService.serviceManager.getService(name)
+              android.os.IBinder _result = this.getService(_arg0);
+              reply.writeNoException();
+              reply.writeStrongBinder(_result);
+              return true;
+            }
+            default:
+            {
+              return super.onTransact(code, data, reply, flags);
+            }
+          }
+    ```
+
+
+**Stub.Proxy**
+
+Proxy 类同样也实现了 IServiceManager 接口，Proxy 类中实现了 IServiceManager 接口的方法，然后在方法中会触发 Stub.onTransact 方法。在 MinActivity 中执行 getService 方法的执行流程如下所示：
+
+```
+MainActivity.serviceManager.getService
+    -> IServiceManager.Stub.Proxy.mRemote.transact()
+        -> IServiceManager.Stub.onTransact()
+            -> RemoteService.serviceManager.getService()
+```
+
+这就是 AIDL 的基本执行流程。
+
+
 
 
