@@ -224,7 +224,7 @@ private Messenger messenger = new Messenger(messengerHandler);
 
 Android 实现 IPC 的核心是 Binder，开发中一般是 Binder 结合 Service 一起使用。
 
-Service 中有一个 onBind 方法，如果 Service 需要 IPC ，那么我们覆写该方法（以程序中的 Demo 为例）：
+Service 中有一个 onBind 方法，如果 Service 需要 IPC ，那么我们覆写该方法（以本 Demo 为例）：
 
 ```
 public class MyService extends Service{
@@ -289,11 +289,7 @@ Stub 中有几个重要的方法：
           java.lang.String descriptor = DESCRIPTOR;
           switch (code)
           {
-            case INTERFACE_TRANSACTION:
-            {
-              reply.writeString(descriptor);
-              return true;
-            }
+            // 省略其他 case
             case TRANSACTION_getService:
             {
               data.enforceInterface(descriptor);
@@ -319,13 +315,9 @@ Proxy 类同样也实现了 IServiceManager 接口，Proxy 类中实现了 IServ
 
 ```
 MainActivity.serviceManager.getService
-    -> IServiceManager.Stub.Proxy.mRemote.transact()
+    -> IServiceManager.Stub.Proxy.mRemote.transact() // mRemote 就是 BinderProxy
         -> IServiceManager.Stub.onTransact()
             -> RemoteService.serviceManager.getService()
 ```
 
 这就是 AIDL 的基本执行流程。
-
-
-
-
