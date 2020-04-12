@@ -1,15 +1,15 @@
 
-## Android IPC
+# Android IPC
 
 
-### Android 多进程：
+## Android 多进程：
 
 - Application onCreate 方法会被执行多次
 - 数据共享失败（对象、单例、回调）
 - 进程间通信（文件、Intent、AIDL）
 
 
-### Linux 进程间通信方式：
+## Linux 进程间通信方式
 
 - 管道：管道分为匿名管道和有名管道。匿名管道只能用于父子进程，或者兄弟进程（亲缘进程）之间。管道都是基于内存的缓冲区 来实现，大小为1页4KB，管道读写时还需要确保对方的存在，读只能从头开始读， 从末尾开始写。管道方向的数据只能从一个方向流动，如果需要双方进行通信的话，需要建立两个管道。一般管道用于轻量级的进程间通信。
 - 消息队列：消息队列是存放在内核消息链表中，消息队列只会在内核重启或者特定删除的情况下才会消失。消息队列的读取支持随机读取。
@@ -19,7 +19,7 @@
 - 套接字：C/S 架构来通信。
 
 
-### Android 跨进程通信核心：
+## Android 跨进程通信核心
 
 
 - Binder：
@@ -34,10 +34,10 @@
     - 文件共享
 
 
-### AIDL实战
+## AIDL实战
 
 
-#### in、out、inout 关键字的作用
+### in、out、inout 关键字的作用
 
 主要用于 IPC 通信是传递实体参数给 Binder 进程，例如 `IMessageService.aidl`：
 
@@ -46,7 +46,7 @@
 void sendMessage(inout Message message);
 ```
 
-`RemoteService.java:`
+RemoteService.java:
 
 ```
 private IMessageService messageService = new IMessageService.Stub() {
@@ -64,7 +64,8 @@ private IMessageService messageService = new IMessageService.Stub() {
 };
 ```
 
-`MainActivity.java:`
+MainActivity.java:
+
 ```
 public void sendMessage(View view) throws RemoteException {
 
@@ -83,7 +84,7 @@ public void sendMessage(View view) throws RemoteException {
 
 ```
 
-#### oneway 关键字作用
+### oneway 关键字作用
 
 `oneway` 关键字用于发起 IPC 方法调用的时候是否阻塞主线程：
 
@@ -132,8 +133,38 @@ public void connect(View view) throws RemoteException {
 
 ```
 
-#### 如何通过 AIDL 实现 callback
+### 关于 Binder 线程
 
-#### AIDL 如何实现 IPC
+从 Demo 例子中我们可以看出，在进行 IPC 调用的时候，目标方法会在 Binder 进程中的子线程中执行，例如在 RemoteService.connectionService.connect() 等方法输出线程名称：
+
+```
+会在 Binder 所在进程中的子线程中执行（28320 表示进程的id，3 表示线程编号）：
+D/RemoteService: connect in Binder:28320_3
+D/RemoteService: disconnect in Binder:28320_3
+D/RemoteService: isConnected in Binder:28320_3
+```
+
+所以，如果要在主线程执行，需要用 Handler 进行通信。
+
+### 关于对象拷贝
+
+在 IPC 调用的时候，如果传递参数是复杂对象，那么这个对象到了 Binder 进程，其实已经不是当时传递的那个对象了，对象的地址是不一样的。
+
+例如 Demo 中的 IMessageService.aidl:
+
+```
+void registerReceiveListener(IMessageReceiverListener listener);
+void unRegisterReceiveListener(IMessageReceiverListener listener);
+```
+
+当我们调用了反注册 unRegisterReceiveListener 方法后，消息还是会收到，这是因为监听对象已经发生了变化，导致从集合中移除失败。
+
+这个时候可以使用 RemoteCallbackList，将监听交给 RemoteCallbackList 来管理。RemoteCallbackList 是通过 IBinder 作为 key 来定位之前的监听对象，虽然监听对象发生变化，但是 IBinder 是唯一的。
+
+
+### 如何通过 AIDL 实现 callback
+
+
+### AIDL 如何实现 IPC
 
 
