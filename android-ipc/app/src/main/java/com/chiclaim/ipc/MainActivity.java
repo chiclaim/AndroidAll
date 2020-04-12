@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private IConnectionService connectionServiceProxy;
     private IMessageService messageServiceProxy;
+    private Messenger messengerProxy;
 
 
     private IMessageReceiverListener messageReceiverListener = new IMessageReceiverListener.Stub() {
@@ -41,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private Handler handler = new Handler(Looper.getMainLooper()){
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            Bundle bundle = msg.getData();
+            bundle.setClassLoader(Message.class.getClassLoader());
+            Message message = bundle.getParcelable("message");
+            Toast.makeText(MainActivity.this, String.valueOf(message.getContent()), Toast.LENGTH_SHORT).show();
+
+        }
+    };
+    private Messenger messenger = new Messenger(handler);
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     connectionServiceProxy = IConnectionService.Stub.asInterface(serviceManager.getService(IConnectionService.class.getSimpleName()));
                     messageServiceProxy = IMessageService.Stub.asInterface(serviceManager.getService(IMessageService.class.getSimpleName()));
+                    messengerProxy = new Messenger(serviceManager.getService(Messenger.class.getSimpleName()));
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -115,5 +132,16 @@ public class MainActivity extends AppCompatActivity {
     public void unRegisterListener(View view) throws RemoteException {
         Log.d("MainActivity", "MainActivity unRegisterListener : " + messageReceiverListener.toString());
         messageServiceProxy.unRegisterReceiveListener(messageReceiverListener);
+    }
+
+    public void sendByMessenger(View view) throws RemoteException {
+        Message raw = new Message();
+        raw.setContent("send message in main by messenger");
+        android.os.Message message = new android.os.Message();
+        message.replyTo = messenger;
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("message", raw);
+        message.setData(bundle);
+        messengerProxy.send(message);
     }
 }

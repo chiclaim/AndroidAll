@@ -2,14 +2,17 @@ package com.chiclaim.ipc.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Messenger;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.chiclaim.ipc.IConnectionService;
@@ -141,6 +144,32 @@ public class RemoteService extends Service {
         }
     };
 
+    private Handler messengerHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            Bundle bundle = msg.getData();
+            // Class not found when unmarshalling: com.chiclaim.ipc.bean.Message
+            bundle.setClassLoader(Message.class.getClassLoader());
+            Message data = bundle.getParcelable("message");
+            Toast.makeText(getApplicationContext(), data.getContent(), Toast.LENGTH_SHORT).show();
+
+            Messenger replyTo = msg.replyTo;
+            Message raw = new Message();
+            raw.setContent("I receive your message: " + data.getContent());
+            android.os.Message message = new android.os.Message();
+            Bundle replyBundle = new Bundle();
+            replyBundle.putParcelable("message", raw);
+            message.setData(replyBundle);
+            try {
+                replyTo.send(message);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    private Messenger messenger = new Messenger(messengerHandler);
+
     private IServiceManager serviceManager = new IServiceManager.Stub() {
         @Override
         public IBinder getService(String name) throws RemoteException {
@@ -148,6 +177,8 @@ public class RemoteService extends Service {
                 return connectionService.asBinder();
             } else if (IMessageService.class.getSimpleName().equals(name)) {
                 return messageService.asBinder();
+            } else if (Messenger.class.getSimpleName().equals(name)) {
+                return messenger.getBinder();
             }
             return null;
         }
