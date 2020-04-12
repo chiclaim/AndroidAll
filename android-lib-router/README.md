@@ -1,9 +1,7 @@
 
 ## MRouter
 
-实行了一套 Android 组件间的通信框架，基于 APT、ASM、Gradle Plugin 等技术。实现了页面的跳转、参数的自动注入、Activity管理、简单的依赖注入等功能：
-
-[MRouter](https://github.com/chiclaim/MRouter)
+实行了一套 Android 组件间的通信框架，基于 APT、ASM、Gradle Plugin 等技术。实现了页面的跳转、参数的自动注入、Activity管理、简单的依赖注入等功能，代码地址：[MRouter](https://github.com/chiclaim/MRouter)
 
 
 ### 主要功能
