@@ -1,5 +1,7 @@
 ## 设计模式实战
 
+设计模式 Java 版：[https://github.com/chiclaim/DesignPattern](https://github.com/chiclaim/DesignPattern)
+
 - [设计模式 ~ 面向对象 6 大设计原则剖析与实战](https://chiclaim.blog.csdn.net/article/details/100566036)
 - [设计模式 ~ 模板方法模式分析与实战](https://chiclaim.blog.csdn.net/article/details/100584000)
 - [设计模式 ~ 观察者模式分析与实战](https://chiclaim.blog.csdn.net/article/details/100610201)
