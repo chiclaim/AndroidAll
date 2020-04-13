@@ -1,5 +1,5 @@
 task hello{
     doLast {
-        println "hello world"
+        println "hello world from hello.gradle file"
     }
 }

@@ -27,3 +27,15 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task hello{
+    doLast {
+        println "hello world from build.gradle file"
+    }
+}
+
+task hello2{
+    doLast {
+        println "hello world2 from build.gradle file"
+    }
+}

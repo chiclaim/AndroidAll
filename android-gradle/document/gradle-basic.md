@@ -1,6 +1,7 @@
 
 ## gradle 入门
 
+### 执行任务
 ```
 gradle -q -b hello.gradle hello
 ```
@@ -24,4 +25,18 @@ BUILD SUCCESSFUL in 606ms
 gradle -b hello.gradle hello
 
 hello world
+```
+
+> gradle 和 gradlew 命令的区别，gradlew 是 grade wrapper 的简称， gradlew 用于包装 gradle，让开发者统一使用某一个版本的 gradle，而不是依赖于系统的配置的 gradle 环境变量。
+
+如何执行多任务，直接在后面加上 task 名称即可，空格分隔：
+
+```
+gradlew -q hello hello2
+```
+
+### 强制刷新依赖
+
+```
+/gradlew  --refresh-dependencies  assemble
 ```
