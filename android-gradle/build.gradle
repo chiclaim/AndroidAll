@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.1'
@@ -20,22 +20,208 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
 task clean(type: Delete) {
+    println "task clean"
     delete rootProject.buildDir
 }
 
-task hello{
+task hello {
     doLast {
         println "hello world from build.gradle file"
     }
 }
 
-task hello2{
+task hello2 {
+    println "doLast code before"
     doLast {
         println "hello world2 from build.gradle file"
+    }
+    println 'doLast code after'
+}
+
+task testString {
+    def name = "chiclaim"
+    println "my name is $name"
+    println 'my name is $name'
+}
+
+task listTest {
+    def nums = [1, 2, 3, 4, 5, 6]
+
+    nums.each {
+        print it
+    }
+    println()
+    println nums.getClass().name // java.util.ArrayList
+    println "nums[1] = ${nums[1]}"  // 访问第2个元素
+    println "nums[-1] = ${nums[-1]}" // 访问倒数第 1 个元素
+    println "nums[-2] = ${nums[-2]}" // 访问倒数第 2 个元素
+    println "nums[1..3] = ${nums[1..3]}" // 访问第 2 个到第 4 个元素
+
+}
+
+task mapTest {
+
+    def rect = ['width': 100, 'height': 300]
+    println rect.getClass().name
+    println rect['width']
+    println rect.height
+
+    rect.each {
+        println "${it.key} = ${it.value}"
+    }
+
+}
+
+// 方法调用-------------
+def method1(int a, int b) {
+    println a + b
+}
+
+task invokeMethod {
+    method1(1, 2)
+    method1 1, 2 // 调用方法时省略括号
+}
+
+def method2(int a, int b) {
+    if (a > b) {
+        a
+    } else {
+        b
+    }
+}
+
+task invokeMethod2 {
+    def max = method2 2, 6
+    println "max = $max"
+}
+// 方法调用------------- end
+
+
+class Person {
+
+    String name
+
+    public int getAge() {
+        return 18
+    }
+
+}
+
+// field & property
+task beanTest {
+
+    Person p = new Person()
+    p.name = "chiclaim"
+    println p.age
+    println p.name
+
+}
+
+// 闭包--------
+
+def closureList(closure) {
+    for (int i in 1..10) {
+        closure i
+    }
+}
+
+def closureMap(closure) {
+    def map = ['name': 'chiclaim', 'age': 18]
+    map.each {
+        closure(it.key, it.value)
+    }
+}
+
+task closureTest() {
+
+    closureList {
+        println(it)
+    }
+
+    closureMap { k, v ->
+        println("$k = $v")
+    }
+}
+
+// 闭包委托
+
+def delegateMethod1() {
+    println "context this = ${this.getClass()}"
+    println "delegateMethod1 in root"
+}
+
+
+class Delegate {
+    def delegateMethod1() {
+        println "Delegate this = ${this.getClass()}"
+        println "delegateMethod1 in Delegate class"
+    }
+
+    def test(closure) {
+        closure(this)
+    }
+}
+
+task closureDelegateTest {
+    new Delegate().test {
+        println "thisObject:${thisObject.getClass()}"
+        println "owner:${owner.getClass()}"
+        println "delegate:${delegate.getClass()}"
+
+
+        // 这里的 this 和 thisObject 对象是一样的
+        println "this in closure = ${this.getClass()}"
+
+        // 优先使用 thisObject 对象来调用该方法
+        delegateMethod1()
+        it.delegateMethod1()
+    }
+}
+import groovy.transform.Field
+
+//  import groovy.transform.Field
+// https://stackoverflow.com/questions/6305910/how-do-i-create-and-access-the-global-variables-in-groovy
+@Field String nickname = "name of outter"
+
+def printField() {
+    // Could not get unknown property 'nickname' for root project 'android-gradle' of type org.gradle.api.Project.
+    // 需要加上 @Field 注解
+    println "println field $nickname"
+}
+
+task fieldTest {
+    printField()
+}
+
+
+class Human {
+    def sayHello() {
+        println "say hello by human"
+    }
+
+}
+
+def sayHello() {
+    println "say hello by outer"
+}
+
+def human(Closure<Human> closure) {
+    Human human = new Human()
+//    closure.delegate = human
+//    closure.setResolveStrategy(Closure.DELEGATE_FIRST)
+    // 如果不改变 delegate，那么会优先调用外部的 sayHello
+    // 将 delegate 设置为 human，就是调用 Human.sayHello
+    closure(human)
+}
+
+
+task delegateChange {
+    human {
+        sayHello()
     }
 }
