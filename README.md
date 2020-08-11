@@ -55,11 +55,11 @@
 
 不仅需要熟练使用 Java 各项 API。如 Java 网络编程、多线程并发、集合框架等。
 
-还需要掌握常见 API 的底层原理。如 集合框架的实现原理，要求我们掌握常用个数据结构与算法。
+还需要掌握常见 API 的底层原理。如 集合框架的实现原理，要求我们掌握常用的数据结构与算法。
 
 除此以外，还需要我们对 Java 执行机制有一定了解，这个时候可要求我们对 Java 虚拟机有一定的掌握。如 class 字节码、类加载器、垃圾回收机制等。
 
-关于这方面的知识，可以学习参考：
+关于这方面的知识，可以学习参考我之前的一些总结：
  
 **Java基础：**
 
@@ -137,11 +137,11 @@
 
 ## 深入理解Kotlin
 
-随着 Kotlin 在 Android 开发的过程中普及，以及 Kotlin 本身的一些优势。要求我们对 Kotlin 也需要有很好的掌握。
+随着 Kotlin 在 Android 开发的过程中的普及，以及 Kotlin 本身的一些优势。要求我们对 Kotlin 也需要有很好的掌握。
 
-为了更好的更快更深入的学习 Kotlin，我们可以在学习 Kotlin 的过程中，深度对比 Java。让我们对 Kotlin 的掌握程度快速达到对 Java 的掌握程度。
+为了更好的更快更深入的学习 Kotlin，我们可以在学习 Kotlin 的过程中，深度对比 Java，让我们对 Kotlin 的掌握程度快速达到对 Java 的掌握程度。
 
-关于这 Koltin 相关的资料大家可参考我下面的文章，其中包括：类型体系、Lambda 表达式、高阶函数、泛型、集合、操作符重载、协程等 Kotlin 核心概念：
+关于这 Koltin 相关的资料大家可参考我下面的文章，其中包括：类型体系、Lambda 表达式、高阶函数、泛型、集合、操作符重载、协程等 Kotlin 核心概念等：
 
 - [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
 - [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
@@ -151,7 +151,7 @@
 
 ## 设计原则与模式
 
-设计原则对我们设计出可维护的代码起着至关重要的作用。设计原则与模式很简单，但是如何很好的应用到实际工作中，显得不那么容易。需要我们不断的去琢磨与思考，在这方面我也有一些心得与体会，和大家一起探讨。关于这方面的内容大家可以我之前的一些总结与归纳：
+设计原则对我们设计出高内聚、低耦合的可维护代码起着至关重要的作用。设计原则与模式很简单，但是如何很好的应用到实际工作中，显得不那么简单。需要我们不断的去琢磨与思考，在这方面我也有一些心得与体会，和大家一起探讨：
 
 - [设计模式 ~ 面向对象 6 大设计原则剖析与实战](https://chiclaim.blog.csdn.net/article/details/100566036)
 - [设计模式 ~ 模板方法模式分析与实战](https://chiclaim.blog.csdn.net/article/details/100584000)
@@ -167,7 +167,7 @@
 
 ## Android架构
 
-随着我们队设计原则与设计模式的实践，我们也会对我们程序的一些架构提出一些问题，如何去解决我们项目中已存在的一些架构问题，关于这方面的内容可以参考：
+随着我们对设计原则与设计模式的理解与实践，我们也会对程序的一些架构提出一些问题，例如如何去解决我们项目中已存在的一些架构问题，关于这方面的内容可以参考：
 
 - [Android MVP架构改造~如何重用顶层业务](https://chiclaim.blog.csdn.net/article/details/88050156)
 - [二维火Android云收银模块化架构实践](https://chiclaim.blog.csdn.net/article/details/78346125)
@@ -177,7 +177,7 @@
 
 ## Android开源框架
 
-使用 Android开源框架，避免我们重复创建轮子。使用高质量的开源框架，能够帮助我们快速构建高质量的程序。
+使用 Android 开源框架，避免我们重复创建轮子。使用高质量的开源框架，能够帮助我们快速构建高质量的程序。
 
 与此同时，我们了解其被的实现原理，知其然也知其所以然。我们也可以学到很多代码设计上的技巧，同时也能够帮我们快速排查问题。
 
@@ -213,12 +213,10 @@
 - [Android Retrofit 源码系列（五）~ 设计模式分析](https://chiclaim.blog.csdn.net/article/details/104093006)
 
 **Dagger2：**
-
 - [Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
 - [Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
 
 **ButterKnife：**
-
 - [Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
 - [Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
 - [Android开发之手把手教你写ButterKnife框架（一）](https://chiclaim.blog.csdn.net/article/details/52662376)
