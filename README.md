@@ -1,424 +1,19 @@
 # 最全的 Android 技术栈
 
-内容涵盖绝大部分 Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**插件化**」「**热修复**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) ，核心技术栈包括：
-
-- **Java核心技术**
-  - [Java 集合框架原理](#Java集合框架)
-  - [Java 网络编程](#Java网络编程)
-  - [Java 多线程、线程池、并发库](#Java多线程)
-  - [Java I/O，覆盖绝大部分 I/O 类](#JavaIO)
-  - [JVM 虚拟机技术](#Java虚拟机)
-
-- **深入理解Kotlin技术**
-  - [Kotlin 类型体系](#Kotlin)
-  - [Kotlin 面向对象](#Kotlin)
-  - [Lambda 表达式](#Kotlin)
-  - [高阶函数](#Kotlin)
-  - [彻底搞懂 Kotlin 泛型](#Kotlin)
-  - [Kotlin 集合](#Kotlin)
-  - [操作符重载](#Kotlin)
-  - [Kotlin 协程](#Kotlin)
-
-- **Android基础**
-  - 四大组件
-  - Activity 启动模式
-  - 数据存储
-  - 异步操作
-  - IPC
-  - [熟悉常用框架的使用](#Android开源框架)
-
-- **Android进阶**
-  - UI 原理
-  - [性能优化](#Android性能优化)
-  - [常用的开源框架实现原理](#Android开源框架)
-  - [Android 架构（MVC、MVP、MVVM、Clean、Jetpack）](#Android架构)
-  - [设计模式、6 大设计原则](#设计模式)
-  - AOP、IoC、DI
-  - [APT、Gradle Plugin、ASM、Javassist、AspectJ](https://github.com/chiclaim/MRouter)
-  - 组件化、插件化、热修复
-  - [NDK 技术](#NDK开发)
-  - Android 虚拟机
-  
-- **跨平台**
-  - [Flutter](#Flutter)
-  - ReactNative
-  - Weex
-
-- **团队**
-  - 如何提高整体的团队水平？
-  - 如何提高提高团队内代码质量？
-  - 如何提高团队积极性？
- 
-
-**我编写了一份详细的 Android 技术栈思维导图，由于 GitHub 图片国内展示不稳定，所以下面使用的树形结构目录。你可以点击查看详细的 -> [思维导图](https://img-blog.csdnimg.cn/20191213103457162.jpg)** ，下面是每个技术点的明细：
-
-```
-├─ Computer Sience
-│  ├─ Protocol
-│  │  └─ OSI、TCP/IP Model
-│  ├─ Operating System
-│  │  ├─ Unix、Linux
-│  │  └─ Windows
-├─ Java
-│  ├─ Java Basic
-│  │  ├─ OOP
-│  │  ├─ Class/Interface
-│  │  ├─ Annotation/Reflection
-│  │  └─ Generic
-│  ├─ 多线程
-│  │  ├─ 多线程通信
-│  │  │  ├─ volatile/synchronized
-│  │  │  └─ await/notify/notifyAll
-│  │  ├─ Thread Pool
-│  │  │  ├─ Callable/Future
-│  │  │  └─ 线程池各参数的意义
-│  │  ├─ 并发库
-│  │  │  ├─ Lock
-│  │  │  ├─ Condition
-│  │  │  ├─ Semaphore
-│  │  │  ├─ CyclicBarrier
-│  │  │  ├─ CountDownLatch
-│  │  │  ├─ Exchanger
-│  │  │  └─ ArrayBlockingQueue
-│  │  └─ Java 并发编程
-│  ├─ I/O
-│  │  ├─ 字节流
-│  │  │  ├─ InputStream
-│  │  │  │  ├─ FileInputStream
-│  │  │  │  ├─ FilterInputStream
-│  │  │  │  │  ├─ BufferedInputStream
-│  │  │  │  │  ├─ DataInputStream
-│  │  │  │  │  └─ PushbackInputStream
-│  │  │  │  ├─ ByteArrayInputStream
-│  │  │  │  ├─ ObjectInputStream
-│  │  │  │  ├─ SequenceInputStream
-│  │  │  │  └─ PipedInputStream
-│  │  │  └─ OutputStream
-│  │  │  │  ├─ FileOutputStream
-│  │  │  │  ├─ FilterOutputStream
-│  │  │  │  │  ├─ BufferedOutputStream
-│  │  │  │  │  ├─ DataOutputStream
-│  │  │  │  │  └─ PrintStream
-│  │  │  │  ├─ ByteArrayOutputStream
-│  │  │  │  ├─ ObjectOutputStream
-│  │  │  │  └─ PipedOutputStream
-│  │  ├─ 字符流
-│  │  │  ├─ Reader
-│  │  │  │  ├─ BufferedReader
-│  │  │  │  ├─ InputStreamReader
-│  │  │  │  │  └─ FileReader
-│  │  │  │  ├─ StringReader
-│  │  │  │  ├─ PipedReader
-│  │  │  │  ├─ CharArrayReader
-│  │  │  │  └─ FilterReader
-│  │  │  │  │  └─ PushbackReader
-│  │  │  ├─ Writer
-│  │  │  │  ├─ BufferedWriter
-│  │  │  │  ├─ InputStreamWriter
-│  │  │  │  │  └─ FileWriter
-│  │  │  │  ├─ PrintWriter
-│  │  │  │  ├─ StringWriter
-│  │  │  │  ├─ PipedWriter
-│  │  │  │  ├─ CharArrayWriter
-│  │  │  │  └─ FilterWriter
-│  ├─ 集合框架
-│  │  ├─ List
-│  │  │  ├─ ArrayList
-│  │  │  ├─ LinkedList
-│  │  │  ├─ Stack
-│  │  │  ├─ Vector
-│  │  │  └─ TreeList
-│  │  ├─ Set
-│  │  │  ├─ HashSet
-│  │  │  ├─ LinkedHashSet
-│  │  │  └─ TreeSet
-│  │  ├─ Map
-│  │  │  ├─ HashMap
-│  │  │  ├─ LinkedHashMap
-│  │  │  ├─ WeakHashMap
-│  │  │  └─ TreeMap
-│  │  ├─ Queue
-│  │  │  ├─ PriorityQueue
-│  │  │  └─ ArrayDeque
-│  │  ├─ 并发包
-│  │  │  ├─ ConcurrentHashMap
-│  │  │  ├─ CopyOnWriteArrayList
-│  │  │  ├─ CopyOnWriteArraySet
-│  │  │  ├─ ArrayBlockingQueue
-│  │  │  ├─ LinkedBlockingDeque
-│  │  │  ├─ LinkedBlockingQueue
-│  │  │  ├─ ConcurrentLinkedQueue
-│  │  │  └─ DelayQueue
-│  ├─ JVM
-│  │  ├─ class 字节码
-│  │  │  ├─ class 字节码的构成
-│  │  │  ├─ class 字节码指令
-│  │  │  └─ 学习字节码对开发的指导意义
-│  │  ├─ class 字节码的执行
-│  │  │  ├─ 方法调用
-│  │  │  │  ├─ 方法调用指令
-│  │  │  │  ├─ 方法重载解析
-│  │  │  │  ├─ 动态分派
-│  │  │  │  └─ 动态类型语言的支持
-│  │  │  ├─ 方法执行
-│  │  │  │  ├─ 局部变量表
-│  │  │  │  ├─ 操作数栈
-│  │  │  │  ├─ 动态连接
-│  │  │  │  └─ 方法返回地址
-│  │  │  └─ 对象的创建
-│  │  │  │  ├─ 对象的创建过程
-│  │  │  │  ├─ 对象的内存布局
-│  │  │  │  └─ 对象的访问定位
-│  │  ├─ 类加载
-│  │  │  ├─ 类的加载时机
-│  │  │  ├─ 类的加载过程
-│  │  │  └─ 类加载器
-│  │  │  │  ├─ 双亲委派机制
-│  │  │  │  ├─ 自定义类加载器
-│  │  │  │  ├─ 类加载器死锁问题
-│  │  │  │  └─ Class.forName VS ClassLoader.loadClass
-│  │  ├─ JVM 内存区域
-│  │  │  ├─ 程序计数器
-│  │  │  ├─ Java 虚拟机栈
-│  │  │  ├─ 本地方法栈
-│  │  │  ├─ Java 堆
-│  │  │  ├─ 方法区
-│  │  │  └─ 运行时常量池
-│  │  ├─ 垃圾回收
-│  │  │  ├─ 什么样的对象可以被回收
-│  │  │  ├─ 什么是 GC Root
-│  │  │  ├─ 垃圾回收算法
-│  │  │  │  ├─ 标记-清除算法
-│  │  │  │  ├─ 复制算法
-│  │  │  │  ├─ 标记整理算法
-│  │  │  │  └─ 分代收集算法
-│  │  │  ├─ 常见的垃圾收集器
-│  │  │  │  ├─ Serial 收集器
-│  │  │  │  ├─ ParNew 收集器
-│  │  │  │  ├─ Parallel Scavenge 收集器
-│  │  │  │  ├─ Serial Old 收集器
-│  │  │  │  ├─ CMS 收集器
-│  │  │  │  ├─ Parallel Old 收集器
-│  │  │  │  ├─ G1 收集器
-│  │  │  │  └─ ZGC
-│  │  │  ├─ 垃圾回收相关的内存池
-│  │  │  │  ├─ Eden Space
-│  │  │  │  ├─ Survivor Space
-│  │  │  │  ├─ Old Gen
-│  │  │  │  ├─ Metaspace
-│  │  │  │  ├─ Compressed Class Space
-│  │  │  │  └─ Code Cache
-│  │  │  └─ JVM 内存模型
-├─ Kotlin
-│  ├─ Kotlin数据类型、访问修饰符
-│  ├─ Kotlin 中的 Class 和 Interface
-│  ├─ Lambda 表达式
-│  │  ├─ 定义 Lambda 表达式
-│  │  ├─ Member Reference
-│  │  ├─ 常用函数 let、with、run、apply 分析
-│  │  └─ Lambda 原理分析
-│  ├─ 高阶函数
-│  │  ├─ 高阶函数的定义
-│  │  ├─ 高阶函数的原理分析
-│  │  └─ 高阶函数的优化
-│  ├─ Kotlin 泛型
-│  │  ├─ Java 泛型：不变、协变、逆变
-│  │  ├─ Kotlin 中的协变、逆变
-│  │  └─ Kotlin 泛型擦除和具体化
-│  ├─ Kotlin 集合
-│  │  ├─ Kotlin 集合创建方式有哪些
-│  │  ├─ Kotlin 集合的常用的函数
-│  │  └─ Kotlin 集合 Sequence 原理
-│  ├─ Kolint 操作符重载
-│  │  ├─ 算术操作符重载
-│  │  ├─ 比较操作符重载
-│  │  ├─ 集合相关的操作符重载
-│  │  ├─ 区间操作符重载
-│  │  ├─ 解构操作符重载
-│  │  └─ 属性委托
-│  └─ Koltin 和 Java 交互的一些问题
-├─ Android
-│  ├─ Android 基础
-│  │  ├─ 四大组件
-│  │  │  ├─ Activity
-│  │  │  ├─ Service
-│  │  │  ├─ ContentProvider
-│  │  │  └─ BroadcastReceiver
-│  │  ├─ Activity 启动模式
-│  │  │  ├─ standard
-│  │  │  ├─ singleTop
-│  │  │  ├─ singleTask
-│  │  │  └─ singleInstance
-│  │  ├─ 数据存储
-│  │  │  ├─ SharedPreferences
-│  │  │  ├─ File
-│  │  │  ├─ SQLite
-│  │  │  └─ Realm
-│  │  ├─ 线程异步
-│  │  │  ├─ Thread
-│  │  │  ├─ AsyncTask
-│  │  │  ├─ IntentService
-│  │  │  └─ 线程池
-│  │  ├─ IPC
-│  │  │  ├─ IPC 方式
-│  │  │  │  ├─ Bundle
-│  │  │  │  ├─ 文件共享
-│  │  │  │  ├─ AIDL
-│  │  │  │  ├─ Messager
-│  │  │  │  ├─ ContentProvider
-│  │  │  │  └─ Socket
-│  │  │  └─ 框架
-│  │  │  │  ├─ Hermes
-│  │  │  │  └─ HermesEventBus
-│  │  ├─ 熟悉常用的开源框架
-│  │  │  │  ├─ Glide
-│  │  │  │  ├─ Retrofit
-│  │  │  │  ├─ OkHttp
-│  │  │  │  ├─ Dagger2
-│  │  │  │  ├─ Router
-│  │  │  │  ├─ EventBus
-│  │  │  │  ├─ LeakCanary
-│  │  │  │  └─ RxJava
-│  ├─ Android 进阶
-│  │  ├─ UI 原理
-│  │  │  ├─ UI绘制流程及原理
-│  │  │  ├─ 事件的传递机制
-│  │  │  ├─ 自定义 View
-│  │  │  └─ 屏幕适配
-│  │  ├─ 性能优化
-│  │  │  ├─ 安装包大小优化
-│  │  │  ├─ 启动优化（冷启动、暖启动、热启动）
-│  │  │  ├─ 耗电量优化
-│  │  │  ├─ UI性能优化
-│  │  │  │  ├─ XML 布局优化
-│  │  │  │  └─ 代码优化
-│  │  │  ├─ 字节码技术
-│  │  │  │  ├─ 全局的 bug 修复
-│  │  │  │  └─ 日志打点统计
-│  │  │  ├─ 网络优化
-│  │  │  └─ 线上、线下全链路性能监控
-│  │  ├─ UI 原理
-│  │  │  ├─ UI绘制流程及原理
-│  │  │  ├─ 事件的传递机制
-│  │  │  ├─ 自定义 View
-│  │  │  └─ 屏幕适配
-│  │  ├─ Android架构
-│  │  │  ├─ 程序架构
-│  │  │  │  ├─ MVC
-│  │  │  │  ├─ MVP
-│  │  │  │  ├─ MVVM
-│  │  │  │  ├─ Clean
-│  │  │  │  └─ Jetpack
-│  │  │  ├─ 设计模式
-│  │  │  │  ├─ 6大设计原则
-│  │  │  │  ├─ 模板模式
-│  │  │  │  ├─ 观察者模式
-│  │  │  │  ├─ 单例模式
-│  │  │  │  ├─ 建造者模式
-│  │  │  │  ├─ 工厂模式
-│  │  │  │  ├─ 适配器模式
-│  │  │  │  └─ 代理模式
-│  │  │  ├─ 架构思想
-│  │  │  │  ├─ 概念
-│  │  │  │  │  ├─ IoC 控制反转
-│  │  │  │  │  ├─ DI 依赖注入
-│  │  │  │  │  └─ AOP 面向切面
-│  │  │  │  ├─ 开源方案
-│  │  │  │  │  ├─ ASM
-│  │  │  │  │  ├─ Javasisit
-│  │  │  │  │  └─ AspectJ
-│  │  │  │  └─ 工具
-│  │  │  │  │  ├─ APT
-│  │  │  │  │  └─ Gradle plugin
-│  │  │  ├─ 组件化
-│  │  │  │  ├─ 如何处理组件之间的代码边界
-│  │  │  │  ├─ 组件之间的 Router 路由
-│  │  │  │  ├─ 控制反转和依赖注入
-│  │  │  │  └─ 如何管理拆分的 Module
-│  │  │  ├─ 插件化
-│  │  │  │  ├─ 发展历程
-│  │  │  │  │  ├─ 2014 年
-│  │  │  │  │  │  └─ Dynamic-load-apk
-│  │  │  │  │  ├─ 2015 年
-│  │  │  │  │  │  ├─ OpenAltas
-│  │  │  │  │  │  ├─ DroidPlugin
-│  │  │  │  │  │  └─ Small
-│  │  │  │  │  ├─ 2016 年
-│  │  │  │  │  │  └─ Zeus
-│  │  │  │  │  ├─ 2017 年
-│  │  │  │  │  │  ├─ Atlas
-│  │  │  │  │  │  ├─ RePlugin
-│  │  │  │  │  │  └─ VirtualAPK
-│  │  │  │  │  ├─ 2019 年
-│  │  │  │  │  │  ├─ Qigsaw
-│  │  │  │  │  │  └─ Shadow
-│  │  │  ├─ 热修复
-│  │  │  │  ├─ Native Hook
-│  │  │  │  │  ├─ Dexposed
-│  │  │  │  │  ├─ AndFix
-│  │  │  │  │  └─ HotFix
-│  │  │  │  ├─ Java Multidex
-│  │  │  │  │  ├─ QZone
-│  │  │  │  │  ├─ QFix
-│  │  │  │  │  ├─ Nuwa
-│  │  │  │  │  └─ RocooFix
-│  │  │  │  ├─ Java Hook
-│  │  │  │  │  ├─ Robust
-│  │  │  │  │  └─ Aceso
-│  │  │  │  ├─ Dex Replace
-│  │  │  │  │  ├─ Tinker
-│  │  │  │  │  └─ Amigo
-│  │  │  │  ├─ 混合/优化(商业收费)
-│  │  │  │  │  └─ Sophix
-│  │  │  ├─ 知晓常用开源框架的实现原理
-├─ Android 虚拟机
-│  ├─ Dalvik
-│  └─ ART
-├─ NDK
-│  ├─ C/C++
-│  ├─ FFmpeg
-│  └─ AndroidStudio NDK
-├─ 跨平台
-│  ├─ H5
-│  ├─ ReactNative
-│  ├─ Weex
-│  └─ Flutter
-├─ 团队
-│  ├─ 如何提高整体的团队水平？
-│  ├─ 如何提高提高团队内代码质量？
-│  └─ 如何提高团队积极性？
-```
-
-
----
-
-## 计算机技术
-
-### 网络协议
-
-- [关于 HTTPS 一篇文章就够了](https://chiclaim.blog.csdn.net/article/details/54754921)
-
-
-### 数据结构与算法
-
-- [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
-- [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
-- [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
-- [数据结构与算法（十一）Trie字典树](https://chiclaim.blog.csdn.net/article/details/80711441)
-- [数据结构与算法（十）线段树(Segment Tree)入门](https://chiclaim.blog.csdn.net/article/details/80643017)
-- [数据结构与算法（九）Set集合和BinarySearchTree的时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80628876)
-- [数据结构与算法（八）二分搜索树(Binary Search Tree)](https://chiclaim.blog.csdn.net/article/details/80598727)
-- [数据结构与算法（七）树和二叉树](https://chiclaim.blog.csdn.net/article/details/80574803)
-- [数据结构与算法（六）二叉堆、优先队列和Java PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
-- [数据结构与算法（五）深入理解递归](https://chiclaim.blog.csdn.net/article/details/80536238)
-- [数据结构与算法（四）队列和 Java ArrayDeque 源码剖析](https://chiclaim.blog.csdn.net/article/details/80456833)
-- [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
-- [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
-- [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
-
+内容涵盖绝大部分 Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**插件化**」「**热修复**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) 。
 
 ## Java核心技术
 
+为了能够开发高质量的 Android App，首先要求我们具备扎实的 Java 基础。
+
+不仅需要熟练使用 Java 各项 API。如 Java 网络编程、多线程并发、集合框架等。
+
+还需要掌握常见 API 的底层原理。如 集合框架的实现原理，要求我们掌握常用个数据结构与算法。
+
+除此以外，还需要我们对 Java 执行机制有一定了解，这个时候可要求我们对 Java 虚拟机有一定的掌握。如 class 字节码、类加载器、垃圾回收机制等。
+
+关于这方面的知识，可以学习参考：
+ 
 ### Java基础
 
 - [Java 反射技术详解](https://blog.csdn.net/johnny901114/article/details/7538998)
@@ -478,16 +73,42 @@
 - [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
 
 
+### 数据结构与算法
+
+- [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
+- [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
+- [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
+- [数据结构与算法（十一）Trie字典树](https://chiclaim.blog.csdn.net/article/details/80711441)
+- [数据结构与算法（十）线段树(Segment Tree)入门](https://chiclaim.blog.csdn.net/article/details/80643017)
+- [数据结构与算法（九）Set集合和BinarySearchTree的时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80628876)
+- [数据结构与算法（八）二分搜索树(Binary Search Tree)](https://chiclaim.blog.csdn.net/article/details/80598727)
+- [数据结构与算法（七）树和二叉树](https://chiclaim.blog.csdn.net/article/details/80574803)
+- [数据结构与算法（六）二叉堆、优先队列和Java PriorityQueue](https://chiclaim.blog.csdn.net/article/details/80550279)
+- [数据结构与算法（五）深入理解递归](https://chiclaim.blog.csdn.net/article/details/80536238)
+- [数据结构与算法（四）队列和 Java ArrayDeque 源码剖析](https://chiclaim.blog.csdn.net/article/details/80456833)
+- [数据结构与算法（三）栈和 Java Stack 源码分析](https://chiclaim.blog.csdn.net/article/details/80373290)
+- [数据结构与算法（二）线性表之链式存储和LinkedList实现](https://chiclaim.blog.csdn.net/article/details/80351584)
+- [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
+
+
+
 ## 深入理解Kotlin
 
+随着 Kotlin 在 Android 开发的过程中普及，以及 Kotlin 本身的一些优势。要求我们对 Kotlin 也需要有很好的掌握。
+
+为了更好的更快更深入的学习 Kotlin，我们可以在学习 Kotlin 的过程中，深度对比 Java。让我们对 Kotlin 的掌握程度快速达到对 Java 的掌握程度。
+
+关于这 Koltin 相关的资料大家可参考我下面的文章，其中包括：类型体系、Lambda 表达式、高阶函数、泛型、集合、操作符重载、协程等 Kotlin 核心概念：
+
 - [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
-- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
 - [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
+- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
 
 
-## 设计原则与架构
 
-### 设计模式
+## 设计原则与模式
+
+设计原则对我们设计出可维护的代码起着至关重要的作用。设计原则与模式很简单，但是如何很好的应用到实际工作中，显得不那么容易。需要我们不断的去琢磨与思考，在这方面我也有一些心得与体会，和大家一起探讨。关于这方面的内容大家可以我之前的一些总结与归纳：
 
 - [设计模式 ~ 面向对象 6 大设计原则剖析与实战](https://chiclaim.blog.csdn.net/article/details/100566036)
 - [设计模式 ~ 模板方法模式分析与实战](https://chiclaim.blog.csdn.net/article/details/100584000)
@@ -501,8 +122,9 @@
 - [设计模式 ~ 小结](https://chiclaim.blog.csdn.net/article/details/100931166)
 
 
+## Android架构
 
-### Android架构
+随着我们队设计原则与设计模式的实践，我们也会对我们程序的一些架构提出一些问题，如何去解决我们项目中已存在的一些架构问题，关于这方面的内容可以参考：
 
 - [Android MVP架构改造~如何重用顶层业务](https://chiclaim.blog.csdn.net/article/details/88050156)
 - [二维火Android云收银模块化架构实践](https://chiclaim.blog.csdn.net/article/details/78346125)
@@ -510,24 +132,18 @@
 - [Android-MVVM架构-Data Binding的使用](https://chiclaim.blog.csdn.net/article/details/50706329)
 - [使用 repo 管理 Android 组件化项目](https://blog.csdn.net/johnny901114/article/details/103387569)
 
-### Android性能优化
-
-- [Android 性能优化 ~ 内存优化](https://blog.csdn.net/johnny901114/article/details/54377370)
-- [Android 性能优化 ~ 包体积优化实战](https://chiclaim.blog.csdn.net/article/details/105189854)
-
-## NDK开发
-
-- [Android NDK ~ 基础入门指南](https://blog.csdn.net/johnny901114/article/details/101112607)
-- [Android NDK ~ Java 和 Native 交互](https://blog.csdn.net/johnny901114/article/details/101124117)
-
 ## Android开源框架
 
-### Jetpack
+使用 Android开源框架，避免我们重复创建轮子。使用高质量的开源框架，能够帮助我们快速构建高质量的程序。
 
+与此同时，我们了解其被的实现原理，知其然也知其所以然。我们也可以学到很多代码设计上的技巧，同时也能够帮我们快速排查问题。
+
+这方面的内容，大家可以参考我的一些分析文章：
+
+**Jetpack**
 - [Android Jetpack（一）Lifecycle 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104189041)
 - [Android Jetpack（二）ViewModel 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104200091)
 - [Android Jetpack（三）LiveData 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104334179)
-
 
 ### RxJava 
 
@@ -565,6 +181,17 @@
 - [Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
 - [Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
 - [Android开发之手把手教你写ButterKnife框架（一）](https://chiclaim.blog.csdn.net/article/details/52662376)
+
+## Android性能优化
+
+- [Android 性能优化 ~ 内存优化](https://blog.csdn.net/johnny901114/article/details/54377370)
+- [Android 性能优化 ~ 包体积优化实战](https://chiclaim.blog.csdn.net/article/details/105189854)
+
+## NDK开发
+
+- [Android NDK ~ 基础入门指南](https://blog.csdn.net/johnny901114/article/details/101112607)
+- [Android NDK ~ Java 和 Native 交互](https://blog.csdn.net/johnny901114/article/details/101124117)
+
 
 ## Android WebView
 
