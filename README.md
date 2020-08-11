@@ -2,6 +2,8 @@
 
 内容涵盖绝大部分 Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**插件化**」「**热修复**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) 。
 
+
+
 ## Java核心技术
 
 为了能够开发高质量的 Android App，首先要求我们具备扎实的 Java 基础。
@@ -14,25 +16,24 @@
 
 关于这方面的知识，可以学习参考：
  
-### Java基础
+**Java基础：**
 
 - [Java 反射技术详解](https://blog.csdn.net/johnny901114/article/details/7538998)
 - [Java XML 解析方式汇总](https://blog.csdn.net/johnny901114/article/details/7867934)
 - [Java ClassLoader 类加载器详解](https://blog.csdn.net/johnny901114/article/details/7738958)
 
-### Java网络编程
+**Java网络编程：**
 
 - [Java 网络编程详解（一）](https://blog.csdn.net/johnny901114/article/details/7866864)
 - [Java 网络编程详解（二）](https://blog.csdn.net/johnny901114/article/details/7865617)
 
-### JavaIO
-
+**JavaIO：**
 - [Java I/O 流操作（一）System Properties Runtime 类](https://blog.csdn.net/johnny901114/article/details/8710381)
 - [Java I/O 流操作（二）字节流与缓冲流](https://blog.csdn.net/johnny901114/article/details/8710403)
 - [Java I/O 流操作（三）File 文件操作、PrintWriter、SequenceInputStream](https://blog.csdn.net/johnny901114/article/details/8710433)
 - [Java I/O 流操作（四）对象的序列化](https://blog.csdn.net/johnny901114/article/details/8710341)
 
-### Java多线程
+**Java多线程：**
 - [Java 多线程（一）线程间的互斥和同步通信](https://blog.csdn.net/johnny901114/article/details/8695668)
 - [Java 多线程（二）同步线程分组问题](https://blog.csdn.net/johnny901114/article/details/7854666)
 - [Java 多线程（三）线程池入门 Callable 和 Future](https://blog.csdn.net/johnny901114/article/details/8695693)
@@ -45,8 +46,7 @@
 - [Java 多线程（十）ArrayBlockingQueue 阻塞队列](https://blog.csdn.net/johnny901114/article/details/8696026)
 - [Java 多线程（十一）JDK 同步集合](https://blog.csdn.net/johnny901114/article/details/8696032)
 
-### Java集合框架
-
+**Java集合框架：**
 - [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
 - [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
 - [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
@@ -63,8 +63,7 @@
 - [数据结构与算法（一）线性表之顺序存储和 ArrayList、Vector 源码剖析](https://chiclaim.blog.csdn.net/article/details/80158343)
 - [ArrayBlockingQueue 阻塞队列](https://blog.csdn.net/johnny901114/article/details/8696026)
 
-### Java虚拟机
-
+**Java虚拟机：**
 - [深入理解 Java 虚拟机（一）~ class 字节码文件剖析](https://chiclaim.blog.csdn.net/article/details/101778619)
 - [深入理解 Java 虚拟机（二）~ 类的加载过程剖析](https://chiclaim.blog.csdn.net/article/details/102177986)
 - [深入理解 Java 虚拟机（三）~ class 字节码的执行过程剖析](https://chiclaim.blog.csdn.net/article/details/102508069)
@@ -73,8 +72,7 @@
 - [深入理解 Java 虚拟机（六）~ Garbage Collection 剖析](https://chiclaim.blog.csdn.net/article/details/103229687)
 
 
-### 数据结构与算法
-
+**数据结构与算法：**
 - [数据结构与算法（十四）深入理解红黑树和JDK TreeMap和TreeSet源码分析](https://chiclaim.blog.csdn.net/article/details/81046088)
 - [数据结构与算法（十三）平衡二叉树之AVL树](https://chiclaim.blog.csdn.net/article/details/80740418)
 - [数据结构与算法（十二）并查集(Union Find)及时间复杂度分析](https://chiclaim.blog.csdn.net/article/details/80721436)
@@ -140,13 +138,12 @@
 
 这方面的内容，大家可以参考我的一些分析文章：
 
-**Jetpack**
+**Jetpack：**
 - [Android Jetpack（一）Lifecycle 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104189041)
 - [Android Jetpack（二）ViewModel 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104200091)
 - [Android Jetpack（三）LiveData 组件原理剖析](https://chiclaim.blog.csdn.net/article/details/104334179)
 
-### RxJava 
-
+**RxJava：**
 - [RxJava create操作符的用法和源码分析](/rxjava/blogs/rxjava-create-source-analysis.md)
 - [RxJava map操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51531348)
 - [RxJava flatMap操作符用法详解](http://blog.csdn.net/johnny901114/article/details/51532776)
@@ -163,20 +160,19 @@
 - [interval、takeWhile操作符实现获取验证码功能](http://blog.csdn.net/johnny901114/article/details/79037306)
 - [RxJava线程的自由切换](http://blog.csdn.net/johnny901114/article/details/80032801)
 
-### Retrofit
-
+**Retrofit：**
 - [Android Retrofit 源码系列（一）~ 原理剖析](https://chiclaim.blog.csdn.net/article/details/103934516)
 - [Android Retrofit 源码系列（二）~ 自定义 CallAdapter](https://chiclaim.blog.csdn.net/article/details/103944895)
 - [Android Retrofit 源码系列（三）~ 整合 RxJava、Coroutine 分析](https://chiclaim.blog.csdn.net/article/details/104018960)
 - [Android Retrofit 源码系列（四）~ 文件上传](https://chiclaim.blog.csdn.net/article/details/104032454)
 - [Android Retrofit 源码系列（五）~ 设计模式分析](https://chiclaim.blog.csdn.net/article/details/104093006)
 
-### Dagger2
+**Dagger2：**
 
 - [Android Dagger2（二）源码分析-对象是如何被注入的](https://chiclaim.blog.csdn.net/article/details/58231038)
 - [Android Dagger2（一） Dagger使用详解](https://chiclaim.blog.csdn.net/article/details/58225116)
 
-### ButterKnife
+**ButterKnife：**
 
 - [Android开发之手把手教你写ButterKnife框架（三）](https://chiclaim.blog.csdn.net/article/details/52672188)
 - [Android开发之手把手教你写ButterKnife框架（二）](https://chiclaim.blog.csdn.net/article/details/52664112)
