@@ -1,3 +1,3 @@
 ## 计算机科学技术
 
-[ComputerScience](https://github.com/chiclaim/ComputerScience)
+[移步：ComputerScience](https://github.com/chiclaim/ComputerScience)
