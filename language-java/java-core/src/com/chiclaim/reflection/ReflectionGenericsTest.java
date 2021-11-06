@@ -1,15 +1,13 @@
 package com.chiclaim.reflection;
 
 
-import com.chiclaim.annotation.NotNull;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.List;
 
-public class ReflectionTest {
+/**
+ * 通过反射获取泛型信息
+ */
+public class ReflectionGenericsTest {
 
 
     private static class BaseSub1 extends Base<String> {
@@ -21,9 +19,6 @@ public class ReflectionTest {
     private static class BaseSub3 extends Base<StringBuffer> {
     }
 
-    void test(@NotNull List<String> list) {
-
-    }
 
 
     private static class Base<T> {
@@ -31,6 +26,12 @@ public class ReflectionTest {
         Class<T> getTypeParameterClass() {
             Type type = getClass().getGenericSuperclass();
             ParameterizedType paramType = (ParameterizedType) type;
+            // Base<java.lang.String>
+            System.out.println("------ParameterizedType:" + paramType);
+            // ReflectionTest
+            System.out.println("------ParameterizedType.getOwnerType:" + paramType.getOwnerType());
+            // ReflectionTest$Base
+            System.out.println("------ParameterizedType.getOwnerType:" + paramType.getRawType());
             return (Class<T>) paramType.getActualTypeArguments()[0];
         }
     }
@@ -45,22 +46,12 @@ public class ReflectionTest {
         System.out.println(object2.getClass().getSimpleName()); // StringBuffer
     }
 
-    private static void getMethodParameterAnnotation() throws Exception {
-        Method method = ReflectionTest.class.getDeclaredMethod("test", List.class);
-        Annotation[][] ass = method.getParameterAnnotations();
-        for (Annotation[] as : ass) {
-            for (Annotation annotation : as) {
-                System.out.println(annotation); // @com.chiclaim.annotation.NotNull()
-            }
-        }
-    }
 
 
     public static void main(String[] args) throws Exception {
 
         getSuperClassTypeArgument();
 
-        getMethodParameterAnnotation();
     }
 
 }
