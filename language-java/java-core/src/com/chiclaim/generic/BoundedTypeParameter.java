@@ -15,7 +15,7 @@ public class BoundedTypeParameter<T extends Animal> {
         MultipleBoundTypeParameter<ArgumentP> p2 = new MultipleBoundTypeParameter<>();
     }
 
-    static class ClassBound {
+    public static class ClassBound {
     }
 
     interface IBound {
@@ -25,7 +25,7 @@ public class BoundedTypeParameter<T extends Animal> {
     }
 
     //多限定类型参数，要求Argument type 是所有限定类型的子类
-    static class ArgumentP extends ClassBound implements IBound,IBound2 {
+    public static class ArgumentP extends ClassBound implements IBound,IBound2 {
     }
 
     // 如果某个限定类型是 Class，那么它必须放在类型参数列表的第一个：

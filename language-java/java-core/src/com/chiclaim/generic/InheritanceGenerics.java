@@ -20,6 +20,10 @@ public class InheritanceGenerics {
 
         BoxSubtype<Number> boxSubtype = new BoxSubtype<>();
         test(boxSubtype); // 因为 Box<Number> 是 BoxSubtype<Number> 的 super type
+
+        BoxSubtype<Integer> boxSubtype2 = new BoxSubtype<>();
+        //test(boxSubtype2);
+
     }
 
 
@@ -28,11 +32,7 @@ public class InheritanceGenerics {
 
 
 class Box<T> {
-
-    public void add(T t) {
-
-    }
-
+    public void add(T t) { }
 }
 
 class BoxSubtype<T> extends Box<T>{
