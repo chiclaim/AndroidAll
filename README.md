@@ -143,10 +143,36 @@
 
 关于这 Koltin 相关的资料大家可参考我下面的文章，其中包括：类型体系、Lambda 表达式、高阶函数、泛型、集合、操作符重载、协程等 Kotlin 核心概念等：
 
-- [Kotlin 基础入门详解](https://chiclaim.blog.csdn.net/article/details/88624808)
-- [从 Java 角度深入理解 Kotlin](https://chiclaim.blog.csdn.net/article/details/85575213)
-- [Kotlin 操作符重载详解](https://chiclaim.blog.csdn.net/article/details/86706874)
+以下是我在 B 站录制的 Kotlin 教程：
 
+- [x] [Kotlin入门到进阶(1)——前言](https://www.bilibili.com/video/BV1hR4y1A7Vu/)
+- [x] [Kotlin入门到进阶(2)——变量、函数入门](https://www.bilibili.com/video/BV1Ur4y1t7a3/)
+- [x] [Kotlin入门到进阶(3)——表达式、语句及与 Java 的对比](https://www.bilibili.com/video/BV1r54y1f7gT/)
+- [x] [Kotlin入门到进阶(4)——结构化编程：顺序结构、选择结构、循环结构](https://www.bilibili.com/video/BV1bu41167Dr/)
+- [x] [Kotlin入门到进阶(5)——空安全(Null Safety)和实战技巧](https://www.bilibili.com/video/BV1AY4y1t7hX/)
+- [x] [Kotlin入门到进阶(6)——类型系统和访问修饰符详解](https://www.bilibili.com/video/BV18Y4y1z7h8/)
+- [x] [Kotlin入门到进阶(7)——数组类型和它的扩展函数](https://www.bilibili.com/video/BV1RB4y1y7bU/)
+- [x] [Kotlin入门到进阶(8)——Nothing 类型, 不为人知的细节](https://www.bilibili.com/video/BV1SR4y1c7Xm/)
+- [x] [Kotlin入门到进阶(9)——深入理解 Kotlin 集合、序列](https://www.bilibili.com/video/BV1o54y1Z7s3/)
+- [x] [Kotlin入门到进阶(10)——聊一聊 Kotlin String](https://www.bilibili.com/video/BV1z3411G7gA/)
+- [x] [Kotlin入门到进阶(11)——再谈 Kotlin 函数](https://www.bilibili.com/video/BV13F411j7mF/)
+- [x] [Kotlin入门到进阶(12)——彻底搞懂 Class 和 Interface](https://www.bilibili.com/video/BV1ev4y1A7kM/)
+- [x] [Kotlin入门到进阶(13)——Java Property 和 Field 你真的懂么？](https://www.bilibili.com/video/BV1At4y1s7sE/)
+- [x] [Kotlin入门到进阶(14)——lateinit property 案例实战](https://www.bilibili.com/video/BV1CY4y1678g/)
+- [x] [Kotlin入门到进阶(15)——深入理解属性代理(一) by lazy、Delegates.observable](https://www.bilibili.com/video/BV1j3411V7Ve/)
+- [x] [Kotlin入门到进阶(16)——深入理解属性委托(二) 代码演示 LazyThreadSafetyMode 的区别](https://www.bilibili.com/video/BV18Z4y147b2/)
+
+接下来，会更新的主题：
+
+- [ ] Enum 起源
+- [ ] Kotlin Exception 设计理念
+- [ ] 注解、反射
+- [ ] Lambda
+- [ ] 高阶函数
+- [ ] inline crossinline noinline
+- [ ] 泛型
+- [ ] return、continue
+- [ ] 协程
 
 
 ## #设计原则与模式#
