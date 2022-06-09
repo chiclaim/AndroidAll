@@ -1,8 +1,8 @@
 # 最全的 Android 技术栈
 
-Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) 。 核心知识脉络：
+Android 程序员所需要的技能：「**数据结构算法**」「**程序架构**」「**设计模式**」「**性能优化**」「**组件化**」「**NDK技术**」「**自定义View**」「**性能优化**」「**Android源码分析**」「**深入理解Kotlin**」「**Java核心技术**」「**Jetpack**」「**Router**」「**Flutter**」「**RxJava**」「**Glide**」「**LeakCanary**」「**Dagger2**」「**Retrofit**」「**OkHttp**」「**ButterKnife**」「**GreenDAO**」「**经典书籍**」等。如果您有任何问题或建议欢迎 [**Issues**](https://github.com/chiclaim/AndroidAll/issues/new) 。 Android 知识脉络路线图：
 
-![android-roadmap](/xmind/Android_RoadMap.jpg)
+![android-roadmap](/xmind/Android_RoadMap.png)
 
 
 
@@ -17,7 +17,7 @@ Android 程序员所需要的技能：「**数据结构算法**」「**程序架
 除此以外，还需要我们对 Java 执行机制有一定了解，这个时候可要求我们对 Java 虚拟机有一定的掌握。如 class 字节码、类加载器、垃圾回收机制等。
 
 关于这方面的知识，可以学习参考我之前的一些总结：
- 
+
 **Java基础：**
 
 - [Java 反射技术详解](https://blog.csdn.net/johnny901114/article/details/7538998)
