@@ -136,11 +136,6 @@ Android 程序员所需要的技能：「**数据结构算法**」「**程序架
 
 接下来，会更新的主题：
 
-- [ ] Enum 起源
-- [ ] Kotlin Exception 设计理念
-- [ ] 注解、反射
-- [ ] Lambda
-- [ ] 高阶函数
 - [ ] inline crossinline noinline
 - [ ] 泛型
 - [ ] return、continue
