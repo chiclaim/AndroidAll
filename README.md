@@ -133,13 +133,12 @@ Android 程序员所需要的技能：「**数据结构算法**」「**程序架
 - [x] [Kotlin入门到进阶(29)——深入理解反射](https://www.bilibili.com/video/BV13Y4y1n7X7/)
 - [x] [Kotlin入门到进阶(30)——深入理解 lambda 表达式](https://www.bilibili.com/video/BV1L34y1p7ax/)
 - [x] [Kotlin入门到进阶(31)——彻底搞懂高阶函数](https://www.bilibili.com/video/BV13T411g714/)
+- [x] [Kotlin入门到进阶(32)——inline、crossinline、noinline 解析](https://www.bilibili.com/video/BV1Kj41127p9/)
+- [x] [Kotlin入门到进阶(33)——return 和 loop jump](https://www.bilibili.com/video/BV1oj411y7x9/)
+- [ ] [Kotlin入门到进阶(34)——彻底搞懂 Java 泛型](#)
+- [ ] [Kotlin入门到进阶(34)——彻底搞懂 Kotlin 泛型](#) 
+- [ ] 协程系列...
 
-接下来，会更新的主题：
-
-- [ ] inline crossinline noinline
-- [ ] 泛型
-- [ ] return、continue
-- [ ] 协程
 
 
 ## #设计原则与模式#
